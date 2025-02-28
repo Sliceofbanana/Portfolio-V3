@@ -1,3 +1,5 @@
+'use strict';
+
 // Function to create the canvas dynamically
 function createCanvasBackground() {
     const canvas = document.createElement('canvas');
@@ -153,3 +155,87 @@ function initBackground() {
 
 // Run the background animation
 initBackground();
+
+//Opening or closing side bar
+const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
+
+const sidebar = document.querySelector("[data-sidebar]");
+const sidebarBtn = document.querySelector("[data-sidebar-btn]");
+
+sidebarBtn.addEventListener("click", function() {elementToggleFunc(sidebar); })
+
+//Activating Filter Select and filtering options
+
+const select = document.querySelector('[data-select]');
+const selectItems = document.querySelectorAll('[data-select-item]');
+const selectValue = document.querySelector('[data-select-value]');
+const filterBtn = document.querySelectorAll('[data-filter-btn]');
+
+select.addEventListener('click', function () {elementToggleFunc(this); });
+
+for(let i = 0; i < selectItems.length; i++) {
+    selectItems[i].addEventListener('click', function() {
+
+        let selectedValue = this.innerText.toLowerCase();
+        selectValue.innerText = this.innerText;
+        elementToggleFunc(select);
+        filterFunc(selectedValue);
+
+    });
+}
+
+const filterItems = document.querySelectorAll('[data-filter-item]');
+
+const filterFunc = function (selectedValue) {
+
+    filterItems.forEach(item => {
+        let categories = item.dataset.category.split(",").map(category => category.trim());
+        console.log("Item Categories:", categories); // Debugging
+
+        if (selectedValue === "all" || categories.includes(selectedValue)) {
+            item.classList.add('active');
+        } else {
+            item.classList.remove('active');
+        }
+    });
+}
+
+//Enabling filter button for larger screens 
+
+let lastClickedBtn = filterBtn[0];
+
+filterBtn.forEach(button => {
+    button.addEventListener("click", function () {
+        let selectedValue = this.innerText.toLowerCase();
+
+        selectValue.innerText = this.innerText;
+        filterFunc(selectedValue);
+    });
+});
+
+// Enabling Page Navigation 
+
+const navigationLinks = document.querySelectorAll('[data-nav-link]');
+const pages = document.querySelectorAll('[data-page]');
+
+navigationLinks.forEach((navLink) => {
+    navLink.addEventListener('click', function() {
+        let selectedPage = this.getAttribute('data-nav-link'); // Get value from data-nav-link
+
+        // Remove active class from all articles and nav links
+        pages.forEach((page) => page.classList.remove('active'));
+        navigationLinks.forEach((link) => link.classList.remove('active'));
+
+        // Add active class to the matching article and clicked nav link
+        pages.forEach((page) => {
+            if (page.dataset.page === selectedPage) {
+                page.classList.add('active');
+            }
+        });
+
+        this.classList.add('active');
+
+        // Scroll to top after navigation
+        window.scrollTo(0, 0);
+    });
+});
