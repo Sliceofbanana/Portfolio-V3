@@ -543,6 +543,34 @@ article { display: none; }
     text-align: justify;
 }
 
+.skills-list {
+    font-size: var(--fs6);
+    margin-left: 45px;
+    list-style: none; /* Removes default bullets */
+    padding-left: 0; /* Ensures alignment */
+}
+
+.skills-list .skills-text {
+    position: relative;
+    color: var(--light-gray);
+    font-weight: var(--fw300);
+    line-height: 1.6;
+    text-align: justify;
+    padding-left: 20px;
+}
+
+.skills-list .skills-text::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 0;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--text-gradient-yellow);
+    box-shadow: 0 0 0 4px var(--jet);
+}
+
 /*SKILLS*/
 
 .skills-title { margin-bottom: 20px; }
