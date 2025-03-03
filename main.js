@@ -239,3 +239,31 @@ navigationLinks.forEach((navLink) => {
         window.scrollTo(0, 0);
     });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const lightbox = document.createElement("div");
+    lightbox.classList.add("lightbox");
+    document.body.appendChild(lightbox);
+
+    const img = document.createElement("img");
+    lightbox.appendChild(img);
+
+    const closeBtn = document.createElement("span");
+    closeBtn.classList.add("lightbox-close");
+    closeBtn.innerHTML = "&times;";
+    lightbox.appendChild(closeBtn);
+
+    document.querySelectorAll(".cert-lightbox").forEach(link => {
+        link.addEventListener("click", function (event) {
+            event.preventDefault();
+            img.src = this.href;
+            lightbox.classList.add("active");
+        });
+    });
+
+    lightbox.addEventListener("click", function (event) {
+        if (event.target === lightbox || event.target === closeBtn) {
+            lightbox.classList.remove("active");
+        }
+    });
+});
