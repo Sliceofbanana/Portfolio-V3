@@ -469,7 +469,7 @@ article { display: none; }
 }
 
 .clients-item {
-    min-width: 50%;
+    min-width: 30%;
     scroll-snap-align: start;
 }
 
@@ -481,6 +481,42 @@ article { display: none; }
 
         .clients-item img:hover { filter: grayscale(0);}
 
+        .logo-carousel {
+            overflow: hidden;
+            background-color: transparent;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .carousel-container {
+            width: auto;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        
+        .carousel-track {
+            display: flex;
+            gap: 50px;
+            width: max-content;
+            animation: scroll 10s linear infinite;
+        }
+        
+        .carousel-track img {
+            width: 100px;
+            height: auto;
+            flex-shrink: 0;
+        }
+        
+        @keyframes scroll {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(-50%);
+            }
+        }
 /*RESUME*/
 
 .article-title { margin-bottom: 30px; }
