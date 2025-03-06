@@ -493,7 +493,8 @@ article { display: none; }
             overflow: hidden;
             position: relative;
             display: flex;
-            align-items: center;
+            align-items: center;    
+            margin-top: 25px;
         }
         
         .carousel-track {
