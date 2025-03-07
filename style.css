@@ -79,6 +79,27 @@ input, textarea {
 
 :focus { outline-color: var(--orange-yellow-crayola); }
 
+@font-face {
+    font-family: 'Poppins';
+    src: url('/Font/Poppins-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/Font/Poppins-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/Font/Poppins-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
 html { font-family: var(--ff-poppins); }
 
 body { background: var(--smoky-black);}
