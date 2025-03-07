@@ -269,7 +269,25 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
+  function gtag() { dataLayer.push(arguments); }
 
-gtag('config', 'G-DQPK1T2H31');
+  function loadGTM() {
+    if (!window.gtmLoaded) {
+      let script = document.createElement("script");
+      script.src = "https://www.googletagmanager.com/gtag/js?id=G-DQPK1T2H31";
+      script.async = true;
+      document.head.appendChild(script);
+
+      script.onload = function () {
+        gtag("js", new Date());
+        gtag("config", "G-DQPK1T2H31", { "anonymize_ip": true });
+      };
+
+      window.gtmLoaded = true; // Prevent multiple loads
+    }
+  }
+
+  // Load GTM when user interacts (scrolls, clicks, or after 3s)
+  window.addEventListener("scroll", loadGTM, { once: true });
+  window.addEventListener("click", loadGTM, { once: true });
+  setTimeout(loadGTM, 3000);
