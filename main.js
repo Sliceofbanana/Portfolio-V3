@@ -287,7 +287,17 @@ window.dataLayer = window.dataLayer || [];
     }
   }
 
-  // Load GTM when user interacts (scrolls, clicks, or after 3s)
-  window.addEventListener("scroll", loadGTM, { once: true });
-  window.addEventListener("click", loadGTM, { once: true });
-  setTimeout(loadGTM, 3000);
+// Load GTM when user interacts (scrolls, clicks, or after 3s)
+window.addEventListener("scroll", loadGTM, { once: true });
+window.addEventListener("click", loadGTM, { once: true });
+setTimeout(loadGTM, 3000);
+
+(function(c,l,a,r,i,t,y){
+c[a] = c[a] || function () {
+    (c[a].q = c[a].q || []).push(arguments)
+};
+t=l.createElement(r);t.async=1;t.src="https://analytics.vercel.com/script.js";
+y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, 'vercel', 'script');
+ 
+vercel('init', { projectId: 'YOUR_PROJECT_ID' });
