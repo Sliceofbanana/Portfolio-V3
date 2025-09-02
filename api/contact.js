@@ -37,17 +37,17 @@ export default async function handler(req, res) {
       subject: 'New Contact Form Submission',
       html: `
         <h2>New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${formData['Full Name / Company']}</p>
-        <p><strong>Email:</strong> ${formData.Email}</p>
-        <p><strong>Phone:</strong> ${formData.Phone}</p>
-        <p><strong>Business:</strong> ${formData['Business Description']}</p>
-        <p><strong>Goals:</strong> ${formData['Goals[]']}</p>
-        <p><strong>Budget:</strong> ${formData.Budget}</p>
-        <p><strong>Timeline:</strong> ${formData.Timeline}</p>
-        <p><strong>Pages:</strong> ${formData.Pages}</p>
-        <p><strong>Features:</strong> ${formData.Features}</p>
-        <p><strong>Design Preferences:</strong> ${formData['Design Preferences']}</p>
-        <p><strong>Notes:</strong> ${formData.Notes}</p>
+        <p><strong>Name:</strong> ${formData['Full Name / Company'] || 'Not provided'}</p>
+        <p><strong>Email:</strong> ${formData.Email || 'Not provided'}</p>
+        <p><strong>Phone:</strong> ${formData.Phone || 'Not provided'}</p>
+        <p><strong>Business:</strong> ${formData['Business Description'] || 'Not provided'}</p>
+        <p><strong>Goals:</strong> ${formData['Goals[]'] || 'Not provided'}</p>
+        <p><strong>Budget:</strong> ${formData.Budget || 'Not provided'}</p>
+        <p><strong>Timeline:</strong> ${formData.Timeline || 'Not provided'}</p>
+        <p><strong>Pages:</strong> ${formData.Pages || 'Not provided'}</p>
+        <p><strong>Features:</strong> ${formData.Features || 'Not provided'}</p>
+        <p><strong>Design Preferences:</strong> ${formData['Design Preferences'] || 'Not provided'}</p>
+        <p><strong>Notes:</strong> ${formData.Notes || 'Not provided'}</p>
         <hr>
         <p><em>Reply to: ${formData.Email}</em></p>
       `
