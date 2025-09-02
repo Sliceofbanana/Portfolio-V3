@@ -31,8 +31,9 @@ export default async function handler(req, res) {
     console.log('Sending email with data:', formData);
 
     const emailPayload = {
-      from: 'onboarding@resend.dev',
+      from: process.env.MY_EMAIL,
       to: process.env.MY_EMAIL,
+      reply_to: formData.Email,
       subject: 'New Contact Form Submission',
       html: `
         <h2>New Contact Form Submission</h2>
@@ -47,6 +48,8 @@ export default async function handler(req, res) {
         <p><strong>Features:</strong> ${formData.Features}</p>
         <p><strong>Design Preferences:</strong> ${formData['Design Preferences']}</p>
         <p><strong>Notes:</strong> ${formData.Notes}</p>
+        <hr>
+        <p><em>Reply to: ${formData.Email}</em></p>
       `
     };
 
