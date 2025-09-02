@@ -30,7 +30,7 @@ export default async function handler(req, res) {
 
     // Prepare email with exact Resend API format
     const emailData = {
-      from: process.env.MY_EMAIL,
+      from: 'noreply@genesisjr.tech',
       to: process.env.MY_EMAIL,
       subject: 'New Contact Form Submission',
       html: `
