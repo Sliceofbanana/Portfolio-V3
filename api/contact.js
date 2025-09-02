@@ -9,15 +9,23 @@ export default async function handler(req, res) {
   }
 
   try {
-    const formData = req.body;
+    // Parse the request body properly
+    let formData;
     
-    // Debug logs (check these in Vercel Functions logs)
-    console.log('Environment variables:', {
-      hasApiKey: !!process.env.RESEND_API_KEY,
-      apiKeyLength: process.env.RESEND_API_KEY?.length || 0,
-      hasEmail: !!process.env.MY_EMAIL,
-      email: process.env.MY_EMAIL
-    });
+    if (req.body) {
+      // If body is already parsed (from form submission)
+      formData = req.body;
+    } else {
+      // If body needs to be parsed from raw data
+      const chunks = [];
+      for await (const chunk of req) {
+        chunks.push(chunk);
+      }
+      const rawBody = Buffer.concat(chunks).toString();
+      formData = JSON.parse(rawBody);
+    }
+
+    console.log('Parsed form data:', formData);
 
     // Check if environment variables exist
     if (!process.env.RESEND_API_KEY) {
@@ -28,12 +36,15 @@ export default async function handler(req, res) {
       return res.status(500).json({ error: 'MY_EMAIL not found' });
     }
 
-    console.log('Sending email with data:', formData);
+    // Validate that we have form data
+    if (!formData || typeof formData !== 'object') {
+      return res.status(400).json({ error: 'Invalid form data received' });
+    }
 
     const emailPayload = {
       from: process.env.MY_EMAIL,
       to: process.env.MY_EMAIL,
-      reply_to: formData.Email,
+      reply_to: formData.Email || 'no-reply@example.com',
       subject: 'New Contact Form Submission',
       html: `
         <h2>New Contact Form Submission</h2>
@@ -49,11 +60,9 @@ export default async function handler(req, res) {
         <p><strong>Design Preferences:</strong> ${formData['Design Preferences'] || 'Not provided'}</p>
         <p><strong>Notes:</strong> ${formData.Notes || 'Not provided'}</p>
         <hr>
-        <p><em>Reply to: ${formData.Email}</em></p>
+        <p><em>Reply to: ${formData.Email || 'Not provided'}</em></p>
       `
     };
-
-    console.log('Email payload:', emailPayload);
 
     const response = await fetch('https://api.resend.com/emails', {
       method: 'POST',
@@ -65,16 +74,10 @@ export default async function handler(req, res) {
     });
 
     const responseData = await response.json();
-    console.log('Resend API response:', {
-      status: response.status,
-      statusText: response.statusText,
-      data: responseData
-    });
 
     if (response.ok) {
       res.status(200).json({ success: true, message: 'Email sent successfully' });
     } else {
-      console.error('Resend API error:', responseData);
       res.status(500).json({ 
         error: 'Failed to send email',
         details: responseData,
