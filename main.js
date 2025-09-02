@@ -300,4 +300,36 @@ t=l.createElement(r);t.async=1;t.src="https://analytics.vercel.com/script.js";
 y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
 })(window, document, 'vercel', 'script');
  
-vercel('init', { projectId: 'YOUR_PROJECT_ID' });
+vercel('init', { projectId: 'prj_0FXFNpgZGl3XcfPr3nNFzJwdThE8' });
+
+
+document.querySelector('.contact-form').addEventListener('submit', function(e) {
+    e.preventDefault(); // Prevent default form submission
+    
+    const formData = new FormData(this);
+    
+    // Submit to FormSubmit
+    fetch('https://formsubmit.co/genesis.esdrilonjr@gmail.com', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => {
+        if (response.ok) {
+            // Show your custom modal
+            document.getElementById('thankYouModal').style.display = 'block';
+            // Reset form
+            this.reset();
+        } else {
+            alert('There was an error sending your message. Please try again.');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('There was an error sending your message. Please try again.');
+    });
+});
+
+// Close modal function
+function closeThankYouModal() {
+    document.getElementById('thankYouModal').style.display = 'none';
+}

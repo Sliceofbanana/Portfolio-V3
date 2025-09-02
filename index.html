@@ -71,6 +71,7 @@
                 <li class="navbar-item"><button class="navbar-link active" data-nav-link="about">About</button></li>
                 <li class="navbar-item"><button class="navbar-link" data-nav-link="resume">Resume</button></li>
                 <li class="navbar-item"><button class="navbar-link" data-nav-link="portfolio">Portfolio</button></li>
+                <li class="navbar-item"><button class="navbar-link" data-nav-link="intake">Client Form</button></li>
             </ul>
         </nav>
 
@@ -458,6 +459,117 @@
                     </ul>
                 </section>
             </article>
+
+            <article class="intake-form" data-page="intake">
+                <header>
+                    <h2 class="h2 article-title">Client Project Intake Form</h2>
+                </header>
+
+                <section>
+                    <form action="https://formsubmit.co/genesis.esdrilonjr@gmail.com" method="POST" class="contact-form">
+                    <input type="hidden" name="_captcha" value="false">
+
+                    <label>
+                        Full Name / Company:
+                        <input type="text" name="Full Name / Company" required>
+                    </label>
+
+                    <label>
+                        Email Address:
+                        <input type="email" name="Email" required>
+                    </label>
+
+                    <label>
+                        Phone / WhatsApp:
+                        <input type="text" name="Phone">
+                    </label>
+
+                    <label>
+                        Business / Organization Description:
+                        <textarea name="Business Description"></textarea>
+                    </label>
+
+                    <fieldset class="form-group">
+                        <legend>Website Goals:</legend>
+
+                        <label>
+                            <input type="checkbox" name="Goals[]" value="Showcase services">
+                            Showcase services
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="Goals[]" value="Sell products">
+                            Sell products
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="Goals[]" value="Generate leads">
+                            Generate leads
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="Goals[]" value="Blog">
+                            Blog
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="Goals[]" value="Internal system">
+                            Internal system
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="Goals[]" value="Info Site">
+                            Info Site
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="Goals[]" value="Portfolio">
+                            Portfolio
+                        </label>
+                    </fieldset>
+
+                    <label>
+                        Pages Needed (Home, About, Services, Contact, etc.):
+                        <textarea name="Pages"></textarea>
+                    </label>
+
+                    <label>
+                        Special Features:
+                        <textarea name="Features"></textarea>
+                    </label>
+
+                    <label>
+                        Design Preferences (colors, inspirations, sites you like):
+                        <textarea name="Design Preferences"></textarea>
+                    </label>
+
+                    <label>
+                        Budget Range:
+                        <input type="text" name="Budget">
+                    </label>
+
+                    <label>
+                        Timeline / Deadline:
+                        <input type="text" name="Timeline">
+                    </label>
+
+                    <label>
+                        Additional Notes:
+                        <textarea name="Notes"></textarea>
+                    </label>
+
+                    <button type="submit">Submit</button>
+                    </form>
+                </section>
+            </article>
+
+            <div id="thankYouModal" class="modal">
+                <div class="modal-content">
+                    <h2>Thank You!</h2>
+                    <p>Your form has been submitted successfully. We'll get back to you soon.</p>
+                    <button class="close-btn" onclick="closeThankYouModal()">Close</button>
+                </div>
+            </div>
         </div>
         <canvas id="background"></canvas>
     </main>
