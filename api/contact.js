@@ -43,8 +43,8 @@ export default async function handler(req, res) {
 
     const emailPayload = {
       from: process.env.MY_EMAIL,
-      to: process.env.MY_EMAIL,
-      reply_to: formData.Email || 'no-reply@example.com',
+      to: [process.env.MY_EMAIL],
+      replyTo: formData.Email,
       subject: 'New Contact Form Submission',
       html: `
         <h2>New Contact Form Submission</h2>
