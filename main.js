@@ -303,36 +303,44 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
 vercel('init', { projectId: 'prj_0FXFNpgZGl3XcfPr3nNFzJwdThE8' });
 
 
-document.querySelector('.contact-form').addEventListener('submit', function(e) {
-    e.preventDefault(); // Prevent default form submission
-    
-    const formData = new FormData(this);
-    const data = Object.fromEntries(formData.entries());
-    
-    // Submit to your Vercel API endpoint (NOT FormSubmit)
-    fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            // Show your custom modal
-            document.getElementById('thankYouModal').style.display = 'flex';
-            // Reset form
-            this.reset();
-        } else {
+const contactForm = document.querySelector('.contact-form');
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(this);
+        const data = Object.fromEntries(formData.entries());
+        
+        console.log('Form data being sent:', data); // Debug log
+        
+        fetch('/api/contact', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => {
+            console.log('Response status:', response.status); // Debug log
+            return response.json();
+        })
+        .then(data => {
+            console.log('Response data:', data); // Debug log
+            if (data.success) {
+                document.getElementById('thankYouModal').style.display = 'flex';
+                this.reset();
+            } else {
+                alert('There was an error sending your message. Please try again.');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
             alert('There was an error sending your message. Please try again.');
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert('There was an error sending your message. Please try again.');
+        });
     });
-});
+} else {
+    console.error('Contact form not found!');
+}
 
 // Close modal function
 function closeThankYouModal() {
