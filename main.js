@@ -309,9 +309,25 @@ if (contactForm) {
         e.preventDefault();
         
         const formData = new FormData(this);
-        const data = Object.fromEntries(formData.entries());
+        const data = {};
         
-        console.log('Form data being sent:', data); // Debug log
+        // Handle regular fields
+        for (let [key, value] of formData.entries()) {
+            if (key === 'Goals[]') {
+                // Handle checkbox array
+                if (!data['Goals']) data['Goals'] = [];
+                data['Goals'].push(value);
+            } else {
+                data[key] = value;
+            }
+        }
+        
+        // Convert Goals array to string for email
+        if (data['Goals']) {
+            data['Goals'] = data['Goals'].join(', ');
+        }
+        
+        console.log('Form data being sent:', data);
         
         fetch('/api/contact', {
             method: 'POST',
@@ -321,11 +337,11 @@ if (contactForm) {
             body: JSON.stringify(data)
         })
         .then(response => {
-            console.log('Response status:', response.status); // Debug log
+            console.log('Response status:', response.status);
             return response.json();
         })
         .then(data => {
-            console.log('Response data:', data); // Debug log
+            console.log('Response data:', data);
             if (data.success) {
                 document.getElementById('thankYouModal').style.display = 'flex';
                 this.reset();
@@ -338,8 +354,6 @@ if (contactForm) {
             alert('There was an error sending your message. Please try again.');
         });
     });
-} else {
-    console.error('Contact form not found!');
 }
 
 // Close modal function
