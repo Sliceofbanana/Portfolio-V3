@@ -307,16 +307,21 @@ document.querySelector('.contact-form').addEventListener('submit', function(e) {
     e.preventDefault(); // Prevent default form submission
     
     const formData = new FormData(this);
+    const data = Object.fromEntries(formData.entries());
     
-    // Submit to FormSubmit
-    fetch('https://formsubmit.co/genesis.esdrilonjr@gmail.com', {
+    // Submit to your Vercel API endpoint (NOT FormSubmit)
+    fetch('/api/contact', {
         method: 'POST',
-        body: formData
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
     })
-    .then(response => {
-        if (response.ok) {
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
             // Show your custom modal
-            document.getElementById('thankYouModal').style.display = 'block';
+            document.getElementById('thankYouModal').style.display = 'flex';
             // Reset form
             this.reset();
         } else {
