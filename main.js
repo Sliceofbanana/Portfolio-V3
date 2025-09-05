@@ -360,3 +360,24 @@ if (contactForm) {
 function closeThankYouModal() {
     document.getElementById('thankYouModal').style.display = 'none';
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    const landingPage = document.getElementById('landingPage');
+    const mainContent = document.getElementById('mainContent');
+    const proceedBtn = document.getElementById('proceedBtn');
+
+    proceedBtn.addEventListener('click', function() {
+    landingPage.classList.add('fade-out');
+                
+        setTimeout(() => {
+            landingPage.style.display = 'none';
+            mainContent.classList.remove('hidden');
+            mainContent.classList.add('fade-in');
+        }, 500);
+    });
+
+            // Optional: Auto-hide landing page after 5 seconds
+            // setTimeout(() => {
+            //     proceedBtn.click();
+            // }, 5000);
+});
