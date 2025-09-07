@@ -381,3 +381,368 @@ document.addEventListener('DOMContentLoaded', function() {
             //     proceedBtn.click();
             // }, 5000);
 });
+
+function showBodegaOptions() {
+    const modal = document.getElementById('bodegaOptionsModal');
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeBodegaOptions() {
+    const modal = document.getElementById('bodegaOptionsModal');
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+function goToLiveSite() {
+    closeBodegaOptions();
+    window.open('https://bodegacoworking.com/', '_blank');
+}
+
+function openCaseStudy(caseStudyId) {
+    // Close the options modals first
+    closeBodegaOptions();
+    closeAcesphilsOptions();
+    closeSpineOptions();
+    
+    const modal = document.getElementById('caseStudyModal');
+    const content = document.getElementById('caseStudyContent');
+    
+    if (caseStudyId === 'bodega-coworking') {
+        content.innerHTML = `
+            <h2>Case Study: Building Bodega Coworking's Website from Scratch</h2>
+            
+            <section class="case-study-section">
+                <h3>Project Overview</h3>
+                <div class="project-details">
+                    <p><strong>Client:</strong> Bodega Coworking Café – a community-centered coworking space and café in Cebu.</p>
+                    <p><strong>Industry:</strong> Coworking, Hospitality, Community Spaces</p>
+                    <p><strong>Project Goal:</strong> Design and develop a brand-new website from the ground up that enables event bookings & payments, private office listings, and meeting room reservations while capturing the brand's playful yet professional identity.</p>
+                </div>
+            </section>
+
+            <section class="case-study-section">
+                <h3>The Challenge</h3>
+                <p>As a new and growing coworking brand, Bodega needed its first official website to:</p>
+                <ul>
+                    <li>Establish online credibility and visibility.</li>
+                    <li>Allow customers to book and pay for events and meeting rooms.</li>
+                    <li>Showcase private office availability in real time.</li>
+                    <li>Reflect its identity as stylish, modern, playful, and community-driven.</li>
+                </ul>
+                <p>With no existing digital platform to build from, everything had to be designed and implemented from scratch — from branding and UI design to content structure and technical development.</p>
+            </section>
+
+            <section class="case-study-section">
+                <h3>The Solution</h3>
+                <p>I created a fully custom website tailored to Bodega's needs.</p>
+                
+                <h4>Key Deliverables</h4>
+                
+                <div class="deliverable">
+                    <h5>User-Centered Information Architecture</h5>
+                    <ul>
+                        <li>Organized site into six core pages: Home, About, Membership, Events, Meeting Rooms, Private Offices.</li>
+                        <li>Structured navigation inspired by Regus.com's clean topbar and Cinnamon.ph's organized event layout.</li>
+                    </ul>
+                </div>
+
+                <div class="deliverable">
+                    <h5>Event Booking & Payment Integration</h5>
+                    <ul>
+                        <li>Built a dedicated events section to showcase talks, socials, and workshops.</li>
+                        <li>Integrated booking and online payment for seamless registration.</li>
+                    </ul>
+                </div>
+
+                <div class="deliverable">
+                    <h5>Private Office Listings</h5>
+                    <ul>
+                        <li>Designed a page showcasing available private offices with features and inclusions.</li>
+                        <li>Added inquiry/booking functionality.</li>
+                    </ul>
+                </div>
+
+                <div class="deliverable">
+                    <h5>Meeting Room Reservations</h5>
+                    <ul>
+                        <li>Developed a booking system with pricing (e.g., hourly rates) and payment integration.</li>
+                        <li>Clear call-to-actions for quick reservations.</li>
+                    </ul>
+                </div>
+
+                <div class="deliverable">
+                    <h5>Custom Design & Branding</h5>
+                    <ul>
+                        <li>Designed with a stylish, modern, simple, and playful aesthetic.</li>
+                        <li>Balanced professional coworking branding with the cozy café vibe.</li>
+                    </ul>
+                </div>
+
+                <div class="deliverable">
+                    <h5>Mobile-First Development</h5>
+                    <ul>
+                        <li>Fully responsive layout ensuring usability across devices.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="case-study-section">
+                <h3>The Results</h3>
+                <ul>
+                    <li><strong>From Zero to Full Platform</strong> – Bodega launched its first-ever digital presence.</li>
+                    <li><strong>Streamlined Bookings</strong> – Users can now reserve events and meeting rooms online with ease.</li>
+                    <li><strong>Community Growth</strong> – Clear event visibility improved attendance and engagement.</li>
+                    <li><strong>Professional Branding</strong> – The website reflects the brand's vision: modern, stylish, and community-driven.</li>
+                    <li><strong>Scalable Foundation</strong> – Built to support future expansion into new branches and services.</li>
+                </ul>
+            </section>
+
+            <section class="case-study-section">
+                <h3>Takeaway</h3>
+                <p>This project shows how building a website from the ground up can transform a business from offline-only to digitally connected. For Bodega, it meant creating a platform that not only supports bookings but also builds a stronger sense of community.</p>
+                
+                <div class="case-study-cta">
+                    <p><strong>Need a website built from scratch that's tailored to your business goals? Let's make it happen.</strong></p>
+                    <a href="https://bodegacoworking.com/" target="_blank" class="view-live-btn">View Live Website</a>
+                </div>
+            </section>
+        `;
+    } else if (caseStudyId === 'acesphils-redesign') {
+        content.innerHTML = `
+            <h2>Case Study: Acesphils Hardware Website Design</h2>
+
+<section class="case-study-section">
+    <h3>Project Overview</h3>
+    <div class="project-details">
+        <p><strong>Client:</strong> Acesphils – A Philippine-based hardware store supplying tools, construction materials, and equipment.</p>
+        <p><strong>Industry:</strong> Retail, Hardware, Construction</p>
+        <p><strong>Project Goal:</strong> Create a modern, user-friendly website design that showcases hardware products, improves customer trust, and builds a stronger online presence.</p>
+    </div>
+</section>
+
+<section class="case-study-section">
+    <h3>The Challenge</h3>
+    <p>Acesphils needed a complete design revamp of their online presence to:</p>
+    <ul>
+        <li>Modernize the look and feel of the website to reflect professionalism and reliability.</li>
+        <li>Improve product visibility and navigation for customers looking for specific tools or equipment.</li>
+        <li>Provide a scalable design that could support future e-commerce features.</li>
+        <li>Build trust by creating a polished, consistent online brand identity.</li>
+    </ul>
+    <p>The previous website design was outdated, lacked hierarchy, and did not effectively highlight the store’s wide range of products.</p>
+</section>
+
+<section class="case-study-section">
+    <h3>The Solution</h3>
+    <p>I designed a clean, structured, and product-focused website interface that aligns with modern web standards.</p>
+    
+    <h4>Key Features Designed</h4>
+    
+    <div class="deliverable">
+        <h5>Modern, Professional Look</h5>
+        <ul>
+            <li>Clean layouts with strong visual hierarchy for easy browsing.</li>
+            <li>Hardware-focused design showcasing product categories and featured items.</li>
+            <li>Use of consistent brand colors and typography for credibility.</li>
+        </ul>
+    </div>
+
+    <div class="deliverable">
+        <h5>Improved Navigation</h5>
+        <ul>
+            <li>Structured menus for product categories and services.</li>
+            <li>Clear call-to-action areas for inquiries and customer engagement.</li>
+            <li>Responsive layouts optimized for desktop, tablet, and mobile devices.</li>
+        </ul>
+    </div>
+
+    <div class="deliverable">
+        <h5>Future-Ready Design</h5>
+        <ul>
+            <li>Scalable structure prepared for possible e-commerce integration.</li>
+            <li>Flexible product card designs for easy updates.</li>
+            <li>Visually organized sections for About, Products, and Contact.</li>
+        </ul>
+    </div>
+</section>
+
+<section class="case-study-section">
+    <h3>The Results</h3>
+    <ul>
+        <li><strong>Modern Web Identity</strong> – Revitalized the brand with a professional, hardware-focused website design.</li>
+        <li><strong>Improved Usability</strong> – Simplified navigation that helps customers quickly find products.</li>
+        <li><strong>Stronger Customer Trust</strong> – Clean and professional design builds credibility.</li>
+        <li><strong>Scalable Foundation</strong> – Ready to expand into e-commerce and online product catalogs in the future.</li>
+        <li><strong>Mobile Optimization</strong> – Fully responsive design ensuring smooth browsing on all devices.</li>
+    </ul>
+</section>
+            <section class="case-study-section">
+                <h3>Takeaway</h3>
+                <p>This redesign project demonstrates how a complete website overhaul can revitalize a brand's online presence. For Acesphils, it meant creating a platform that truly represents the dynamic and modern nature of the Filipino gaming community.</p>
+                
+                <div class="case-study-cta">
+                    <p><strong>Ready to transform your website with a modern, user-focused redesign? Let's create something amazing together.</strong></p>
+                    <a href="https://acesphils.com/" target="_blank" class="view-live-btn">View Live Website</a>
+                </div>
+            </section>
+        `;
+    } else if (caseStudyId === 'spine-development') {
+        content.innerHTML = `
+            <h2>Case Study: Spine & Orthopaedics Cebu Website Development</h2>
+
+            <section class="case-study-section">
+                <h3>Project Overview</h3>
+                <div class="project-details">
+                    <p><strong>Client:</strong> Spine & Orthopaedics Cebu – A network of orthopedic specialists providing spine, joint, trauma, and sports injury care across Cebu.</p>
+                    <p><strong>Industry:</strong> Healthcare, Medical Services</p>
+                    <p><strong>Project Goal:</strong> Develop a responsive and informative website that highlights the clinic's specialists, services, and hospital locations while building credibility and accessibility for patients.</p>
+                </div>
+            </section>
+
+            <section class="case-study-section">
+                <h3>The Challenge</h3>
+                <p>Spine & Orthopaedics Cebu required a professional online presence to:</p>
+                <ul>
+                    <li>Showcase medical specialists and their expertise.</li>
+                    <li>Provide clear information on conditions treated and services offered.</li>
+                    <li>Make hospital clinic locations easy to find and contact.</li>
+                    <li>Integrate educational blogs and foundation initiatives to support patient awareness.</li>
+                </ul>
+                <p>The main challenge was to develop a structured, trustworthy website that could serve patients, partners, and researchers effectively.</p>
+            </section>
+
+            <section class="case-study-section">
+                <h3>The Solution</h3>
+                <p>I developed a fully responsive, content-rich website that communicates professionalism and medical authority.</p>
+                
+                <h4>Key Features Implemented</h4>
+                
+                <div class="deliverable">
+                    <h5>Specialist Profiles</h5>
+                    <ul>
+                        <li>Dedicated pages for each doctor with bios, specialties, and contact options.</li>
+                        <li>Clear calls-to-action to schedule consultations or learn more.</li>
+                    </ul>
+                </div>
+
+                <div class="deliverable">
+                    <h5>Conditions & Services</h5>
+                    <ul>
+                        <li>Informational sections explaining medical conditions and treatments offered.</li>
+                        <li>Organized navigation for quick access to relevant health information.</li>
+                    </ul>
+                </div>
+
+                <div class="deliverable">
+                    <h5>Clinic Locations</h5>
+                    <ul>
+                        <li>Structured pages showing affiliated hospitals and clinic addresses.</li>
+                        <li>Contact information and "Talk to Us" options for patient inquiries.</li>
+                    </ul>
+                </div>
+
+                <div class="deliverable">
+                    <h5>Educational Content</h5>
+                    <ul>
+                        <li>Integration of blogs and foundation initiatives to share updates and outreach activities.</li>
+                        <li>Support for the clinic's mission of education and community service.</li>
+                    </ul>
+                </div>
+
+                <div class="deliverable">
+                    <h5>Responsive Design</h5>
+                    <ul>
+                        <li>Optimized for mobile, tablet, and desktop browsing.</li>
+                        <li>Accessible design ensuring usability across all devices.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="case-study-section">
+                <h3>The Results</h3>
+                <ul>
+                    <li><strong>Professional Online Presence</strong> – Built trust with patients and strengthened the clinic's digital identity.</li>
+                    <li><strong>Improved Accessibility</strong> – Patients can now easily find doctors, services, and clinic locations.</li>
+                    <li><strong>Educational Resource</strong> – Blogs and foundation pages provide ongoing value to the community.</li>
+                    <li><strong>Optimized Performance</strong> – Fully responsive design ensures smooth navigation across devices.</li>
+                    <li><strong>Patient Engagement</strong> – Clear CTAs and contact pathways increase inquiries and consultations.</li>
+                </ul>
+            </section>
+
+            <section class="case-study-section">
+                <h3>Takeaway</h3>
+                <p>This development project demonstrates how a well-structured, responsive website can enhance a healthcare provider's credibility and accessibility. For Spine & Orthopaedics Cebu, it meant creating a digital platform that connects patients with the right specialists and provides valuable educational resources.</p>
+                
+                <div class="case-study-cta">
+                    <p><strong>Looking to build a reliable, user-friendly website for your clinic or organization? Let's create a solution that meets your needs.</strong></p>
+                    <a href="https://spineandorthocebu.com" target="_blank" class="view-live-btn">View Live Website</a>
+                </div>
+            </section>
+        `;
+    }
+    
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeCaseStudy() {
+    const modal = document.getElementById('caseStudyModal');
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+// Acesphils Modal Functions
+function showAcesphilsOptions() {
+    const modal = document.getElementById('acesphilsOptionsModal');
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeAcesphilsOptions() {
+    const modal = document.getElementById('acesphilsOptionsModal');
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+function goToAcesphilsLiveSite() {
+    window.open('https://acesphils.com/', '_blank');
+}
+
+// Spine Options Modal Functions
+function showSpineOptions() {
+    const modal = document.getElementById('spineOptionsModal');
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeSpineOptions() {
+    const modal = document.getElementById('spineOptionsModal');
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+function goToSpineLiveSite() {
+    window.open('https://spineandorthocebu.com/', '_blank');
+}
+
+// Close modals when clicking outside
+window.onclick = function(event) {
+    const bodegaModal = document.getElementById('bodegaOptionsModal');
+    const acesphilsModal = document.getElementById('acesphilsOptionsModal');
+    const spineModal = document.getElementById('spineOptionsModal');
+    const caseStudyModal = document.getElementById('caseStudyModal');
+    
+    if (event.target === bodegaModal) {
+        closeBodegaOptions();
+    }
+    if (event.target === acesphilsModal) {
+        closeAcesphilsOptions();
+    }
+    if (event.target === spineModal) {
+        closeSpineOptions();
+    }
+    if (event.target === caseStudyModal) {
+        closeCaseStudy();
+    }
+}

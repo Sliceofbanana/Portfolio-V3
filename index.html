@@ -27,11 +27,11 @@
             <div class="blur"></div>
         </div>
 
-        <div class="title">
+        <h1 class="title">
             <p>TURN IDEAS</p>
             <p>INTO DIGITAL EXPERIENCE</p>
             <p>THAT WORK</p>
-        </div>
+        </h1>
 
         <button id="proceedBtn" class="landing-button first">
             <span class="button-text">Enter Portfolio</span>
@@ -61,7 +61,7 @@
 
                 <div class="info-content">
                     <h2 class="name" title="Genesis Esdrilon Jr">Genesis Esdrilon Jr</h2>
-                    <p class="title1">Website Developer</p>
+                    <p class="title1">Web Solution Developer</p>
                 </div>
 
                 <button class="info-more-btn" data-sidebar-btn>
@@ -338,14 +338,14 @@
                         <ul class="select-list">
                             <li class="select-item"><button data-select-item>All</button></li>
                             <li class="select-item"><button data-select-item>Applications</button></li>
-                            <li class="select-item"><button data-filter-btn>Web Design</button></li>
+                            <li class="select-item"><button data-select-item>Web Design</button></li>
                             <li class="select-item"><button data-select-item>Web Development</button></li>
                         </ul>
                     </div>
 
                     <ul class="project-list">
                         <li class="project-item active" data-filter-item data-category="web design">
-                            <a href="https://acesphils.com/" target="_blank">
+                            <a href="#" onclick="showAcesphilsOptions()" data-project="acesphils">
                                 <figure class="project-img">
                                     <div class="project-item-icon-box">
                                         <ion-icon name="eye-outline"></ion-icon>
@@ -360,7 +360,7 @@
                         </li>
 
                         <li class="project-item active" data-filter-item data-category="web development, web design">
-                            <a href="https://bodegacoworking.com/" target="_blank">
+                            <a href="#" onclick="showBodegaOptions()" data-project="bodega">
                                 <figure class="project-img">
                                     <div class="project-item-icon-box">
                                         <ion-icon name="eye-outline"></ion-icon>
@@ -374,6 +374,95 @@
                             </a>
                         </li>
 
+                        <!-- Add Bodega Options Modal before the thankYouModal -->
+                        <div id="bodegaOptionsModal" class="modal">
+                            <div class="modal-content bodega-options-content">
+                                <span class="close-btn" onclick="closeBodegaOptions()">&times;</span>
+                                <h2>Bodega Coworking</h2>
+                                <p>What would you like to view?</p>
+                                
+                                <div class="option-buttons">
+                                    <button class="option-btn live-btn" onclick="goToLiveSite()">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                        <span>View Live Website</span>
+                                    </button>
+                                    
+                                    <button class="option-btn case-study-btn" onclick="openCaseStudy('bodega-coworking')">
+                                        <ion-icon name="document-text-outline"></ion-icon>
+                                        <span>Read Case Study</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Add Acesphils Options Modal -->
+                        <div id="acesphilsOptionsModal" class="modal">
+                            <div class="modal-content acesphils-options-content">
+                                <span class="close-btn" onclick="closeAcesphilsOptions()">&times;</span>
+                                <h2>Acesphils Hardware Store</h2>
+                                <p>What would you like to view?</p>
+                                
+                                <div class="option-buttons">
+                                    <button class="option-btn live-btn" onclick="goToAcesphilsLiveSite()">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                        <span>View Live Website</span>
+                                    </button>
+                                    
+                                    <button class="option-btn case-study-btn" onclick="openCaseStudy('acesphils-redesign')">
+                                        <ion-icon name="document-text-outline"></ion-icon>
+                                        <span>Read Case Study</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Add Spine Options Modal -->
+                        <div id="spineOptionsModal" class="modal">
+                            <div class="modal-content spine-options-content">
+                                <span class="close-btn" onclick="closeSpineOptions()">&times;</span>
+                                <h2>Spine & Orthopaedics Cebu</h2>
+                                <p>What would you like to view?</p>
+                                
+                                <div class="option-buttons">
+                                    <button class="option-btn live-btn" onclick="goToSpineLiveSite()">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                        <span>View Live Website</span>
+                                    </button>
+                                    
+                                    <button class="option-btn case-study-btn" onclick="openCaseStudy('spine-development')">
+                                        <ion-icon name="document-text-outline"></ion-icon>
+                                        <span>Read Case Study</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Add Case Study Modal (if not already present) -->
+                        <div id="caseStudyModal" class="modal">
+                            <div class="modal-content case-study-content">
+                                <span class="close-btn" onclick="closeCaseStudy()">&times;</span>
+                                <div id="caseStudyContent">
+                                    <!-- Case study content will be inserted here -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <li class="project-item active" data-filter-item data-category="web development">
+                            <a href="#" onclick="showSpineOptions()" data-project="spine">
+                                <figure class="project-img">
+                                    <div class="project-item-icon-box">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                    </div>
+
+                                    <img src="Image/SOC.webp" alt="bodega" loading="lazy">
+                                </figure>
+
+                                <h3 class="project-title">Spine and Orthopaedic Hospital</h3>
+                                <p class="project-category">Web Development</p>
+                            </a>
+                        </li>
+
+                        
                         <li class="project-item active" data-filter-item data-category="web development, web design">
                             <a href="https://sliceofbanana.github.io/Genesis-Portfolio/" target="_blank">
                                 <figure class="project-img">
@@ -386,21 +475,6 @@
 
                                 <h3 class="project-title">First Personal Portfolio</h3>
                                 <p class="project-category">Web Development + Design</p>
-                            </a>
-                        </li>
-
-                        <li class="project-item active" data-filter-item data-category="web development">
-                            <a href="https://spineandorthocebu.com/" target="_blank">
-                                <figure class="project-img">
-                                    <div class="project-item-icon-box">
-                                        <ion-icon name="eye-outline"></ion-icon>
-                                    </div>
-
-                                    <img src="Image/SOC.webp" alt="bodega" loading="lazy">
-                                </figure>
-
-                                <h3 class="project-title">Spine and Orthopaedic Hospital</h3>
-                                <p class="project-category">Web Development</p>
                             </a>
                         </li>
 
