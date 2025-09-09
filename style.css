@@ -136,6 +136,14 @@ main {
     pointer-events: none; /* Prevents interaction issues */
 }
 
+.service-icon-box img,
+.carousel-track img,
+.project-img img,
+.cert-img{
+    aspect-ratio: attr(width) / attr(height);
+    object-fit: cover;
+}
+
 .sidebar, article {
     background: var(--eerie-black2);
     border: 1px solid var(--jet);
@@ -1406,6 +1414,7 @@ textarea.form-input {
     border: none;
     background: none;
     font-family: var(--ff-poppins), sans-serif;
+    min-height: 48px;
 }
 
 .landing-button .button-text {
