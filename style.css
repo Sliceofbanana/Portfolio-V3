@@ -21,7 +21,7 @@
 
     --ff-poppins: 'Poppins', sans-serif;
 
-    --fs1: 24px;
+    --fs1: 18px;
     --fs2: 18px;
     --fs3: 17px;
     --fs4: 16px;
@@ -417,6 +417,7 @@ article { display: none; }
     font-size: var(--fs8);
     padding: 20px 7px;
     transition: color var(--transition1);
+    font-weight: 700px;
 }
 
     .navbar-link:hover, .navbar-link:focus { color: var(--light-gray70); }
