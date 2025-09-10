@@ -97,21 +97,21 @@ input, textarea {
 
 @font-face {
     font-family: 'Poppins';
-    src: url('/Font/Poppins-Regular.ttf') format('truetype');
+    src: url('Fonts/Poppins-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Poppins';
-    src: url('/Font/Poppins-Bold.ttf') format('truetype');
+    src: url('Fonts/Poppins-Bold.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Poppins';
-    src: url('/Font/Poppins-Italic.ttf') format('truetype');
+    src: url('Fonts/Poppins-Italic.ttf') format('truetype');
     font-weight: normal;
     font-style: italic;
 }

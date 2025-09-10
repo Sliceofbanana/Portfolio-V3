@@ -291,16 +291,6 @@ window.dataLayer = window.dataLayer || [];
 window.addEventListener("click", loadGTM, { once: true });
 setTimeout(loadGTM, 3000);
 
-(function(c,l,a,r,i,t,y){
-c[a] = c[a] || function () {
-    (c[a].q = c[a].q || []).push(arguments)
-};
-t=l.createElement(r);t.async=1;t.src="https://analytics.vercel.com/script.js";
-y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-})(window, document, 'vercel', 'script');
- 
-vercel('init', { projectId: 'prj_0FXFNpgZGl3XcfPr3nNFzJwdThE8' });
-
 
 const contactForm = document.querySelector('.contact-form');
 if (contactForm) {
