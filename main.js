@@ -287,8 +287,7 @@ window.dataLayer = window.dataLayer || [];
     }
   }
 
-// Load GTM when user interacts (scrolls, clicks, or after 3s)
-window.addEventListener("scroll", loadGTM, { once: true });
+// Load GTM when user interacts (clicks, or after 3s) - removed scroll to avoid conflicts
 window.addEventListener("click", loadGTM, { once: true });
 setTimeout(loadGTM, 3000);
 
@@ -364,22 +363,117 @@ function closeThankYouModal() {
 document.addEventListener('DOMContentLoaded', function() {
     const landingPage = document.getElementById('landingPage');
     const mainContent = document.getElementById('mainContent');
-    const proceedBtn = document.getElementById('proceedBtn');
+    let isOnLandingPage = true;
+    let scrollThreshold = 20; // Reduced threshold for easier triggering
+    let isTransitioning = false;
 
-    proceedBtn.addEventListener('click', function() {
-    landingPage.classList.add('fade-out');
-                
-        setTimeout(() => {
-            landingPage.style.display = 'none';
-            mainContent.classList.remove('hidden');
-            mainContent.classList.add('fade-in');
-        }, 500);
+    // Initially hide scrollbar on landing page
+    document.body.style.overflow = 'hidden';
+
+    // Single scroll functionality handler with improved logic
+    let scrollTimer = null;
+    let lastScrollY = 0;
+    window.addEventListener('scroll', function() {
+        if (isTransitioning) return;
+        
+        const scrollY = window.scrollY;
+        
+        // Prevent rapid repeated calls for same scroll position
+        if (Math.abs(scrollY - lastScrollY) < 5) return;
+        lastScrollY = scrollY;
+        
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(function() {
+            // Scroll down to show main content
+            if (isOnLandingPage && scrollY > scrollThreshold) {
+                showMainContent();
+            }
+            // Scroll up to show landing page (check for very small scroll values)
+            else if (!isOnLandingPage && scrollY <= 5) {
+                showLandingPage();
+            }
+        }, 50);
     });
 
-            // Optional: Auto-hide landing page after 5 seconds
-            // setTimeout(() => {
-            //     proceedBtn.click();
-            // }, 5000);
+    function showMainContent() {
+        if (isTransitioning) return;
+        isTransitioning = true;
+        isOnLandingPage = false;
+        
+        landingPage.classList.add('fade-out');
+        
+        setTimeout(() => {
+            try {
+                landingPage.style.display = 'none';
+                mainContent.classList.remove('hidden');
+                mainContent.classList.add('fade-in');
+                document.body.style.overflow = 'auto';
+                
+                setTimeout(() => {
+                    window.scrollTo(0, 0);
+                    isTransitioning = false;
+                }, 100);
+            } catch (error) {
+                isTransitioning = false;
+            }
+        }, 300);
+    }
+
+    function showLandingPage() {
+        if (isTransitioning) return;
+        isTransitioning = true;
+        isOnLandingPage = true;
+        
+        mainContent.classList.add('fade-out');
+        
+        setTimeout(() => {
+            try {
+                mainContent.style.display = 'none';
+                mainContent.classList.remove('fade-in', 'fade-out');
+                mainContent.classList.add('hidden');
+                landingPage.style.display = 'flex';
+                landingPage.classList.remove('fade-out');
+                document.body.style.overflow = 'hidden';
+                
+                setTimeout(() => {
+                    window.scrollTo(0, 0);
+                    isTransitioning = false;
+                }, 100);
+            } catch (error) {
+                isTransitioning = false;
+            }
+        }, 300);
+    }
+
+    // Prevent default scroll behavior when on landing page
+    window.addEventListener('wheel', function(e) {
+        if (isOnLandingPage && !isTransitioning) {
+            // Allow scroll down to trigger transition
+            if (e.deltaY > 0) {
+                e.preventDefault();
+                showMainContent();
+            }
+        }
+    }, { passive: false });
+
+    // Handle touch scrolling for mobile
+    let touchStartY = 0;
+    window.addEventListener('touchstart', function(e) {
+        touchStartY = e.touches[0].clientY;
+    });
+
+    window.addEventListener('touchmove', function(e) {
+        if (isOnLandingPage && !isTransitioning) {
+            const touchY = e.touches[0].clientY;
+            const deltaY = touchStartY - touchY;
+            
+            // Swipe up (scroll down)
+            if (deltaY > 50) {
+                e.preventDefault();
+                showMainContent();
+            }
+        }
+    }, { passive: false });
 });
 
 function showBodegaOptions() {
