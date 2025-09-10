@@ -370,33 +370,20 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initially hide scrollbar on landing page
     document.body.style.overflow = 'hidden';
 
-    // Single scroll functionality handler with improved logic
-    let scrollTimer = null;
-    let lastScrollY = 0;
+    // Simple scroll functionality - only transition from landing to main content
     window.addEventListener('scroll', function() {
-        if (isTransitioning) return;
+        if (isTransitioning || !isOnLandingPage) return;
         
         const scrollY = window.scrollY;
         
-        // Prevent rapid repeated calls for same scroll position
-        if (Math.abs(scrollY - lastScrollY) < 5) return;
-        lastScrollY = scrollY;
-        
-        clearTimeout(scrollTimer);
-        scrollTimer = setTimeout(function() {
-            // Scroll down to show main content
-            if (isOnLandingPage && scrollY > scrollThreshold) {
-                showMainContent();
-            }
-            // Scroll up to show landing page (check for very small scroll values)
-            else if (!isOnLandingPage && scrollY <= 5) {
-                showLandingPage();
-            }
-        }, 50);
+        // Only scroll down to show main content
+        if (scrollY > scrollThreshold) {
+            showMainContent();
+        }
     });
 
     function showMainContent() {
-        if (isTransitioning) return;
+        if (isTransitioning || !isOnLandingPage) return;
         isTransitioning = true;
         isOnLandingPage = false;
         
@@ -408,32 +395,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 mainContent.classList.remove('hidden');
                 mainContent.classList.add('fade-in');
                 document.body.style.overflow = 'auto';
-                
-                setTimeout(() => {
-                    window.scrollTo(0, 0);
-                    isTransitioning = false;
-                }, 100);
-            } catch (error) {
-                isTransitioning = false;
-            }
-        }, 300);
-    }
-
-    function showLandingPage() {
-        if (isTransitioning) return;
-        isTransitioning = true;
-        isOnLandingPage = true;
-        
-        mainContent.classList.add('fade-out');
-        
-        setTimeout(() => {
-            try {
-                mainContent.style.display = 'none';
-                mainContent.classList.remove('fade-in', 'fade-out');
-                mainContent.classList.add('hidden');
-                landingPage.style.display = 'flex';
-                landingPage.classList.remove('fade-out');
-                document.body.style.overflow = 'hidden';
                 
                 setTimeout(() => {
                     window.scrollTo(0, 0);
