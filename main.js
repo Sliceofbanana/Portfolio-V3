@@ -268,10 +268,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// Load GTM when user interacts (clicks, or after 3s) - removed scroll to avoid conflicts
-window.addEventListener("click", loadGTM, { once: true });
-setTimeout(loadGTM, 3000);
-
 const contactForm = document.querySelector('.contact-form');
 if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
