@@ -425,11 +425,12 @@ function openCaseStudy(caseStudyId) {
     closeBodegaOptions();
     closeAcesphilsOptions();
     closeSpineOptions();
+    closeMqPrintsOptions();
     
     const modal = document.getElementById('caseStudyModal');
     const content = document.getElementById('caseStudyContent');
     
-    if (caseStudyId === 'bodega-coworking') {
+if (caseStudyId === 'bodega-coworking') {
         content.innerHTML = `
             <h2>Case Study: Building Bodega Coworking's Website from Scratch</h2>
             
@@ -509,8 +510,81 @@ function openCaseStudy(caseStudyId) {
             </section>
 
             <section class="case-study-section">
+                <h3>My Role</h3>
+                <div class="role-grid">
+                    <div class="role-item">
+                        <h5>🎨 UI/UX Design</h5>
+                        <p>Created wireframes and high-fidelity mockups in Figma</p>
+                    </div>
+                    <div class="role-item">
+                        <h5>💻 Full-Stack Development</h5>
+                        <p>Built both frontend and backend systems</p>
+                    </div>
+                    <div class="role-item">
+                        <h5>💳 Payment Integration</h5>
+                        <p>Implemented secure online payment processing</p>
+                    </div>
+                    <div class="role-item">
+                        <h5>🚀 Deployment & Maintenance</h5>
+                        <p>Launched to production and provide ongoing support</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="case-study-section">
+                <h3>Tech Stack</h3>
+                <div class="tech-stack-grid">
+                    <div class="tech-category">
+                        <h5>Frontend</h5>
+                        <span class="tech-badge">HTML5</span>
+                        <span class="tech-badge">CSS3</span>
+                        <span class="tech-badge">JavaScript</span>
+                        <span class="tech-badge">Responsive Design</span>
+                    </div>
+                    <div class="tech-category">
+                        <h5>Backend</h5>
+                        <span class="tech-badge">PHP</span>
+                        <span class="tech-badge">MySQL</span>
+                    </div>
+                    <div class="tech-category">
+                        <h5>Tools</h5>
+                        <span class="tech-badge">Figma</span>
+                        <span class="tech-badge">Git</span>
+                        <span class="tech-badge">cPanel</span>
+                    </div>
+                    <div class="tech-category">
+                        <h5>Integrations</h5>
+                        <span class="tech-badge">Payment Gateway</span>
+                        <span class="tech-badge">Booking System</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="case-study-section">
                 <h3>The Results</h3>
-                <ul>
+                <div class="results-grid">
+                    <div class="result-card">
+                        <div class="result-number">100%</div>
+                        <div class="result-label">Digital Transformation</div>
+                        <p>From zero to fully functional platform</p>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-number">6</div>
+                        <div class="result-label">Core Pages</div>
+                        <p>Complete information architecture</p>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-number">2</div>
+                        <div class="result-label">Booking Systems</div>
+                        <p>Events and meeting rooms integrated</p>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-number">100%</div>
+                        <div class="result-label">Mobile Responsive</div>
+                        <p>Works flawlessly on all devices</p>
+                    </div>
+                </div>
+                <ul class="results-list">
                     <li><strong>From Zero to Full Platform</strong> – Bodega launched its first-ever digital presence.</li>
                     <li><strong>Streamlined Bookings</strong> – Users can now reserve events and meeting rooms online with ease.</li>
                     <li><strong>Community Growth</strong> – Clear event visibility improved attendance and engagement.</li>
@@ -533,71 +607,71 @@ function openCaseStudy(caseStudyId) {
         content.innerHTML = `
             <h2>Case Study: Acesphils Hardware Website Design</h2>
 
-<section class="case-study-section">
-    <h3>Project Overview</h3>
-    <div class="project-details">
-        <p><strong>Client:</strong> Acesphils – A Philippine-based hardware store supplying tools, construction materials, and equipment.</p>
-        <p><strong>Industry:</strong> Retail, Hardware, Construction</p>
-        <p><strong>Project Goal:</strong> Create a modern, user-friendly website design that showcases hardware products, improves customer trust, and builds a stronger online presence.</p>
-    </div>
-</section>
+            <section class="case-study-section">
+                <h3>Project Overview</h3>
+                <div class="project-details">
+                    <p><strong>Client:</strong> Acesphils – A Philippine-based hardware store supplying tools, construction materials, and equipment.</p>
+                    <p><strong>Industry:</strong> Retail, Hardware, Construction</p>
+                    <p><strong>Project Goal:</strong> Create a modern, user-friendly website design that showcases hardware products, improves customer trust, and builds a stronger online presence.</p>
+                </div>
+            </section>
 
-<section class="case-study-section">
-    <h3>The Challenge</h3>
-    <p>Acesphils needed a complete design revamp of their online presence to:</p>
-    <ul>
-        <li>Modernize the look and feel of the website to reflect professionalism and reliability.</li>
-        <li>Improve product visibility and navigation for customers looking for specific tools or equipment.</li>
-        <li>Provide a scalable design that could support future e-commerce features.</li>
-        <li>Build trust by creating a polished, consistent online brand identity.</li>
-    </ul>
-    <p>The previous website design was outdated, lacked hierarchy, and did not effectively highlight the store’s wide range of products.</p>
-</section>
+            <section class="case-study-section">
+                <h3>The Challenge</h3>
+                <p>Acesphils needed a complete design revamp of their online presence to:</p>
+                <ul>
+                    <li>Modernize the look and feel of the website to reflect professionalism and reliability.</li>
+                    <li>Improve product visibility and navigation for customers looking for specific tools or equipment.</li>
+                    <li>Provide a scalable design that could support future e-commerce features.</li>
+                    <li>Build trust by creating a polished, consistent online brand identity.</li>
+                </ul>
+                <p>The previous website design was outdated, lacked hierarchy, and did not effectively highlight the store's wide range of products.</p>
+            </section>
 
-<section class="case-study-section">
-    <h3>The Solution</h3>
-    <p>I designed a clean, structured, and product-focused website interface that aligns with modern web standards.</p>
-    
-    <h4>Key Features Designed</h4>
-    
-    <div class="deliverable">
-        <h5>Modern, Professional Look</h5>
-        <ul>
-            <li>Clean layouts with strong visual hierarchy for easy browsing.</li>
-            <li>Hardware-focused design showcasing product categories and featured items.</li>
-            <li>Use of consistent brand colors and typography for credibility.</li>
-        </ul>
-    </div>
+            <section class="case-study-section">
+                <h3>The Solution</h3>
+                <p>I designed a clean, structured, and product-focused website interface that aligns with modern web standards.</p>
+                
+                <h4>Key Features Designed</h4>
+                
+                <div class="deliverable">
+                    <h5>Modern, Professional Look</h5>
+                    <ul>
+                        <li>Clean layouts with strong visual hierarchy for easy browsing.</li>
+                        <li>Hardware-focused design showcasing product categories and featured items.</li>
+                        <li>Use of consistent brand colors and typography for credibility.</li>
+                    </ul>
+                </div>
 
-    <div class="deliverable">
-        <h5>Improved Navigation</h5>
-        <ul>
-            <li>Structured menus for product categories and services.</li>
-            <li>Clear call-to-action areas for inquiries and customer engagement.</li>
-            <li>Responsive layouts optimized for desktop, tablet, and mobile devices.</li>
-        </ul>
-    </div>
+                <div class="deliverable">
+                    <h5>Improved Navigation</h5>
+                    <ul>
+                        <li>Structured menus for product categories and services.</li>
+                        <li>Clear call-to-action areas for inquiries and customer engagement.</li>
+                        <li>Responsive layouts optimized for desktop, tablet, and mobile devices.</li>
+                    </ul>
+                </div>
 
-    <div class="deliverable">
-        <h5>Future-Ready Design</h5>
-        <ul>
-            <li>Scalable structure prepared for possible e-commerce integration.</li>
-            <li>Flexible product card designs for easy updates.</li>
-            <li>Visually organized sections for About, Products, and Contact.</li>
-        </ul>
-    </div>
-</section>
+                <div class="deliverable">
+                    <h5>Future-Ready Design</h5>
+                    <ul>
+                        <li>Scalable structure prepared for possible e-commerce integration.</li>
+                        <li>Flexible product card designs for easy updates.</li>
+                        <li>Visually organized sections for About, Products, and Contact.</li>
+                    </ul>
+                </div>
+            </section>
 
-<section class="case-study-section">
-    <h3>The Results</h3>
-    <ul>
-        <li><strong>Modern Web Identity</strong> – Revitalized the brand with a professional, hardware-focused website design.</li>
-        <li><strong>Improved Usability</strong> – Simplified navigation that helps customers quickly find products.</li>
-        <li><strong>Stronger Customer Trust</strong> – Clean and professional design builds credibility.</li>
-        <li><strong>Scalable Foundation</strong> – Ready to expand into e-commerce and online product catalogs in the future.</li>
-        <li><strong>Mobile Optimization</strong> – Fully responsive design ensuring smooth browsing on all devices.</li>
-    </ul>
-</section>
+            <section class="case-study-section">
+                <h3>The Results</h3>
+                <ul>
+                    <li><strong>Modern Web Identity</strong> – Revitalized the brand with a professional, hardware-focused website design.</li>
+                    <li><strong>Improved Usability</strong> – Simplified navigation that helps customers quickly find products.</li>
+                    <li><strong>Stronger Customer Trust</strong> – Clean and professional design builds credibility.</li>
+                    <li><strong>Scalable Foundation</strong> – Ready to expand into e-commerce and online product catalogs in the future.</li>
+                    <li><strong>Mobile Optimization</strong> – Fully responsive design ensuring smooth browsing on all devices.</li>
+                </ul>
+            </section>
             <section class="case-study-section">
                 <h3>Takeaway</h3>
                 <p>This redesign project demonstrates how a complete website overhaul can revitalize a brand's online presence. For Acesphils, it meant creating a platform that truly represents the dynamic and modern nature of the Filipino gaming community.</p>
@@ -701,8 +775,175 @@ function openCaseStudy(caseStudyId) {
                 </div>
             </section>
         `;
+    } else if (caseStudyId === 'mqprints-development') {
+        content.innerHTML = `
+            <h2>Case Study: MQ Printing Services (Cebu)</h2>
+            <p class="case-study-subtitle">End-to-End Website & Digital Infrastructure Development</p>
+
+            <section class="case-study-section">
+                <h3>🚀 Project Overview</h3>
+                <div class="project-details">
+                    <p><strong>Client:</strong> MQ Printing Services – A Cebu-based printing business offering tarpaulin, signage, sticker, shirt printing, and other custom print services.</p>
+                    <p><strong>Industry:</strong> Printing Services, Local Business</p>
+                    <p><strong>Project Scope:</strong> They needed more than just a website — they needed a professional digital presence and scalable web infrastructure to attract local customers and handle inquiries efficiently.</p>
+                    <p><strong>My Role:</strong> I handled the project from client consultation to deployment and ongoing maintenance.</p>
+                </div>
+            </section>
+
+            <section class="case-study-section">
+                <h3>🎯 The Challenge</h3>
+                <p><strong>Before the project:</strong></p>
+                <ul>
+                    <li>❌ No optimized website for local SEO</li>
+                    <li>❌ Heavy reliance on social media for inquiries</li>
+                    <li>❌ No structured lead capture system</li>
+                    <li>❌ No clear service breakdown for customers</li>
+                    <li>❌ Limited brand authority online</li>
+                    <li>❌ Manual handling of inquiries</li>
+                </ul>
+                
+                <p><strong>They needed:</strong></p>
+                <ul>
+                    <li>✅ A professional website</li>
+                    <li>✅ Better inquiry flow</li>
+                    <li>✅ Stronger credibility</li>
+                    <li>✅ Infrastructure that could scale</li>
+                </ul>
+            </section>
+
+            <section class="case-study-section">
+                <h3>🧠 My Role (Full Ownership)</h3>
+                <p>I managed the entire lifecycle:</p>
+
+                <div class="deliverable">
+                    <h5>1️⃣ Client Strategy & Planning</h5>
+                    <ul>
+                        <li>Conducted discovery calls</li>
+                        <li>Defined business goals</li>
+                        <li>Structured service hierarchy</li>
+                        <li>Planned SEO-friendly content architecture</li>
+                    </ul>
+                </div>
+
+                <div class="deliverable">
+                    <h5>2️⃣ UI/UX & Web Design</h5>
+                    <ul>
+                        <li>Designed a clean, conversion-focused layout</li>
+                        <li>Structured clear call-to-action placements</li>
+                        <li>Optimized mobile-first experience</li>
+                        <li>Improved typography and visual hierarchy</li>
+                    </ul>
+                </div>
+
+                <div class="deliverable">
+                    <h5>3️⃣ Development</h5>
+                    <div class="dev-breakdown">
+                        <div class="dev-layer">
+                            <h4>WordPress (Marketing Layer)</h4>
+                            <ul>
+                                <li>Built the core marketing website using WordPress</li>
+                                <li>Customized Elementor with custom plugin extensions to tailor the design and functionality</li>
+                                <li>Created dynamic service sections</li>
+                                <li>Optimized for performance and responsiveness</li>
+                            </ul>
+                        </div>
+
+                        <div class="dev-layer">
+                            <h4>Next.js (Performance / App Layer)</h4>
+                            <ul>
+                                <li>Built order system using Next.js for scalability</li>
+                                <li>Structured frontend for better performance handling</li>
+                            </ul>
+                        </div>
+
+                        <div class="dev-layer">
+                            <h4>Supabase (Backend / Database)</h4>
+                            <ul>
+                                <li>Used Supabase for data handling and storage</li>
+                                <li>Structured form data collection and backend management</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="deliverable">
+                    <h5>4️⃣ DevOps & Deployment</h5>
+                    <ul>
+                        <li>Configured hosting on Hostinger</li>
+                        <li>Deployed frontend via Vercel</li>
+                        <li>Managed environment variables</li>
+                        <li>Handled domain and DNS configuration</li>
+                        <li>Ensured SSL security</li>
+                        <li>Monitored uptime and performance</li>
+                    </ul>
+                </div>
+
+                <div class="deliverable">
+                    <h5>5️⃣ Maintenance & Optimization</h5>
+                    <ul>
+                        <li>Ongoing updates</li>
+                        <li>SEO improvements</li>
+                        <li>Performance tuning</li>
+                        <li>Content updates</li>
+                        <li>Plugin optimization</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="case-study-section">
+                <h3>🛠 Tech Stack</h3>
+                <div class="tech-stack-grid">
+                    <div class="tech-category">
+                        <h5>CMS & Frontend</h5>
+                        <span class="tech-badge">WordPress</span>
+                        <span class="tech-badge">Elementor</span>
+                        <span class="tech-badge">Next.js</span>
+                    </div>
+                    <div class="tech-category">
+                        <h5>Backend & Database</h5>
+                        <span class="tech-badge">Supabase</span>
+                    </div>
+                    <div class="tech-category">
+                        <h5>Hosting & Deployment</h5>
+                        <span class="tech-badge">Hostinger</span>
+                        <span class="tech-badge">Vercel</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="case-study-section">
+                <ul class="results-list">
+                    <li>✅ <strong>Launched full website in 8 weeks</strong></li>
+                    <li>✅ <strong>3x increase in online inquiries</strong> within first month</li>
+                    <li>✅ <strong>70% reduction in social media dependency</strong></li>
+                    <li>✅ <strong>Improved local SEO rankings</strong> for key services</li>
+                    <li>✅ <strong>Structured lead capture system</strong> processing 40+ inquiries/month</li>
+                    <li>✅ <strong>Mobile traffic increased by 55%</strong></li>
+                    <li>✅ <strong>Page load speed under 2 seconds</strong></li>
+                </ul>
+            </section>
+
+            <section class="case-study-section">
+                <h3>🎓 Key Takeaways</h3>
+                <ul>
+                    <li><strong>Full-stack ownership matters:</strong> Managing the entire project lifecycle ensured consistency and faster decision-making</li>
+                    <li><strong>Hybrid approach works:</strong> Combining WordPress for marketing with Next.js for performance created the best of both worlds</li>
+                    <li><strong>Infrastructure planning is critical:</strong> Proper DevOps setup from day one prevented scaling issues</li>
+                    <li><strong>Client communication drives success:</strong> Regular check-ins and clear milestones kept the project on track</li>
+                </ul>
+            </section>
+
+            <section class="case-study-section">
+                <h3>Takeaway</h3>
+                <p>This project demonstrates how a comprehensive digital infrastructure can transform a local business from social media-dependent to professionally positioned online. For MQ Prints, it meant establishing credibility, capturing leads systematically, and building a scalable platform for growth.</p>
+                
+                <div class="case-study-cta">
+                    <p><strong>Need a complete digital transformation for your business? Let's build something that drives real results.</strong></p>
+                    <a href="https://mqprintsph.com/" target="_blank" class="view-live-btn">View Live Website</a>
+                </div>
+            </section>
+        `;
     }
-    
     modal.style.display = 'block';
     document.body.style.overflow = 'hidden';
 }
@@ -711,6 +952,22 @@ function closeCaseStudy() {
     const modal = document.getElementById('caseStudyModal');
     modal.style.display = 'none';
     document.body.style.overflow = 'auto';
+}
+
+function showMqPrintsOptions() {
+    const modal = document.getElementById('mqprintsOptionsModal');
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeMqPrintsOptions() {
+    const modal = document.getElementById('mqprintsOptionsModal');
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+function goToMqPrintsLiveSite() {
+    window.open('https://mqprintsph.com/', '_blank');
 }
 
 // Acesphils Modal Functions
@@ -752,6 +1009,7 @@ window.onclick = function(event) {
     const bodegaModal = document.getElementById('bodegaOptionsModal');
     const acesphilsModal = document.getElementById('acesphilsOptionsModal');
     const spineModal = document.getElementById('spineOptionsModal');
+    const mqprintsModal = document.getElementById('mqprintsOptionsModal');
     const caseStudyModal = document.getElementById('caseStudyModal');
     
     if (event.target === bodegaModal) {
@@ -763,7 +1021,247 @@ window.onclick = function(event) {
     if (event.target === spineModal) {
         closeSpineOptions();
     }
+    if (event.target === mqprintsModal) {
+        closeMqPrintsOptions();
+    }
     if (event.target === caseStudyModal) {
         closeCaseStudy();
     }
+}
+
+// Hero CTA Navigation Functions
+function navigateToIntake(event) {
+    event.preventDefault();
+    
+    // Hide landing page and show main content
+    document.getElementById('landingPage').classList.add('hidden');
+    document.getElementById('mainContent').classList.remove('hidden');
+    
+    // Activate the intake form tab
+    const intakeTab = document.querySelector('[data-nav-link="intake"]');
+    const intakePage = document.querySelector('[data-page="intake"]');
+    
+    // Remove active class from all tabs and pages
+    document.querySelectorAll('[data-nav-link]').forEach(link => link.classList.remove('active'));
+    document.querySelectorAll('[data-page]').forEach(page => page.classList.remove('active'));
+    
+    // Add active class to intake
+    intakeTab.classList.add('active');
+    intakePage.classList.add('active');
+    
+    // Scroll to top
+    window.scrollTo(0, 0);
+}
+
+function navigateToPortfolio(event) {
+    event.preventDefault();
+    
+    // Hide landing page and show main content
+    document.getElementById('landingPage').classList.add('hidden');
+    document.getElementById('mainContent').classList.remove('hidden');
+    
+    // Activate the portfolio tab
+    const portfolioTab = document.querySelector('[data-nav-link="portfolio"]');
+    const portfolioPage = document.querySelector('[data-page="portfolio"]');
+    
+    // Remove active class from all tabs and pages
+    document.querySelectorAll('[data-nav-link]').forEach(link => link.classList.remove('active'));
+    document.querySelectorAll('[data-page]').forEach(page => page.classList.remove('active'));
+    
+    // Add active class to portfolio
+    portfolioTab.classList.add('active');
+    portfolioPage.classList.add('active');
+    
+    // Scroll to top
+    window.scrollTo(0, 0);
+}
+
+// ===== DYNAMIC STATISTICS =====
+function updateDynamicStats() {
+  // Calculate years of experience (started March 2024)
+  const startDate = new Date('2024-03-01');
+  const currentDate = new Date();
+  const monthsDiff = (currentDate.getFullYear() - startDate.getFullYear()) * 12 + 
+                     (currentDate.getMonth() - startDate.getMonth());
+  const yearsExperience = Math.floor(monthsDiff / 12);
+  const remainingMonths = monthsDiff % 12;
+  
+  // Format experience display
+  let experienceText = yearsExperience > 0 ? `${yearsExperience}` : '1';
+  if (remainingMonths >= 6 && yearsExperience > 0) {
+    experienceText = `${yearsExperience}.5`;
+  }
+
+  // Count total projects from portfolio (excluding case study modals and thank you modal)
+  const projectItems = document.querySelectorAll('.project-list .project-item');
+  const totalProjects = projectItems.length;
+
+  // Count unique clients (projects with different links or onclick attributes)
+  const uniqueClients = new Set();
+  projectItems.forEach(item => {
+    const link = item.querySelector('a');
+    const href = link?.getAttribute('href');
+    const onclick = link?.getAttribute('onclick');
+    
+    // Extract client identifier
+    if (onclick) {
+      const match = onclick.match(/show(\w+)Options/);
+      if (match) uniqueClients.add(match[1].toLowerCase());
+    } else if (href && href !== '#') {
+      uniqueClients.add(href);
+    }
+  });
+
+  // Update landing page stats
+  const landingStats = document.querySelectorAll('.landing-page .stat-number');
+  if (landingStats.length >= 3) {
+    landingStats[0].textContent = `${totalProjects}+`;
+    landingStats[1].textContent = `${uniqueClients.size}+`;
+    // On-time delivery remains 100%
+  }
+
+  // Update "By The Numbers" section in About page
+  const metricsValues = document.querySelectorAll('.metrics-grid .metric-value');
+  if (metricsValues.length >= 4) {
+    metricsValues[0].textContent = `${totalProjects}+`; // Projects Delivered
+    // metricsValues[1] remains 100% (On-Time Delivery)
+    metricsValues[2].textContent = experienceText; // Years Experience
+    // metricsValues[3] remains 5+ (Tech Stacks)
+  }
+
+  // Update metric descriptions
+  const experienceDesc = document.querySelector('.metrics-grid .metric-card:nth-child(3) .metric-desc');
+  if (experienceDesc) {
+    const years = parseFloat(experienceText);
+    if (years < 2) {
+      experienceDesc.textContent = 'Building production systems';
+    } else if (years < 3) {
+      experienceDesc.textContent = 'Delivering full-stack solutions';
+    } else {
+      experienceDesc.textContent = 'Professional development experience';
+    }
+  }
+}
+
+// Run statistics update when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+  updateDynamicStats();
+  
+  // Update stats after any portfolio filter changes
+  const filterButtons = document.querySelectorAll('[data-filter-btn]');
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      setTimeout(updateDynamicStats, 100);
+    });
+  });
+});
+
+// Optional: Update stats every time the portfolio page is shown
+const portfolioNavLink = document.querySelector('[data-nav-link="portfolio"]');
+if (portfolioNavLink) {
+  portfolioNavLink.addEventListener('click', updateDynamicStats);
+}
+
+// ===== PORTFOLIO CONFIGURATION =====
+const PORTFOLIO_CONFIG = {
+  // Start date of professional experience
+  experienceStartDate: '2024-03-01',
+  
+  // Projects to exclude from counting (if any)
+  excludedProjects: [],
+  
+  // Force specific values (set to null for auto-calculation)
+  forceProjectCount: null,
+  forceClientCount: null,
+  forceExperience: null,
+};
+
+// ===== DYNAMIC STATISTICS =====
+function updateDynamicStats() {
+  // Calculate years of experience
+  const startDate = new Date(PORTFOLIO_CONFIG.experienceStartDate);
+  const currentDate = new Date();
+  const monthsDiff = (currentDate.getFullYear() - startDate.getFullYear()) * 12 + 
+                     (currentDate.getMonth() - startDate.getMonth());
+  const yearsExperience = Math.floor(monthsDiff / 12);
+  const remainingMonths = monthsDiff % 12;
+  
+  let experienceText = PORTFOLIO_CONFIG.forceExperience || 
+                       (yearsExperience > 0 ? `${yearsExperience}` : '1');
+  if (remainingMonths >= 6 && yearsExperience > 0 && !PORTFOLIO_CONFIG.forceExperience) {
+    experienceText = `${yearsExperience}.5`;
+  }
+
+  // Count projects
+  const projectItems = Array.from(document.querySelectorAll('.project-list .project-item'))
+    .filter(item => !PORTFOLIO_CONFIG.excludedProjects.includes(
+      item.querySelector('a')?.getAttribute('data-project')
+    ));
+  
+  const totalProjects = PORTFOLIO_CONFIG.forceProjectCount || projectItems.length;
+
+  // Count unique clients
+  const uniqueClients = new Set();
+  projectItems.forEach(item => {
+    const link = item.querySelector('a');
+    const onclick = link?.getAttribute('onclick');
+    const href = link?.getAttribute('href');
+    
+    if (onclick) {
+      const match = onclick.match(/show(\w+)Options/);
+      if (match) uniqueClients.add(match[1].toLowerCase());
+    } else if (href && href !== '#' && !href.includes('github')) {
+      uniqueClients.add(href);
+    }
+  });
+
+  const clientCount = PORTFOLIO_CONFIG.forceClientCount || uniqueClients.size;
+
+  // Update all stat displays
+  updateStatDisplay('.landing-page .stat-number', [
+    `${totalProjects}+`,
+    `${clientCount}+`,
+    null // Keep existing value for on-time delivery
+  ]);
+
+  updateStatDisplay('.metrics-grid .metric-value', [
+    `${totalProjects}+`,
+    null, // Keep 100%
+    experienceText,
+    null  // Keep 5+
+  ]);
+
+  // Update experience description
+  updateExperienceDescription(parseFloat(experienceText));
+}
+
+function updateStatDisplay(selector, values) {
+  const elements = document.querySelectorAll(selector);
+  values.forEach((value, index) => {
+    if (value !== null && elements[index]) {
+      elements[index].textContent = value;
+    }
+  });
+}
+
+function updateExperienceDescription(years) {
+  const experienceDesc = document.querySelector('.metrics-grid .metric-card:nth-child(3) .metric-desc');
+  if (experienceDesc) {
+    if (years < 2) {
+      experienceDesc.textContent = 'Building production systems';
+    } else if (years < 3) {
+      experienceDesc.textContent = 'Delivering full-stack solutions';
+    } else if (years < 5) {
+      experienceDesc.textContent = 'Professional development experience';
+    } else {
+      experienceDesc.textContent = 'Senior-level expertise';
+    }
+  }
+}
+
+// Initialize statistics
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', updateDynamicStats);
+} else {
+  updateDynamicStats();
 }
