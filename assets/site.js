@@ -27,6 +27,15 @@
     );
   }
 
+  // "Back to top" scrolls without adding #top to the address bar
+  $$("[data-top]").forEach((btn) =>
+    btn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      const logo = $(".site-header a");
+      if (logo) logo.focus({ preventScroll: true });
+    })
+  );
+
   /* Reveal on scroll ------------------------------------------------------- */
   const reveals = $$(".reveal");
   if ("IntersectionObserver" in window) {

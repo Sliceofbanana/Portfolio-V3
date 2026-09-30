@@ -1,5 +1,14 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/sngdnn.html",
+      "destination": "/sngdnn",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
@@ -46,13 +55,6 @@
           "value": "noindex"
         }
       ]
-    }
-  ],
-  "redirects": [
-    {
-      "source": "/sngdnn.html",
-      "destination": "/sngdnn/",
-      "permanent": true
     }
   ]
 }

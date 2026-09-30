@@ -493,6 +493,8 @@ p { margin: 0; }
 .footer-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; }
 .footer-row nav { display: flex; flex-wrap: wrap; gap: 20px; }
 .footer-row a:hover { color: var(--text); }
+.back-top { background: none; border: 0; padding: 0; color: inherit; font-size: 14px; cursor: pointer; }
+.back-top:hover { color: var(--text); }
 
 /* Reveal ------------------------------------------------------------------- */
 .js .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }

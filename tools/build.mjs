@@ -181,7 +181,21 @@ function render(content, root) {
   html = html.replace(/\{\{MINI_WORK\}\}/g, () => miniWork());
   html = html.replace(/\{\{PROJECT_COUNT\}\}/g, `${projects.length}+`);
   html = html.replace(/\{\{YEAR\}\}/g, String(new Date().getFullYear()));
-  return html.replace(/\{\{ROOT\}\}/g, root);
+  return cleanUrls(html.replace(/\{\{ROOT\}\}/g, root));
+}
+
+/**
+ * Pretty URLs: every internal page link becomes extensionless and hash-free
+ *   /index.html → /    /work.html → /work    /sngdnn/index.html → /sngdnn
+ *   /sngdnn/services.html#web → /sngdnn/services
+ * vercel.json sets cleanUrls so these resolve, and old .html addresses redirect.
+ */
+function cleanUrls(html) {
+  return html.replace(/(\shref=")(\/[^"#]*?)\.html(#[^"]*)?"/g, (_, attr, p) => {
+    let url = p.replace(/(^|\/)index$/, "$1");
+    if (url.length > 1) url = url.replace(/\/$/, "");
+    return `${attr}${url || "/"}"`;
+  });
 }
 
 function page(site, { title, description, nav, jsonld, urlPath }, body, root) {
@@ -259,8 +273,10 @@ for (const site of Object.keys(SITES)) {
     const name = f.replace(/\.html$/, "");
     const { meta, body } = parse(path.join(dir, f));
     const out = SITES[site].out ? `${SITES[site].out}/${f}` : f;
-    const root = SITES[site].out ? "../" : "";
-    const urlPath = `/${SITES[site].out ? SITES[site].out + "/" : ""}${name === "index" ? "" : f}`;
+    // Root-absolute paths, so links and assets resolve the same from any URL depth
+    const root = "/";
+    const sub = SITES[site].out;
+    const urlPath = name === "index" ? `/${sub}` : `/${sub ? sub + "/" : ""}${name}`;
     write(out, page(site, { nav: name, ...meta, urlPath }, body, root));
   }
 }
@@ -274,17 +290,20 @@ for (const p of projects.filter((x) => x.caseStudy)) {
         title: `${p.title} — Case Study | Genesis Jr`,
         description: p.caseStudy.subtitle,
         nav: "work",
-        urlPath: `/work/${p.slug}.html`,
+        urlPath: `/work/${p.slug}`,
       },
       caseStudyBody(p),
-      "../"
+      "/"
     )
   );
 }
 
 // Sitemap
 const today = new Date().toISOString().slice(0, 10);
-const urls = written.map((w) => `${BASE_URL}/${w.replace(/(^|\/)index\.html$/, "$1")}`);
+const urls = written.map((w) => {
+  const clean = w.replace(/(^|\/)index\.html$/, "").replace(/\.html$/, "").replace(/\/$/, "");
+  return clean ? `${BASE_URL}/${clean}` : `${BASE_URL}/`;
+});
 write(
   "sitemap.xml",
   `<?xml version="1.0" encoding="UTF-8"?>
