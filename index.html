@@ -1,829 +1,561 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Genesis Jr | Web Developer & Designer</title>
-        <meta name="description" content="Welcome to my portfolio! I specialize in web development, design, and interactive experiences." />
-        <meta name="robots" content="index, follow">
-        <link rel="stylesheet" href="style.min.css" as="style">
-        <link rel="icon" type="image/webp" href="Image/default1-67ce61e262485.webp">
-        <link rel="dns-prefetch" href="https://unpkg.com">
-        <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-        <meta property="og:title" content="Genesis Jr | Web Developer & Designer">
-        <meta property="og:description" content="Full-stack web developer specializing in custom web solutions">
-        <meta property="og:image" content="https://genesisjr.tech/Image/og-image.jpg">
-        <meta property="og:url" content="https://genesisjr.tech">
-        <meta name="twitter:card" content="summary_large_image">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genesis Jr | Full-Stack Web Developer</title>
+    <meta name="description" content="Genesis Esdrilon Jr — full-stack web developer in Cebu, PH building production-grade websites, booking platforms, dashboards and e-commerce systems.">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0a0a0c">
+    <link rel="canonical" href="https://genesisjr.tech/">
+    <link rel="icon" type="image/webp" href="Image/default1-67ce61e262485.webp">
 
-        <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "Person",
-            "name": "Genesis Esdrilon Jr",
-            "jobTitle": "Freelance Website Developer",
-            "description": "Freelance website developer and designer specializing in custom web solutions, responsive design, and interactive experiences.",
-            "url": "https://genesisjr.tech",
-            ],
-            "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Cebu",
-                "addressCountry": "PH"
-            },
-            "knowsAbout": [
-                "Web Development",
-                "Web Design",
-                "Freelance Website Development",
-                "React",
-                "Next.js",
-                "Vue.js",
-                "Laravel",
-                "WordPress"
-            ]
-        }
-        </script>
-    </head>
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Genesis Jr | Full-Stack Web Developer">
+    <meta property="og:description" content="Production-grade web systems that generate revenue and solve real business problems.">
+    <meta property="og:image" content="https://genesisjr.tech/Image/genesis.webp">
+    <meta property="og:url" content="https://genesisjr.tech">
+    <meta name="twitter:card" content="summary_large_image">
 
-    <body>
-        <!-- Landing Page -->
-        <div id="landingPage" class="landing-page">
-            <h1 class="title">
-                <p>TURNING IDEAS</p>
-                <p>INTO DIGITAL EXPERIENCE</p>
-                <p>THAT WORK</p>
-            </h1>
-            <div class="scroll-indicator">
-                <span>Scroll to explore</span>
-                <ion-icon name="chevron-down-outline"></ion-icon>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&family=Silkscreen&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/site.css">
+    <script src="assets/boot.js"></script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Genesis Esdrilon Jr",
+        "jobTitle": "Full-Stack Web Developer",
+        "description": "Full-stack web developer and founder of Project SNGDNN, building custom web solutions, systems and brands.",
+        "url": "https://genesisjr.tech",
+        "image": "https://genesisjr.tech/Image/genesis.webp",
+        "email": "mailto:genesis.esdrilonjr@gmail.com",
+        "sameAs": [
+            "https://www.linkedin.com/in/heeeeeeeeeeenesis/",
+            "https://github.com/Sliceofbanana"
+        ],
+        "address": { "@type": "PostalAddress", "addressLocality": "Cebu", "addressCountry": "PH" },
+        "alumniOf": "Cebu Technological University",
+        "knowsAbout": ["Web Development", "Web Design", "React", "Next.js", "Vue.js", "Laravel", "WordPress", "Supabase"]
+    }
+    </script>
+</head>
+
+<body>
+    <div class="bg-glow" aria-hidden="true"></div>
+    <div class="bg-grid" aria-hidden="true"></div>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container nav">
+            <a href="#top" class="logo" aria-label="Genesis Jr — home">genesis<span class="dot"></span>jr</a>
+
+            <nav aria-label="Primary">
+                <ul class="nav-links">
+                    <li><a href="#work">Work</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="sngdnn.html" class="pill-link">Project SNGDNN ↗</a></li>
+                </ul>
+            </nav>
+
+            <a href="#contact" class="btn btn-primary nav-cta">Start a project</a>
+            <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span></button>
+        </div>
+    </header>
+
+    <main id="top">
+        <!-- Hero -->
+        <section class="hero">
+            <div class="container hero-grid">
+                <div>
+                    <span class="status reveal"><span class="pulse"></span>Available for new projects · Cebu, PH</span>
+                    <h1 class="reveal reveal-d1">
+                        <span class="line">Turning ideas</span>
+                        <span class="line">into digital</span>
+                        <span class="line grad-text">experiences that work.</span>
+                    </h1>
+                    <p class="hero-lead reveal reveal-d2">I'm <strong>Genesis Esdrilon Jr</strong> — a full-stack web developer and founder of <strong>Project SNGDNN</strong>. I build production-grade websites and systems that generate revenue and solve real business problems.</p>
+                    <div class="hero-actions reveal reveal-d3">
+                        <a href="#work" class="btn btn-primary">See my work <span class="arrow">→</span></a>
+                        <a href="#contact" class="btn btn-ghost">Let's talk</a>
+                    </div>
+                </div>
+
+                <div class="portrait-wrap reveal reveal-d2">
+                    <div style="position:relative">
+                        <div class="portrait-card">
+                            <img src="Image/genesis.webp" alt="Portrait of Genesis Esdrilon Jr" width="1080" height="1434">
+                            <div class="portrait-meta">
+                                <div>
+                                    <h3>Genesis Esdrilon Jr</h3>
+                                    <p>BS Computer Engineering · CTU</p>
+                                </div>
+                                <span class="portrait-badge">Full-Stack Dev</span>
+                            </div>
+                        </div>
+                        <div class="floating-chip one"><strong data-experience>2.5</strong> years building<br>production systems</div>
+                        <div class="floating-chip two"><strong>100%</strong> on-time<br>delivery</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tech marquee -->
+        <div class="marquee" aria-label="Technologies I use">
+            <div class="marquee-track">
+                <span class="marquee-item"><img src="Image/react.webp" alt="" width="30" height="30">React</span>
+                <span class="marquee-item"><img src="Image/next.webp" alt="" width="30" height="30">Next.js</span>
+                <span class="marquee-item"><img src="Image/laravel.webp" alt="" width="30" height="30">Laravel</span>
+                <span class="marquee-item"><img src="Image/vue.webp" alt="" width="30" height="30">Vue.js</span>
+                <span class="marquee-item"><img src="Image/wordpress.webp" alt="" width="30" height="30">WordPress</span>
+                <span class="marquee-item"><img src="Image/flutter.webp" alt="" width="30" height="30">Flutter</span>
+                <span class="marquee-item"><img src="Image/js.webp" alt="" width="30" height="30">JavaScript</span>
+                <span class="marquee-item"><img src="Image/html.webp" alt="" width="30" height="30">HTML5</span>
+                <span class="marquee-item"><img src="Image/css.webp" alt="" width="30" height="30">CSS3</span>
+                <span class="marquee-item"><img src="Image/figma.webp" alt="" width="30" height="30">Figma</span>
+                <!-- duplicate for seamless loop -->
+                <span class="marquee-item" aria-hidden="true"><img src="Image/react.webp" alt="" width="30" height="30">React</span>
+                <span class="marquee-item" aria-hidden="true"><img src="Image/next.webp" alt="" width="30" height="30">Next.js</span>
+                <span class="marquee-item" aria-hidden="true"><img src="Image/laravel.webp" alt="" width="30" height="30">Laravel</span>
+                <span class="marquee-item" aria-hidden="true"><img src="Image/vue.webp" alt="" width="30" height="30">Vue.js</span>
+                <span class="marquee-item" aria-hidden="true"><img src="Image/wordpress.webp" alt="" width="30" height="30">WordPress</span>
+                <span class="marquee-item" aria-hidden="true"><img src="Image/flutter.webp" alt="" width="30" height="30">Flutter</span>
+                <span class="marquee-item" aria-hidden="true"><img src="Image/js.webp" alt="" width="30" height="30">JavaScript</span>
+                <span class="marquee-item" aria-hidden="true"><img src="Image/html.webp" alt="" width="30" height="30">HTML5</span>
+                <span class="marquee-item" aria-hidden="true"><img src="Image/css.webp" alt="" width="30" height="30">CSS3</span>
+                <span class="marquee-item" aria-hidden="true"><img src="Image/figma.webp" alt="" width="30" height="30">Figma</span>
             </div>
         </div>
 
-        <main id="mainContent" class="main-portfolio hidden">
-            <aside class="sidebar " data-sidebar>
-                <div class="sidebar-info">
+        <!-- Work -->
+        <section class="section" id="work">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="eyebrow">Selected work</span>
+                    <h2>Systems and sites<br>shipped to production.</h2>
+                    <p>Booking platforms, clinic networks, print-shop order systems and brand-led marketing sites. Click a project to read the case study.</p>
+                </div>
 
-                    <div class="info-content">
-                        <h2 class="name" title="Genesis Esdrilon Jr">Genesis Esdrilon Jr</h2>
-                        <p class="title1">Website Developer</p>
-                    </div>
+                <div class="filters reveal" role="group" aria-label="Filter projects">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="development">Web Development</button>
+                    <button class="filter-btn" data-filter="design">Web Design</button>
+                    <button class="filter-btn" data-filter="applications">Applications</button>
+                </div>
 
-                    <button class="info-more-btn" data-sidebar-btn>
-                        <span>Show Contacts</span>
-                        <ion-icon name="chevron-down"></ion-icon>
+                <div class="work-grid">
+                    <button class="project featured reveal" data-case="atms" data-category="development applications">
+                        <div class="project-media">
+                            <img src="Image/atms/portals.webp" alt="ATMS main dashboard showing all enterprise portals" loading="lazy" width="2160" height="1350">
+                            <span class="view">Read case study →</span>
+                        </div>
+                        <div class="project-info">
+                            <div>
+                                <h3>ATMS — Agila Tax Management System</h3>
+                                <p>Enterprise operations platform · Next.js + Prisma + PostgreSQL</p>
+                            </div>
+                            <span class="project-year">Case study</span>
+                        </div>
                     </button>
+
+                    <button class="project reveal" data-case="mqprints" data-category="development design">
+                        <div class="project-media">
+                            <img src="Image/mq.webp" alt="MQ Printing Services website" loading="lazy" width="800" height="500">
+                            <span class="view">Read case study →</span>
+                        </div>
+                        <div class="project-info">
+                            <div>
+                                <h3>MQ Printing Services</h3>
+                                <p>Full-stack · WordPress + Next.js + Supabase</p>
+                            </div>
+                            <span class="project-year">Case study</span>
+                        </div>
+                    </button>
+
+                    <button class="project reveal" data-case="bodega" data-category="development design">
+                        <div class="project-media">
+                            <img src="Image/bodega.webp" alt="Bodega Coworking website" loading="lazy" width="800" height="500">
+                            <span class="view">Read case study →</span>
+                        </div>
+                        <div class="project-info">
+                            <div>
+                                <h3>Bodega Coworking Café</h3>
+                                <p>Design + development · Booking & payments</p>
+                            </div>
+                            <span class="project-year">Case study</span>
+                        </div>
+                    </button>
+
+                    <button class="project reveal reveal-d1" data-case="spine" data-category="development">
+                        <div class="project-media">
+                            <img src="Image/SOC.webp" alt="Spine and Orthopaedics Cebu website" loading="lazy" width="800" height="500">
+                            <span class="view">Read case study →</span>
+                        </div>
+                        <div class="project-info">
+                            <div>
+                                <h3>Spine & Orthopaedics Cebu</h3>
+                                <p>Web development · Healthcare</p>
+                            </div>
+                            <span class="project-year">Case study</span>
+                        </div>
+                    </button>
+
+                    <button class="project reveal" data-case="acesphils" data-category="design">
+                        <div class="project-media">
+                            <img src="Image/screenshot-2025-03-04-084038-67c64c1e6004f.webp" alt="Acesphils hardware store website" loading="lazy" width="800" height="500">
+                            <span class="view">Read case study →</span>
+                        </div>
+                        <div class="project-info">
+                            <div>
+                                <h3>Acesphils Hardware</h3>
+                                <p>Web design · Retail</p>
+                            </div>
+                            <span class="project-year">Case study</span>
+                        </div>
+                    </button>
+
+                    <a class="project reveal reveal-d1" href="https://kitaspaces.com/" target="_blank" rel="noopener" data-category="development">
+                        <div class="project-media">
+                            <img src="Image/screenshot-2025-12-01-100126-692cf705826c2.webp" alt="Kita Spaces website" loading="lazy" width="800" height="500">
+                            <span class="view">Visit site ↗</span>
+                        </div>
+                        <div class="project-info">
+                            <div>
+                                <h3>Kita Spaces</h3>
+                                <p>Web development · Coworking café & space</p>
+                            </div>
+                            <span class="project-year">Live</span>
+                        </div>
+                    </a>
+
+                    <a class="project reveal" href="https://github.com/Sliceofbanana/buoy_watch.git" target="_blank" rel="noopener" data-category="applications">
+                        <div class="project-media">
+                            <img src="Image/mobile.webp" alt="Buoy Watch mobile application" loading="lazy" width="800" height="500">
+                            <span class="view">View on GitHub ↗</span>
+                        </div>
+                        <div class="project-info">
+                            <div>
+                                <h3>Buoy Watch — Thesis</h3>
+                                <p>Mobile application · Flutter</p>
+                            </div>
+                            <span class="project-year">GitHub</span>
+                        </div>
+                    </a>
+
+                    <a class="project reveal reveal-d1" href="https://sliceofbanana.github.io/Genesis-Portfolio/" target="_blank" rel="noopener" data-category="development design">
+                        <div class="project-media">
+                            <img src="Image/portfolio.webp" alt="First personal portfolio" loading="lazy" width="800" height="500">
+                            <span class="view">Visit site ↗</span>
+                        </div>
+                        <div class="project-info">
+                            <div>
+                                <h3>First Personal Portfolio</h3>
+                                <p>Design + development</p>
+                            </div>
+                            <span class="project-year">Live</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section class="section" id="about">
+            <div class="container about-grid">
+                <div class="about-copy">
+                    <span class="eyebrow reveal">About me</span>
+                    <p class="big reveal">I build production-grade web systems that generate revenue and solve real business problems.</p>
+                    <p class="reveal">With 2+ years of experience delivering full-stack solutions, I've helped businesses launch booking platforms, sales dashboards, training portals and e-commerce systems that scale.</p>
+                    <p class="reveal">From February to July 2026 I led development of <strong>ATMS</strong> for Agila Tax Management Services — an enterprise platform with 140+ screens that runs the firm's sales, accounting, tax compliance, HR and payroll, plus a client portal, a training academy and an operations portal around it.</p>
+                    <p class="reveal">I take projects from concept to deployment — architecture decisions, database design, frontend development and production deployment. Through <strong>Project SNGDNN</strong>, I help businesses, churches and organizations build complete digital foundations: branding, modern websites and scalable systems designed for long-term growth.</p>
+                    <p class="reveal">My approach: <strong>business outcomes first, technology second.</strong> Whether you need a WordPress site in two weeks or a custom application with complex business logic, I deliver systems that work reliably in production.</p>
+                    <ul class="checklist reveal">
+                        <li>Full project ownership — from wireframes to production</li>
+                        <li>Experience with startups and established businesses</li>
+                        <li>Direct communication — no project managers in between</li>
+                    </ul>
                 </div>
 
-                <div class="sidebar-info-more">
-                    <div class="separator"></div>
-
-                    <ul class="contacts-list">
-                        <li class="contact-item">
-                            <div class="icon-box">
-                                <ion-icon name="mail-outline"></ion-icon>
-                            </div>
-
-                            <div class="contact-info">
-                                <p class="contact-title">Email</p>
-
-                                <a class="contact-link" href="mailto:genesis.esdrilonjr@gmail.com">genesis.esdrilonjr@gmail.com</a>
-                            </div>
-                        </li>
-
-                        <li class="contact-item">
-                            <div class="icon-box">
-                                <ion-icon name="location-outline"></ion-icon>
-                            </div>
-
-                            <div class="contact-info">
-                                <p class="contact-title">Location</p>
-
-                                <address>Cebu, PH 6000</address>
-                            </div>
-                        </li>
-                    </ul>
-
-                    <div class="separator"></div>
-
-                    <ul class="social-list">
-                        <li class="social-item"><a href="https://www.linkedin.com/in/heeeeeeeeeeenesis/" class="social-link"><ion-icon name="logo-linkedin"></ion-icon></a></li>
-                        <li class="social-item"><a href="https://github.com/Sliceofbanana" class="social-link"><ion-icon name="logo-github"></ion-icon></a></li>
-                    </ul>
-                </div>
-            </aside>
-
-            <div class="main-content">
-                <nav class="navbar">
-                    <ul class="navbar-list">
-                        <li class="navbar-item"><button class="navbar-link active" data-nav-link="about">ABOUT</button></li>
-                        <li class="navbar-item"><button class="navbar-link" data-nav-link="resume">RESUME</button></li>
-                        <li class="navbar-item"><button class="navbar-link" data-nav-link="portfolio">PORTFOLIO</button></li>
-                        <li class="navbar-item"><button class="navbar-link" data-nav-link="contact">CONTACT</button></li>
-                        <li class="navbar-item"><button class="navbar-link" data-nav-link="intake">CLIENT FORM</button></li>
-                    </ul>
-                </nav>
-
-                <article class="about active" data-page="about">
-                    <header>
-                        <h2 class="h2 article-title">ABOUT ME</h2>
-                    </header>
-
-                    <section class="about-text">
-<p><strong>I build production-grade web systems that generate revenue and solve real business problems.</strong></p>
-
-<p>With 2+ years of experience delivering full-stack solutions, I've helped businesses launch booking platforms, sales dashboards, training portals, and eCommerce systems that scale. I currently serve as the Manager of Agila Tax Management Services, where I lead digital systems, platform operations, and workflow optimization while overseeing the development of business-focused solutions.</p>
-
-<p>Beyond management, I specialize in taking projects from concept to deployment — handling architecture decisions, database design, frontend development, and production deployment. Through Project SNGDNN(website and socials to be launched soon), I help businesses, churches, and organizations build complete digital foundations through branding, modern websites, and scalable systems designed for long-term growth.</p>
-
-<p>My approach: <strong>Business outcomes first, technology second.</strong> Whether you need a WordPress site in 2 weeks or a custom <span></span> application with complex business logic, I deliver systems that work reliably in production.</p>
-                        <div class="about-highlights">
-                            <div class="highlight-item">
-                                <ion-icon name="checkmark-circle"></ion-icon>
-                                <span>Full project ownership — from wireframes to production</span>
-                            </div>
-                            <div class="highlight-item">
-                                <ion-icon name="checkmark-circle"></ion-icon>
-                                <span>Experience with startups and established businesses</span>
-                            </div>
-                            <div class="highlight-item">
-                                <ion-icon name="checkmark-circle"></ion-icon>
-                                <span>Direct communication — no project managers in between</span>
-                            </div>
+                <div class="role-stack">
+                    <span class="col-title reveal">Now &amp; recently</span>
+                    <div class="card role-card reveal">
+                        <div class="role-icon"><ion-icon name="rocket-outline"></ion-icon></div>
+                        <div>
+                            <h4>Founder & CEO — Project SNGDNN</h4>
+                            <p>Web, systems & branding studio. <a class="inline" href="sngdnn.html">Visit the page →</a></p>
                         </div>
-                    </section>
-
-                    <section class="service">
-                        <h3 class="h3 service-title">What I have Built</h3>
-
-                        <ul class="service-list">
-                            <li class="service-item">
-                                <div class="service-icon-box">
-                                    <img src="Image/1-67c56e4619340.webp" alt="icon" width="40" height="40">
-                                </div>
-
-                                <div class="service-content-box">
-                                    <h4 class="h4 service-item-title">CUSTOM WEB APPLICATIONS</h4>
-                                    <p class="service-item-text">Sales portals, booking systems, dashboards — full-stack applications built with React, Next.js, Laravel, and MySQL.</p>
-                                </div>
-                            </li>
-
-                            <li class="service-item">
-                                <div class="service-icon-box">
-                                    <img src="Image/2-67c56e4649100.webp" alt="icon" width="40" height="40">
-                                </div>
-
-                                <div class="service-content-box">
-                                    <h4 class="h4 service-item-title">WORDPRESS & CMS SOLUTIONS</h4>
-                                    <p class="service-item-text">Fast-turnaround business websites with custom themes, WooCommerce integration, and ongoing performance optimization.</p>
-                                </div>
-                            </li>
-
-                            <li class="service-item">
-                                <div class="service-icon-box">
-                                    <img src="Image/untitled-design-2025-03-03t165336716-67c56e4702a25.webp" alt="icon" width="40" height="40">
-                                </div>
-
-                                <div class="service-content-box">
-                                    <h4 class="h4 service-item-title">E-COMMERCE SYSTEMS</h4>
-                                    <p class="service-item-text">Complete online store setup — product management, payment integration, inventory tracking, and conversion optimization.</p>
-                                </div>
-                            </li>
-
-                            <li class="service-item">
-                                <div class="service-icon-box">
-                                    <img src="Image/untitled-design-2025-03-03t170322546-67c570652b793.webp" alt="icon" width="40" height="40">
-                                </div>
-
-                                <div class="service-content-box">
-                                    <h4 class="h4 service-item-title">SYSTEM ARCHITECTURE & CONSULTING</h4>
-                                    <p class="service-item-text">Technical planning for complex projects — database design, API architecture, tech stack selection, and scalability planning.</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </section>
-
-                    <section class="clients">
-                        <h3 class="h3 clients-title">Technologies</h3>
-
-                        <div class="logo-carousel">
-                            <div class="carousel-container">
-                                <div class="carousel-track">
-                                    <img src="Image/figma.webp" alt="figma" width="40" height="40">
-                                    <img src="Image/wordpress.webp" alt="wordpress" width="40" height="40">
-                                    <img src="Image/html.webp" alt="HTML5" width="40" height="40">
-                                    <img src="Image/css.webp" alt="CSS3" width="40" height="40">
-                                    <img src="Image/js.webp" alt="JavaScript" width="40" height="40">
-                                    <img src="Image/flutter.webp" alt="Flutter" width="40" height="40">
-                                    <img src="Image/vue.webp" alt="Vue.Js" width="40" height="40">
-                                    <img src="Image/laravel.webp" alt="Laravel" width="40" height="40">
-                                    <img src="Image/next.webp" alt="Next.JS" width="40" height="40">
-                                    <img src="Image/react.webp" alt="ReactJS" width="40" height="40">
-                
-                                    <img src="Image/figma.webp" alt="figma" width="40" height="40">
-                                    <img src="Image/wordpress.webp" alt="wordpress" width="40" height="40">
-                                    <img src="Image/html.webp" alt="HTML5" width="40" height="40">
-                                    <img src="Image/css.webp" alt="CSS3" width="40" height="40">
-                                    <img src="Image/js.webp" alt="JavaScript" width="40" height="40">
-                                    <img src="Image/flutter.webp" alt="Flutter" width="40" height="40">
-                                    <img src="Image/vue.webp" alt="Vue.Js" width="40" height="40">
-                                    <img src="Image/laravel.webp" alt="Laravel" width="40" height="40">
-                                    <img src="Image/next.webp" alt="Next.JS" width="40" height="40">
-                                    <img src="Image/react.webp" alt="ReactJS" width="40" height="40">
-                                </div>
-                            </div>
+                    </div>
+                    <div class="card role-card reveal reveal-d1">
+                        <div class="role-icon"><ion-icon name="code-slash-outline"></ion-icon></div>
+                        <div>
+                            <h4>Website Developer — Camp Digital</h4>
+                            <p>Contract web development for agency clients.</p>
                         </div>
-                    </section>
-
-                    <section class="process">
-                        <h3 class="h3 process-title">How I Work</h3>
-                        <div class="process-timeline">
-                            <div class="process-step">
-                                <div class="step-number">01</div>
-                                <h4 class="h4">Discovery & Planning</h4>
-                                <p>Understanding your business goals and technical requirements</p>
-                            </div>
-                            <div class="process-step">
-                                <div class="step-number">02</div>
-                                <h4 class="h4">Design & Prototype</h4>
-                                <p>Creating wireframes and mockups in Figma for your review</p>
-                            </div>
-                            <div class="process-step">
-                                <div class="step-number">03</div>
-                                <h4 class="h4">Development</h4>
-                                <p>Building your system with clean, scalable code</p>
-                            </div>
-                            <div class="process-step">
-                                <div class="step-number">04</div>
-                                <h4 class="h4">Testing & Launch</h4>
-                                <p>Quality assurance and deployment to production</p>
-                            </div>
-                            <div class="process-step">
-                                <div class="step-number">05</div>
-                                <h4 class="h4">Support & Maintenance</h4>
-                                <p>Ongoing updates and performance optimization</p>
-                            </div>
+                    </div>
+                    <div class="card role-card reveal reveal-d2">
+                        <div class="role-icon"><ion-icon name="briefcase-outline"></ion-icon></div>
+                        <div>
+                            <h4>Previously — Agila Tax Management Services</h4>
+                            <p>Led development of the ATMS platform, Feb – Jul 2026. <a class="inline" href="#work" data-case="atms">Read the case study →</a></p>
                         </div>
-                    </section>
-
-                    <section class="metrics">
-                        <h3 class="h3 metrics-title">By The Numbers</h3>
-                        <div class="metrics-grid">
-                            <div class="metric-card">
-                                <div class="metric-value">15+</div>
-                                <div class="metric-label">Projects Delivered</div>
-                                <p class="metric-desc">From startups to established businesses</p>
-                            </div>
-                            <div class="metric-card">
-                                <div class="metric-value">100%</div>
-                                <div class="metric-label">On-Time Delivery</div>
-                                <p class="metric-desc">Consistent deadline adherence</p>
-                            </div>
-                            <div class="metric-card">
-                                <div class="metric-value">2</div>
-                                <div class="metric-label">Years Experience</div>
-                                <p class="metric-desc">Building production systems</p>
-                            </div>
-                            <div class="metric-card">
-                                <div class="metric-value">5+</div>
-                                <div class="metric-label">Tech Stacks</div>
-                                <p class="metric-desc">WordPress, React, Next.js, Laravel, Vue</p>
-                            </div>
-                        </div>
-                    </section>
-                </article>
-                
-                <article class="resume " data-page="resume">
-                    <header>
-                        <h2 class="h2 article-title">RESUME</h2>
-                    </header>
-
-                    <section class="timeline">
-                        <div class="title-wrapper">
-                            <div class="icon-box"><ion-icon name="book-outline"></ion-icon></div>
-
-                            <h3 class="h3">Education</h3>
-                        </div>
-
-                        <ol class="timeline-list">
-                            <li class="timeline-item">
-                                <h4 class="h4 timeline-item-title">Cebu Technological University - Main Campus</h4>
-                                <span>BS in Computer Engineering</span>
-                            </li>
-                        </ol>
-                    </section>
-
-                    <section class="timeline">
-                        <div class="title-wrapper">
-                            <div class="icon-box"><ion-icon name="book-outline"></ion-icon></div>
-
-                        <h3 class="h3">Experience</h3>
-                        </div>
-
-                        <ol class="timeline-list">
-                            <li class="timeline-item">
-                                <h4 class="h4 timeline-item-title">Founder</h4>
-                                <span>September 2025 - Present</span>
-                                <p class="timeline-text">Project SNGDNN Solutions</p>
-                            </li>
-
-                            <li class="timeline-item">
-                                <h4 class="h4 timeline-item-title">Software Developer | Project Based</h4>
-                                <span>February 2026 - Present</span>
-                                <p class="timeline-text">Agila Tax Management Services</p>
-                            </li>
-
-                            <li class="timeline-item">
-                                <h4 class="h4 timeline-item-title">Website Developer | Contract</h4>
-                                <span>October 2025 - Present</span>
-                                <p class="timeline-text">Camp Digital</p>
-                            </li>
-
-                            <li class="timeline-item">
-                                <h4 class="h4 timeline-item-title">Website Developer | Freelancer</h4>
-                                <span>September 2025 - February 2026</span>
-                                <p class="timeline-text">MQ Prints</p>
-                            </li>
-
-                            <li class="timeline-item">
-                                <h4 class="h4 timeline-item-title">Jr Website Solution Developer</h4>
-                                <span>September 2024 - February 2025</span>
-                                <p class="timeline-text">Boombox Marketing</p>
-                            </li>
-
-                            <li class="timeline-item">
-                                <h4 class="h4 timeline-item-title">Website Developer - Intern</h4>
-                                <span>March 2024 - June 2024</span>
-                                <p class="timeline-text">Boombox Marketing</p>
-                            </li>
-                        </ol>
-                    </section>
-
-                    <section class="certifications">
-                        <div class="title-wrapper">
-                            <div class="icon-box"><ion-icon name="ribbon-outline"></ion-icon></div>
-                            <h3 class="h3">Certifications</h3>
-                        </div>
-                    
-                        <ul class="certifications-list">
-                            <li class="certifications-item">
-                                <h4 class="h4 certifications-item-title">Certificate for Creative Web Design</h4>
-                                <span>Issued by Call Center Academy | June 2024</span>
-                            
-                                <a href="Image/cert 1.webp" class="cert-lightbox">
-                                    <img src="Image/cert 1.webp" alt="Creative Web Design" loading="lazy" class="cert-img" width="400" height="300">
-                                </a>
-                            </li>
-                    
-                            <li class="certifications-item">
-                                <h4 class="h4 certifications-item-title"> Certificate for Internet of Things (IoT)</h4>
-                                <span>Issued by Call Center Academy | February 2024</span>
-                                <a href="Image/cert 2.webp" class="cert-lightbox">
-                                    <img src="Image/cert 2.webp" alt="JavaScript Certification" class="cert-img" loading="lazy"width="400" height="300">
-                                </a>
-                            </li>
-                        </ul>
-                    </section>                
-
-                    <section class="timeline">
-                        <div class="title-wrapper">
-                            <div class="icon-box"><ion-icon name="code-outline"></ion-icon></div>
-                            <h3 class="h3">My Skills</h3>
-                        </div>
-
-                        <ol class="timeline-list">
-                            <li class="timeline-item">
-                                <h4 class="h4 timeline-item-title">Front End Development</h4>
-                                <p class="timeline-text">HTML5, CSS3, JavaScript, React.js, Next.js, Flutter, Vue.JS</p>
-                            </li>
-                            
-                            <li class="timeline-item">
-                                <h4 class="h4 timeline-item-title">Back End Development</h4>
-                                <p class="timeline-text">PHP, Laravel, MySQL</p>
-                            </li>
-                            
-                            <li class="timeline-item">
-                                <h4 class="h4 timeline-item-title">Version Control</h4>
-                                <p class="timeline-text">Github, Git</p>
-                            </li>
-                            
-                            <li class="timeline-item">
-                                <h4 class="h4 timeline-item-title">Deployment</h4>
-                                <p class="timeline-text">cPanel, Firebase, Vercel, a2Hosting</p>
-                            </li>
-                            
-                            <li class="timeline-item">
-                                <h4 class="h4 timeline-item-title">Additional Skills</h4>
-                                <p class="timeline-text">Figma, Adobe XD, WordPress Development, Odoo Website Development</p>
-                            </li>                        
-                        </ol>
-                    </section>
-                </article>
-
-                <article class="portfolio " data-page="portfolio">
-                    <header>
-                        <h2 class="h2 article-title">PORTFOLIO</h2>
-                    </header>
-
-                    <section class="projects">
-                        <ul class="filter-list">
-                            <li class="filter-item"><button class="active" data-filter-btn>All</button></li>
-                            <li class="filter-item"><button data-filter-btn>Applications</button></li>
-                            <li class="filter-item"><button data-filter-btn>Web Design</button></li>
-                            <li class="filter-item"><button data-filter-btn>Web Development</button></li>
-                        </ul>
-
-                        <div class="filter-select-box">
-                            <button class="filter-select " data-select>
-                                <div class="select-value" data-select-value>Select Category</div>
-
-                                <div class="select-icon">
-                                    <ion-icon name="chevron-down"></ion-icon>
-                                </div>
-                            </button>
-
-                            <ul class="select-list">
-                                <li class="select-item"><button data-select-item>All</button></li>
-                                <li class="select-item"><button data-select-item>Applications</button></li>
-                                <li class="select-item"><button data-select-item>Web Design</button></li>
-                                <li class="select-item"><button data-select-item>Web Development</button></li>
-                            </ul>
-                        </div>
-
-                        <ul class="project-list">
-                            <li class="project-item active" data-filter-item data-category="web design">
-                                <a href="#" onclick="showAcesphilsOptions()" data-project="acesphils">
-                                    <figure class="project-img">
-                                        <div class="project-item-icon-box">
-                                            <ion-icon name="eye-outline"></ion-icon>
-                                        </div>
-
-                                        <img src="Image/screenshot-2025-03-04-084038-67c64c1e6004f.webp" alt="Hardware Store" loading="lazy" width="300" height="200">
-                                    </figure>
-
-                                    <h3 class="project-title">Hardware Store</h3>
-                                    <p class="project-category">Web Design</p>
-                                </a>
-                            </li>
-
-                            <li class="project-item active" data-filter-item data-category="web development, web design">
-                                <a href="#" onclick="showBodegaOptions()" data-project="bodega">
-                                    <figure class="project-img">
-                                        <div class="project-item-icon-box">
-                                            <ion-icon name="eye-outline"></ion-icon>
-                                        </div>
-
-                                        <img src="Image/bodega.webp" alt="bodega" loading="lazy" width="300" height="200">
-                                    </figure>
-
-                                    <h3 class="project-title">CoWorking Cafe</h3>
-                                    <p class="project-category">Web Development + Design</p>
-                                </a>
-                            </li>
-
-                            <!-- Add Bodega Options Modal before the thankYouModal -->
-                            <div id="bodegaOptionsModal" class="modal">
-                                <div class="modal-content bodega-options-content">
-                                    <span class="close-btn" onclick="closeBodegaOptions()">&times;</span>
-                                    <h2>Bodega Coworking</h2>
-                                    <p>What would you like to view?</p>
-                                    
-                                    <div class="option-buttons">
-                                        <button class="option-btn live-btn" onclick="goToLiveSite()">
-                                            <ion-icon name="eye-outline"></ion-icon>
-                                            <span>View Live Website</span>
-                                        </button>
-                                        
-                                        <button class="option-btn case-study-btn" onclick="openCaseStudy('bodega-coworking')">
-                                            <ion-icon name="document-text-outline"></ion-icon>
-                                            <span>Read Case Study</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Add Acesphils Options Modal -->
-                            <div id="acesphilsOptionsModal" class="modal">
-                                <div class="modal-content acesphils-options-content">
-                                    <span class="close-btn" onclick="closeAcesphilsOptions()">&times;</span>
-                                    <h2>Acesphils Hardware Store</h2>
-                                    <p>What would you like to view?</p>
-                                    
-                                    <div class="option-buttons">
-                                        <button class="option-btn live-btn" onclick="goToAcesphilsLiveSite()">
-                                            <ion-icon name="eye-outline"></ion-icon>
-                                            <span>View Live Website</span>
-                                        </button>
-                                        
-                                        <button class="option-btn case-study-btn" onclick="openCaseStudy('acesphils-redesign')">
-                                            <ion-icon name="document-text-outline"></ion-icon>
-                                            <span>Read Case Study</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Add Spine Options Modal -->
-                            <div id="spineOptionsModal" class="modal">
-                                <div class="modal-content spine-options-content">
-                                    <span class="close-btn" onclick="closeSpineOptions()">&times;</span>
-                                    <h2>Spine & Orthopaedics Cebu</h2>
-                                    <p>What would you like to view?</p>
-                                    
-                                    <div class="option-buttons">
-                                        <button class="option-btn live-btn" onclick="goToSpineLiveSite()">
-                                            <ion-icon name="eye-outline"></ion-icon>
-                                            <span>View Live Website</span>
-                                        </button>
-                                        
-                                        <button class="option-btn case-study-btn" onclick="openCaseStudy('spine-development')">
-                                            <ion-icon name="document-text-outline"></ion-icon>
-                                            <span>Read Case Study</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Add Case Study Modal (if not already present) -->
-                            <div id="caseStudyModal" class="modal">
-                                <div class="modal-content case-study-content">
-                                    <span class="close-btn" onclick="closeCaseStudy()">&times;</span>
-                                    <div id="caseStudyContent">
-                                        <!-- Case study content will be inserted here -->
-                                    </div>
-                                </div>
-                            </div>
-
-                            <li class="project-item active" data-filter-item data-category="web development">
-                                <a href="#" onclick="showSpineOptions()" data-project="spine">
-                                    <figure class="project-img">
-                                        <div class="project-item-icon-box">
-                                            <ion-icon name="eye-outline"></ion-icon>
-                                        </div>
-
-                                        <img src="Image/SOC.webp" alt="bodega" loading="lazy" width="300" height="200">
-                                    </figure>
-
-                                    <h3 class="project-title">Spine and Orthopaedic Hospital</h3>
-                                    <p class="project-category">Web Development</p>
-                                </a>
-                            </li>
-
-                            
-                            <li class="project-item active" data-filter-item data-category="web development, web design">
-                                <a href="https://sliceofbanana.github.io/Genesis-Portfolio/" target="_blank">
-                                    <figure class="project-img">
-                                        <div class="project-item-icon-box">
-                                            <ion-icon name="eye-outline"></ion-icon>
-                                        </div>
-
-                                        <img src="Image/portfolio.webp" alt="bodega" loading="lazy" width="300" height="200">
-                                    </figure>
-
-                                    <h3 class="project-title">First Personal Portfolio</h3>
-                                    <p class="project-category">Web Development + Design</p>
-                                </a>
-                            </li>
-
-                            <li class="project-item active" data-filter-item data-category="web development">
-                                <a href="https://kitaspaces.com/" target="_blank">
-                                    <figure class="project-img">
-                                        <div class="project-item-icon-box">
-                                            <ion-icon name="eye-outline"></ion-icon>
-                                        </div>
-
-                                        <img src="Image/screenshot-2025-12-01-100126-692cf705826c2.webp" alt="kitaspaces" loading="lazy" width="300" height="200">
-                                    </figure>
-
-                                    <h3 class="project-title">CoWorking Cafe and Space</h3>
-                                    <p class="project-category">Web Development</p>
-                                </a>
-                            </li>
-
-                            <li class="project-item active" data-filter-item data-category="web development, web design">
-                                <a href="#" onclick="showMqPrintsOptions()" data-project="mqprints">
-                                    <figure class="project-img">
-                                        <div class="project-item-icon-box">
-                                            <ion-icon name="eye-outline"></ion-icon>
-                                        </div>
-
-                                        <img src="Image/mq.webp" alt="mqprints" loading="lazy" width="300" height="200">
-                                    </figure>
-
-                                    <h3 class="project-title">MQ Prints - Cebu</h3>
-                                    <p class="project-category">Full Stack Development</p>
-                                </a>
-                            </li>
-
-                            <div id="mqprintsOptionsModal" class="modal">
-                                <div class="modal-content mqprints-options-content">
-                                    <span class="close-btn" onclick="closeMqPrintsOptions()">&times;</span>
-                                    <h2>MQ Printing Services</h2>
-                                    <p>What would you like to view?</p>
-                                    
-                                    <div class="option-buttons">
-                                        <button class="option-btn live-btn" onclick="goToMqPrintsLiveSite()">
-                                            <ion-icon name="eye-outline"></ion-icon>
-                                            <span>View Live Website</span>
-                                        </button>
-                                        
-                                        <button class="option-btn case-study-btn" onclick="openCaseStudy('mqprints-development')">
-                                            <ion-icon name="document-text-outline"></ion-icon>
-                                            <span>Read Case Study</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <li class="project-item active" data-filter-item data-category="applications">
-                                <a href="https://github.com/Sliceofbanana/buoy_watch.git" target="_blank">
-                                    <figure class="project-img">
-                                        <div class="project-item-icon-box">
-                                            <ion-icon name="eye-outline"></ion-icon>
-                                        </div>
-
-                                        <img src="Image/mobile.webp" alt="Bay" loading="lazy" width="300" height="200">
-                                    </figure>
-
-                                    <h3 class="project-title">Thesis Project</h3>
-                                    <p class="project-category">Applications</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </section>
-
-                    <section class="portfolio-cta">
-                        <div class="cta-content">
-                            <h3 class="h3">Ready to Build Your System?</h3>
-                            <p>From concept to deployment, I handle the full development process. No project managers, no middlemen, just direct collaboration with a developer who understands your business needs.</p>
-                            <div class="cta-actions">
-                                <button class="cta-btn primary" onclick="navigateToIntake(event)">
-                                    <span>Start Your Project</span>
-                                    <ion-icon name="arrow-forward-outline"></ion-icon>
-                                </button>
-                                <a href="mailto:genesis.esdrilonjr@gmail.com" class="cta-btn secondary">
-                                    <ion-icon name="mail-outline"></ion-icon>
-                                    <span>Send Me an Email</span>
-                                </a>
-                            </div>
-                            <div class="cta-assurance">
-                                <div class="assurance-item">
-                                    <ion-icon name="checkmark-circle"></ion-icon>
-                                    <span>Free initial consultation</span>
-                                </div>
-                                <div class="assurance-item">
-                                    <ion-icon name="checkmark-circle"></ion-icon>
-                                    <span>Transparent pricing</span>
-                                </div>
-                                <div class="assurance-item">
-                                    <ion-icon name="checkmark-circle"></ion-icon>
-                                    <span>Flexible payment terms</span>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </article>
-
-                <article class="contact" data-page="contact">
-                    <header>
-                        <h2 class="h2 article-title">CONTACT</h2>
-                    </header>
-
-                    <section class="mapbox" data-mapbox>
-                        <figure>
-                            <iframe 
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125329.0923456789!2d123.8854!3d10.3157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a999258dcd2dfd%3A0x2dd96c2d8c7f3b!2sCebu%2C%20Philippines!5e0!3m2!1sen!2s!4v1234567890123!5m2!1sen!2s"
-                                width="400" height="300" loading="lazy"></iframe>
-                        </figure>
-                    </section>
-
-                    <section class="contact-form">
-                        <h3 class="h3 form-title">Quick Message</h3>
-
-                        <form class="form" method="POST" data-form>
-                            <div class="input-wrapper">
-                                <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
-                                <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
-                            </div>
-
-                            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
-
-                            <button class="form-btn" type="submit">
-                                <ion-icon name="paper-plane"></ion-icon>
-                                <span>Send Message</span>
-                            </button>
-                        </form>
-                    </section>
-                </article>
-                <article class="intake-form" data-page="intake">
-                    <header>
-                        <h2 class="h2 article-title">LET'S BUILD YOUR SYSTEM</h2>
-                        <p class="intake-subtitle">Tell me about your project and I'll get back to you within 24 hours with a detailed plan and quote.</p>
-                    </header>
-
-                    <section>
-                        <form method="POST" class="contact-form">
-                            <label>
-                                Full Name / Company:
-                                <input type="text" name="Full Name / Company" required>
-                            </label>
-
-                            <label>
-                                Email Address:
-                                <input type="email" name="Email" required>
-                            </label>
-
-                            <label>
-                                Phone / WhatsApp:
-                                <input type="text" name="Phone">
-                            </label>
-
-                            <label>
-                                Business / Organization Description:
-                                <textarea name="Business Description"></textarea>
-                            </label>
-
-                            <fieldset class="form-group">
-                                <legend>Website Goals:</legend>
-
-                                <label>
-                                    <input type="checkbox" name="Goals[]" value="Showcase services">
-                                    Showcase services
-                                </label>
-
-                                <label>
-                                    <input type="checkbox" name="Goals[]" value="Sell products">
-                                    Sell products
-                                </label>
-
-                                <label>
-                                    <input type="checkbox" name="Goals[]" value="Blog">
-                                    Blog
-                                </label>
-
-                                <label>
-                                    <input type="checkbox" name="Goals[]" value="Internal system">
-                                    Internal system
-                                </label>
-
-                                <label>
-                                    <input type="checkbox" name="Goals[]" value="Info Site">
-                                    Info Site
-                                </label>
-
-                                <label>
-                                    <input type="checkbox" name="Goals[]" value="Portfolio">
-                                    Portfolio
-                                </label>
-                            </fieldset>
-
-                            <label>
-                                Pages Needed (Home, About, Services, Contact, etc.):
-                                <textarea name="Pages"></textarea>
-                            </label>
-
-                            <label>
-                                Special Features:
-                                <textarea name="Features"></textarea>
-                            </label>
-
-                            <label>
-                                Design Preferences (Insert the website you like):
-                                <textarea name="Design Preferences"></textarea>
-                            </label>
-
-                            <label>
-                                Budget Range:
-                                <input type="text" name="Budget">
-                            </label>
-
-                            <label>
-                                Timeline / Deadline:
-                                <input type="text" name="Timeline">
-                            </label>
-
-                            <label>
-                                Additional Notes:
-                                <textarea name="Notes"></textarea>
-                            </label>
-
-                            <button type="submit">Submit</button>
-                        </form>
-                    </section>
-                </article>
-
-                <div id="thankYouModal" class="modal">
-                    <div class="modal-content">
-                        <h2>Thank You!</h2>
-                        <p>Your form has been submitted successfully. We'll get back to you soon.</p>
-                        <button class="close-btn" onclick="closeThankYouModal()">Close</button>
                     </div>
                 </div>
             </div>
-        </main>
+        </section>
 
-        <canvas id="background"></canvas>
+        <!-- Services -->
+        <section class="section" id="services">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="eyebrow">What I build</span>
+                    <h2>From a two-week launch<br>to a custom platform.</h2>
+                </div>
 
-        <script src="main.min.js" defer></script>
-        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    </body>
+                <div class="services-grid">
+                    <article class="card service-card reveal">
+                        <div class="icon"><ion-icon name="layers-outline"></ion-icon></div>
+                        <span class="num">01</span>
+                        <h3>Custom web applications</h3>
+                        <p>Sales portals, booking systems and dashboards — full-stack applications with real business logic.</p>
+                        <div class="tags"><span class="tag">React</span><span class="tag">Next.js</span><span class="tag">Laravel</span><span class="tag">MySQL</span></div>
+                    </article>
+                    <article class="card service-card reveal reveal-d1">
+                        <div class="icon"><ion-icon name="globe-outline"></ion-icon></div>
+                        <span class="num">02</span>
+                        <h3>WordPress & CMS solutions</h3>
+                        <p>Fast-turnaround business websites with custom themes, WooCommerce and ongoing performance optimization.</p>
+                        <div class="tags"><span class="tag">WordPress</span><span class="tag">Elementor</span><span class="tag">WooCommerce</span></div>
+                    </article>
+                    <article class="card service-card reveal">
+                        <div class="icon"><ion-icon name="cart-outline"></ion-icon></div>
+                        <span class="num">03</span>
+                        <h3>E-commerce systems</h3>
+                        <p>Complete online store setup — product management, payment integration, inventory tracking and conversion optimization.</p>
+                        <div class="tags"><span class="tag">Payments</span><span class="tag">Inventory</span><span class="tag">Supabase</span></div>
+                    </article>
+                    <article class="card service-card reveal reveal-d1">
+                        <div class="icon"><ion-icon name="git-network-outline"></ion-icon></div>
+                        <span class="num">04</span>
+                        <h3>Architecture & consulting</h3>
+                        <p>Technical planning for complex projects — database design, API architecture, stack selection and scalability.</p>
+                        <div class="tags"><span class="tag">System design</span><span class="tag">DevOps</span><span class="tag">Vercel</span></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process -->
+        <section class="section" id="process">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="eyebrow">How I work</span>
+                    <h2>A clear path from<br>first call to launch.</h2>
+                </div>
+                <div class="process">
+                    <div class="step reveal"><span class="num">01</span><h3>Discovery & planning</h3><p>Understanding your business goals and technical requirements.</p></div>
+                    <div class="step reveal reveal-d1"><span class="num">02</span><h3>Design & prototype</h3><p>Wireframes and mockups in Figma for your review.</p></div>
+                    <div class="step reveal reveal-d2"><span class="num">03</span><h3>Development</h3><p>Building your system with clean, scalable code.</p></div>
+                    <div class="step reveal reveal-d3"><span class="num">04</span><h3>Testing & launch</h3><p>Quality assurance and deployment to production.</p></div>
+                    <div class="step reveal reveal-d3"><span class="num">05</span><h3>Support</h3><p>Ongoing updates and performance optimization.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience -->
+        <section class="section" id="experience">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="eyebrow">Experience</span>
+                    <h2>Where I've been building.</h2>
+                </div>
+
+                <div class="exp-grid">
+                    <div>
+                        <p class="col-title reveal">Work</p>
+                        <ol class="timeline">
+                            <li class="reveal"><h3>Founder & CEO</h3><span class="org">Project SNGDNN Solutions</span><span class="when now">Sep 2025 — Present</span></li>
+                            <li class="reveal"><h3>Website Developer · Contract</h3><span class="org">Camp Digital</span><span class="when now">Oct 2025 — Present</span></li>
+                            <li class="reveal"><h3>Software Developer · Project-based</h3><span class="org">Agila Tax Management Services — built the ATMS platform</span><span class="when">Feb 2026 — Jul 2026</span></li>
+                            <li class="reveal"><h3>Website Developer · Freelance</h3><span class="org">MQ Prints</span><span class="when">Sep 2025 — Feb 2026</span></li>
+                            <li class="reveal"><h3>Jr. Website Solution Developer</h3><span class="org">Boombox Marketing</span><span class="when">Sep 2024 — Feb 2025</span></li>
+                            <li class="reveal"><h3>Website Developer · Intern</h3><span class="org">Boombox Marketing</span><span class="when">Mar 2024 — Jun 2024</span></li>
+                        </ol>
+
+                        <p class="col-title reveal" style="margin-top:48px">Education</p>
+                        <ol class="timeline">
+                            <li class="reveal"><h3>BS in Computer Engineering</h3><span class="org">Cebu Technological University — Main Campus</span></li>
+                        </ol>
+                    </div>
+
+                    <div class="side-stack">
+                        <div>
+                            <p class="col-title reveal">Skills</p>
+                            <div class="skill-group reveal"><h4>Frontend</h4><div class="tags"><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span><span class="tag">React</span><span class="tag">Next.js</span><span class="tag">Vue.js</span><span class="tag">Flutter</span></div></div>
+                            <div class="skill-group reveal"><h4>Backend</h4><div class="tags"><span class="tag">PHP</span><span class="tag">Laravel</span><span class="tag">MySQL</span><span class="tag">Supabase</span></div></div>
+                            <div class="skill-group reveal"><h4>Deployment</h4><div class="tags"><span class="tag">Vercel</span><span class="tag">Firebase</span><span class="tag">cPanel</span><span class="tag">Hostinger</span><span class="tag">a2Hosting</span><span class="tag">Git / GitHub</span></div></div>
+                            <div class="skill-group reveal"><h4>Design & CMS</h4><div class="tags"><span class="tag">Figma</span><span class="tag">Adobe XD</span><span class="tag">WordPress</span><span class="tag">Odoo</span></div></div>
+                        </div>
+
+                        <div>
+                            <p class="col-title reveal">Certifications</p>
+                            <div class="certs">
+                                <button class="cert reveal" data-lightbox="Image/cert 1.webp" data-alt="Certificate for Creative Web Design">
+                                    <img src="Image/cert 1.webp" alt="" loading="lazy" width="400" height="300">
+                                    <span>Creative Web Design<small>Call Center Academy · Jun 2024</small></span>
+                                </button>
+                                <button class="cert reveal reveal-d1" data-lightbox="Image/cert 2.webp" data-alt="Certificate for Internet of Things">
+                                    <img src="Image/cert 2.webp" alt="" loading="lazy" width="400" height="300">
+                                    <span>Internet of Things<small>Call Center Academy · Feb 2024</small></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Numbers -->
+        <section class="section" style="padding-top:0">
+            <div class="container">
+                <div class="metrics reveal">
+                    <div class="metric"><div class="value grad-text" data-project-count>7+</div><div class="label">Projects delivered</div><p>From startups to established businesses</p></div>
+                    <div class="metric"><div class="value">100%</div><div class="label">On-time delivery</div><p>Consistent deadline adherence</p></div>
+                    <div class="metric"><div class="value" data-experience>2.5</div><div class="label">Years experience</div><p>Delivering full-stack solutions</p></div>
+                    <div class="metric"><div class="value">5+</div><div class="label">Tech stacks</div><p>WordPress, React, Next.js, Laravel, Vue</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SNGDNN promo -->
+        <section class="section" style="padding-top:0">
+            <div class="container">
+                <div class="promo reveal">
+                    <div>
+                        <span class="logo-pixel">SNGDNN</span>
+                        <h2>Need a whole team, not just a developer?</h2>
+                        <p>Project SNGDNN is my studio for full-stack web &amp; system development and branding — built for businesses, churches and organizations that want one partner for their entire digital foundation.</p>
+                    </div>
+                    <a href="sngdnn.html" class="btn btn-primary">Explore Project SNGDNN <span class="arrow">→</span></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section class="section" id="contact">
+            <div class="container contact-grid">
+                <aside class="contact-aside reveal">
+                    <span class="eyebrow">Contact</span>
+                    <h2>Let's build<br><span class="grad-text">your system.</span></h2>
+                    <p>Tell me about your project and I'll get back to you within 24 hours with a detailed plan and quote.</p>
+                    <ul class="contact-lines">
+                        <li><span class="ic"><ion-icon name="mail-outline"></ion-icon></span><div><small>Email</small><a href="mailto:genesis.esdrilonjr@gmail.com">genesis.esdrilonjr@gmail.com</a></div></li>
+                        <li><span class="ic"><ion-icon name="location-outline"></ion-icon></span><div><small>Location</small>Cebu, PH 6000</div></li>
+                    </ul>
+                    <div class="socials">
+                        <a href="https://www.linkedin.com/in/heeeeeeeeeeenesis/" target="_blank" rel="noopener" aria-label="LinkedIn"><ion-icon name="logo-linkedin"></ion-icon></a>
+                        <a href="https://github.com/Sliceofbanana" target="_blank" rel="noopener" aria-label="GitHub"><ion-icon name="logo-github"></ion-icon></a>
+                    </div>
+                    <ul class="checklist promise">
+                        <li>Free initial consultation</li>
+                        <li>Transparent pricing</li>
+                        <li>Flexible payment terms</li>
+                    </ul>
+                </aside>
+
+                <div class="card reveal reveal-d1">
+                    <!-- Shared intake form: keep in sync with sngdnn.html -->
+                    <form class="intake" data-intake novalidate>
+                        <input type="hidden" name="Source" value="Genesis Jr Portfolio">
+                        <label class="hp" aria-hidden="true">Leave this empty<input type="text" name="Website" tabindex="-1" autocomplete="off"></label>
+
+                        <div class="form-row">
+                            <label class="field"><span>Full name / Company <em>*</em></span><input type="text" name="Full Name / Company" autocomplete="name" placeholder="Juan Dela Cruz / Acme Inc." required></label>
+                            <label class="field"><span>Email address <em>*</em></span><input type="email" name="Email" autocomplete="email" placeholder="you@company.com" required></label>
+                        </div>
+                        <label class="field"><span>Phone / WhatsApp</span><input type="tel" name="Phone" autocomplete="tel" placeholder="+63 9XX XXX XXXX"></label>
+                        <label class="field"><span>Business / organization description</span><textarea name="Business Description" placeholder="What does your business or organization do?"></textarea></label>
+
+                        <fieldset class="fieldset">
+                            <legend>Website goals</legend>
+                            <div class="chips">
+                                <label class="chip"><input type="checkbox" name="Goals[]" value="Showcase services"><span>Showcase services</span></label>
+                                <label class="chip"><input type="checkbox" name="Goals[]" value="Sell products"><span>Sell products</span></label>
+                                <label class="chip"><input type="checkbox" name="Goals[]" value="Blog"><span>Blog</span></label>
+                                <label class="chip"><input type="checkbox" name="Goals[]" value="Internal system"><span>Internal system</span></label>
+                                <label class="chip"><input type="checkbox" name="Goals[]" value="Info Site"><span>Info site</span></label>
+                                <label class="chip"><input type="checkbox" name="Goals[]" value="Portfolio"><span>Portfolio</span></label>
+                            </div>
+                        </fieldset>
+
+                        <div class="form-divider"></div>
+
+                        <label class="field"><span>Pages needed</span><textarea name="Pages" placeholder="Home, About, Services, Contact…"></textarea></label>
+                        <label class="field"><span>Special features</span><textarea name="Features" placeholder="Booking, payments, dashboards, member login…"></textarea></label>
+                        <label class="field"><span>Design preferences</span><textarea name="Design Preferences" placeholder="Paste links to websites you like"></textarea></label>
+                        <div class="form-row">
+                            <label class="field"><span>Budget range</span><input type="text" name="Budget" placeholder="e.g. ₱30,000 – ₱60,000"></label>
+                            <label class="field"><span>Timeline / deadline</span><input type="text" name="Timeline" placeholder="e.g. 6 weeks, before March"></label>
+                        </div>
+                        <label class="field"><span>Additional notes</span><textarea name="Notes" placeholder="Anything else I should know?"></textarea></label>
+
+                        <div class="form-foot">
+                            <small>Replies within 24 hours.</small>
+                            <button type="submit" class="btn btn-primary">Submit project <span class="arrow">→</span></button>
+                        </div>
+                        <p class="form-status" role="status" aria-live="polite"></p>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-row">
+            <span>© <span data-year>2026</span> Genesis Esdrilon Jr · Cebu, PH</span>
+            <nav aria-label="Footer">
+                <a href="#work">Work</a>
+                <a href="#about">About</a>
+                <a href="sngdnn.html">Project SNGDNN</a>
+                <a href="https://github.com/Sliceofbanana" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://www.linkedin.com/in/heeeeeeeeeeenesis/" target="_blank" rel="noopener">LinkedIn</a>
+            </nav>
+        </div>
+    </footer>
+
+    <!-- Case study modal -->
+    <div class="modal" id="caseModal" role="dialog" aria-modal="true" aria-labelledby="caseTitle" aria-hidden="true">
+        <div class="modal-panel">
+            <button class="modal-close" data-close aria-label="Close">×</button>
+            <div class="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- Certificate lightbox -->
+    <div class="modal lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Certificate" aria-hidden="true">
+        <div class="modal-panel">
+            <button class="modal-close" data-close aria-label="Close">×</button>
+            <img src="" alt="">
+        </div>
+    </div>
+
+    <!-- Thank-you modal -->
+    <div class="modal modal-small" id="thankYouModal" role="dialog" aria-modal="true" aria-labelledby="thanksTitle" aria-hidden="true">
+        <div class="modal-panel">
+            <div class="check">✓</div>
+            <h3 id="thanksTitle">Thank you!</h3>
+            <p>Your project details were sent successfully. I'll get back to you within 24 hours.</p>
+            <button class="btn btn-primary" data-close>Close</button>
+        </div>
+    </div>
+
+    <script src="assets/site.js" defer></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
 </html>
