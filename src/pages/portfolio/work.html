@@ -1,0 +1,25 @@
+<!-- meta {
+  "title": "Work | Genesis Jr",
+  "description": "Selected projects and case studies by Genesis Esdrilon Jr — enterprise platforms, booking systems, healthcare and e-commerce websites."
+} -->
+        <section class="page-hero">
+            <div class="container">
+                <span class="eyebrow reveal">Work</span>
+                <h1 class="reveal reveal-d1">Systems and sites<br><span class="grad-text">shipped to production.</span></h1>
+                <p class="page-lead reveal reveal-d2">Enterprise platforms, booking systems, clinic networks, print-shop order systems and brand-led marketing sites. Open a project to read the full case study.</p>
+            </div>
+        </section>
+
+        <section class="section" style="padding-top:0">
+            <div class="container">
+                <div class="filters reveal" role="group" aria-label="Filter projects">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="development">Web Development</button>
+                    <button class="filter-btn" data-filter="design">Web Design</button>
+                    <button class="filter-btn" data-filter="applications">Applications</button>
+                </div>
+                {{PROJECTS all}}
+            </div>
+        </section>
+
+        {{> cta-portfolio}}

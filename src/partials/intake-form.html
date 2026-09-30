@@ -1,0 +1,41 @@
+<!-- Shared intake form (portfolio + SNGDNN). Field names/limits must match api/contact.js -->
+                    <form class="intake" data-intake novalidate>
+                        <input type="hidden" name="Source" value="{{SOURCE}}">
+                        <label class="hp" aria-hidden="true">Leave this empty<input type="text" name="Website" tabindex="-1" autocomplete="off"></label>
+
+                        <div class="form-row">
+                            <label class="field"><span>Full name / Company <em>*</em></span><input type="text" name="Full Name / Company" autocomplete="name" placeholder="Juan Dela Cruz / Acme Inc." required></label>
+                            <label class="field"><span>Email address <em>*</em></span><input type="email" name="Email" autocomplete="email" placeholder="you@company.com" required></label>
+                        </div>
+                        <label class="field"><span>Phone / WhatsApp</span><input type="tel" name="Phone" autocomplete="tel" placeholder="+63 9XX XXX XXXX"></label>
+                        <label class="field"><span>Business / organization description</span><textarea name="Business Description" placeholder="What does your business or organization do?"></textarea></label>
+
+                        <fieldset class="fieldset">
+                            <legend>Website goals</legend>
+                            <div class="chips">
+                                <label class="chip"><input type="checkbox" name="Goals[]" value="Showcase services"><span>Showcase services</span></label>
+                                <label class="chip"><input type="checkbox" name="Goals[]" value="Sell products"><span>Sell products</span></label>
+                                <label class="chip"><input type="checkbox" name="Goals[]" value="Blog"><span>Blog</span></label>
+                                <label class="chip"><input type="checkbox" name="Goals[]" value="Internal system"><span>Internal system</span></label>
+                                <label class="chip"><input type="checkbox" name="Goals[]" value="Info Site"><span>Info site</span></label>
+                                <label class="chip"><input type="checkbox" name="Goals[]" value="Portfolio"><span>Portfolio</span></label>
+                            </div>
+                        </fieldset>
+
+                        <div class="form-divider"></div>
+
+                        <label class="field"><span>Pages needed</span><textarea name="Pages" placeholder="Home, About, Services, Contact…"></textarea></label>
+                        <label class="field"><span>Special features</span><textarea name="Features" placeholder="Booking, payments, dashboards, member login…"></textarea></label>
+                        <label class="field"><span>Design preferences</span><textarea name="Design Preferences" placeholder="Paste links to websites you like"></textarea></label>
+                        <div class="form-row">
+                            <label class="field"><span>Budget range</span><input type="text" name="Budget" placeholder="e.g. ₱30,000 – ₱60,000"></label>
+                            <label class="field"><span>Timeline / deadline</span><input type="text" name="Timeline" placeholder="e.g. 6 weeks, before March"></label>
+                        </div>
+                        <label class="field"><span>Additional notes</span><textarea name="Notes" placeholder="Anything else we should know?"></textarea></label>
+
+                        <div class="form-foot">
+                            <small>Replies within 24 hours.</small>
+                            <button type="submit" class="btn btn-primary">Submit project <span class="arrow">→</span></button>
+                        </div>
+                        <p class="form-status" role="status" aria-live="polite"></p>
+                    </form>
