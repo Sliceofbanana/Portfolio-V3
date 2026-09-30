@@ -1,14 +1,83 @@
 // Single source of truth for projects and case studies.
 // Image paths are relative to the site root; the build adds the right prefix per page.
-// Categories: development | design | applications
+// Categories: development | design | applications | branding
+//
+// studio: <order>    → also listed as a Project SNGDNN client (/sngdnn/work/<slug>)
+// studioOnly: true   → SNGDNN only; hidden from the personal portfolio
 
 const cols = (items) =>
   `<div class="cs-cols">${items
     .map(([h, list]) => `<div class="card"><h4>${h}</h4><ul>${list.map((li) => `<li>${li}</li>`).join("")}</ul></div>`)
     .join("")}</div>`;
+const swatches = (list) =>
+  `<div class="swatches">${list
+    .map(([hex, name, use]) => `<div class="swatch"><span style="background:${hex}"></span><strong>${name}</strong><code>${hex}</code><small>${use}</small></div>`)
+    .join("")}</div>`;
 const tags = (list) => `<div class="tags">${list.map((t) => `<span class="tag">${t}</span>`).join("")}</div>`;
 
 export const projects = [
+  {
+    slug: "wl-construction",
+    title: "WL Construction — Brand Identity",
+    short: "WL Construction",
+    blurb: "Brand identity, guidelines, company profile & social media",
+    tagline: "Complete brand system",
+    image: "Image/wlc/cover.webp",
+    imagePosition: "center",
+    heroImage: "Image/wlc/variations.webp",
+    alt: "WL Construction logo in navy and gold",
+    categories: ["branding"],
+    studio: 1,
+    studioOnly: true,
+    studioLabel: "Branding",
+    caseStudy: {
+      subtitle: "A complete brand system for a Cebu construction firm, from the logo and guidelines to the company profile, social media and a marketing plan. Presented June 2026.",
+      live: null,
+      galleryTitle: "From the brand book",
+      galleryFit: "contain",
+      note: "Images are pages from the brand proposal Project SNGDNN presented to WL Construction. The imagery-direction samples are generated mockups; project photos belong to WL Construction.",
+      meta: [["Client", "WL Construction, Cebu"], ["Scope", "Brand identity & marketing"], ["Creatives", "Erika Niña Cotiangco"]],
+      stats: [["3", "Logo versions"], ["4", "Brand colours"], ["30+", "Social & print designs"], ["117", "Pages in the brand proposal"]],
+      gallery: [
+        ["Image/wlc/logo.webp", "Primary logo: the W and L initials built from columns and beams under a rising roofline"],
+        ["Image/wlc/palette.webp", "Colour palette: navy for engineering and trust, gold for premium highlights"],
+        ["Image/wlc/symbolism.webp", "Logo symbolism: structural columns and support beams for stability"],
+        ["Image/wlc/typography.webp", "Typography: Inter across every weight for a clean, modern voice"],
+        ["Image/wlc/icons.webp", "Custom icon set for services, safety and values"],
+        ["Image/wlc/patterns.webp", "Brand patterns built from the logo mark"],
+        ["Image/wlc/imagery.webp", "Imagery direction: navy, gold and white tones with clean lighting"],
+        ["Image/wlc/company-profile.webp", "Company profile: cover spread"],
+        ["Image/wlc/services.webp", "Company profile: services offered"],
+        ["Image/wlc/service-spotlight.webp", "Social media: service spotlight post"],
+        ["Image/wlc/project-post.webp", "Social media: project showcase template"],
+        ["Image/wlc/business-card.webp", "Business card, front and back"],
+        ["Image/wlc/marketing.webp", "Marketing strategy: clear, achievable objectives"],
+      ],
+      sections: [
+        ["The brief", `<p>WL Construction is a Cebu-based firm building residential, commercial and institutional projects across Cebu and the Visayas. Its work was solid, but its look was not consistent. The firm needed an identity that matched its engineering standards and a kit it could use everywhere: signage, uniforms, tarpaulins, proposals and social media.</p>`],
+        ["The idea behind the mark", `<p>The logo is modern and minimalist, and every line has a job:</p><ul>
+          <li><strong>The W and L initials</strong> form the base of the mark.</li>
+          <li><strong>Structural columns and support beams</strong> stand for stability and strength in execution.</li>
+          <li><strong>A rising roofline</strong> signals progress and the firm's aim to lead in Philippine construction.</li>
+          <li><strong>A small window at the centre</strong> is a reminder that every build is a space where people live, work and grow.</li>
+        </ul>`],
+        ["Colour & type", swatches([
+          ["#25264C", "Navy", "Main logo colour: professionalism, engineering"],
+          ["#F0B819", "Gold", "Accent: premium feel, highlights"],
+          ["#F5F5F5", "Off-white", "Backgrounds, clean layouts"],
+          ["#4B4B4B", "Charcoal", "Text, secondary elements"],
+        ]) + `<p>Inter is the single typeface across the whole system, from business cards to social posts.</p>`],
+        ["What we delivered", cols([
+          ["Brand guidelines", ["Primary, secondary and icon logos", "Logo variations on navy, gold and white", "Usage rules, plus do's and don'ts"]],
+          ["Visual system", ["Custom icon set", "Logo-based patterns", "Imagery direction and colour treatment"]],
+          ["Company profile", ["About, mission, vision and core values", "Services and completed projects", "Professional team and consultants"]],
+          ["Social media & print", ["Service spotlight and project showcase posts", "Hiring, trivia and testimonial templates", "Business cards"]],
+          ["Marketing strategy", ["Campaign goals and objectives", "Channels, schedule and target audience", "KPIs and a rollout roadmap"]],
+        ])],
+        ["Services used", tags(["Brand identity", "Logo design", "Brand guidelines", "Company profile", "Social media design", "Print collateral", "Marketing strategy"])],
+      ],
+    },
+  },
   {
     slug: "atms",
     title: "ATMS — Agila Tax Management System",
@@ -19,6 +88,8 @@ export const projects = [
     alt: "ATMS main dashboard showing all enterprise portals",
     categories: ["development", "applications"],
     featured: true,
+    studio: 2,
+    studioLabel: "System development",
     caseStudy: {
       subtitle: "An all-in-one operations platform for a Philippine tax and accounting firm — one system of record for sales, accounting, tax compliance, HR, payroll and field liaison work.",
       live: null,
@@ -70,6 +141,8 @@ export const projects = [
     alt: "MQ Printing Services website",
     categories: ["development", "design"],
     featured: true,
+    studio: 3,
+    studioLabel: "Web development",
     caseStudy: {
       subtitle: "End-to-end website and digital infrastructure for a Cebu print shop — from discovery call to DevOps.",
       live: "https://mqprintsph.com/",

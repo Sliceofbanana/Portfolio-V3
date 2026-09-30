@@ -8,6 +8,7 @@
  *         src/pages/portfolio/*.html   → /<name>.html
  *         src/pages/sngdnn/*.html      → /sngdnn/<name>.html
  *         src/data/projects.mjs         → /work/<slug>.html case studies + project grids
+ *                                         /sngdnn/work/<slug>.html for Project SNGDNN clients
  *
  * Each page file starts with a meta comment:
  *   <!-- meta {"title": "...", "description": "...", "nav": "work"} -->
@@ -17,7 +18,8 @@
  *   {{> name}}               include src/partials/name.html
  *   {{FORM Source Value}}    the shared intake form, tagged with its source
  *   {{PROJECTS all|featured}} project cards
- *   {{MINI_WORK}}            compact 4-up project strip (SNGDNN)
+ *   {{MINI_WORK}}            compact strip of SNGDNN clients
+ *   {{CLIENTS}}              SNGDNN client cards
  *   {{PROJECT_COUNT}}        e.g. "8+"
  *
  * Generated HTML is committed; Vercel serves it as plain static files.
@@ -62,16 +64,24 @@ const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;").repl
 
 /* ----------------------------------------------------------- components */
 
-const caseHref = (p) => `{{ROOT}}work/${p.slug}.html`;
+// Personal portfolio work vs. Project SNGDNN client work
+const portfolioProjects = projects.filter((p) => !p.studioOnly);
+const studioProjects = projects.filter((p) => p.studio && p.caseStudy).sort((a, b) => a.studio - b.studio);
 
-function projectCard(p, { featured = false, delay = 0 } = {}) {
+const CASE = {
+  portfolio: { list: portfolioProjects.filter((p) => p.caseStudy), base: "{{ROOT}}work/", back: ["{{ROOT}}work.html", "← All work"], contact: "{{ROOT}}contact.html" },
+  sngdnn: { list: studioProjects, base: "{{ROOT}}sngdnn/work/", back: ["{{ROOT}}sngdnn/work.html", "← All clients"], contact: "{{ROOT}}sngdnn/contact.html" },
+};
+const caseHref = (p, site = "portfolio") => `${CASE[site].base}${p.slug}.html`;
+
+function projectCard(p, { featured = false, delay = 0, site = "portfolio" } = {}) {
   const internal = !!p.caseStudy;
-  const href = internal ? caseHref(p) : p.href;
+  const href = internal ? caseHref(p, site) : p.href;
   const ext = internal ? "" : ` target="_blank" rel="noopener"`;
   const cls = ["project", "reveal", featured && "featured", delay && `reveal-d${delay}`].filter(Boolean).join(" ");
   return `<a class="${cls}" href="${href}"${ext} data-category="${p.categories.join(" ")}">
                         <div class="project-media">
-                            <img src="{{ROOT}}${p.image}" alt="${esc(p.alt)}" loading="lazy" width="${featured ? 2160 : 800}" height="${featured ? 1350 : 500}">
+                            <img src="{{ROOT}}${p.image}" alt="${esc(p.alt)}"${p.imagePosition ? ` style="object-position:${p.imagePosition}"` : ""} loading="lazy" width="${featured ? 2160 : 800}" height="${featured ? 1350 : 500}">
                             <span class="view">${internal ? "Read case study →" : p.linkLabel}</span>
                         </div>
                         <div class="project-info">
@@ -79,49 +89,54 @@ function projectCard(p, { featured = false, delay = 0 } = {}) {
                                 <h3>${p.title}</h3>
                                 <p>${p.blurb}</p>
                             </div>
-                            <span class="project-year">${internal ? "Case study" : p.badge}</span>
+                            <span class="project-year">${site === "sngdnn" ? p.studioLabel : internal ? "Case study" : p.badge}</span>
                         </div>
                     </a>`;
 }
 
 function projectGrid(which) {
-  const list = which === "featured" ? projects.filter((p) => p.featured) : projects;
+  const list = which === "featured" ? portfolioProjects.filter((p) => p.featured) : portfolioProjects;
   return `<div class="work-grid">\n                    ${list
     .map((p, i) => projectCard(p, { featured: i === 0, delay: i % 2 }))
     .join("\n\n                    ")}\n                </div>`;
 }
 
+function clientGrid() {
+  return `<div class="work-grid">\n                    ${studioProjects
+    .map((p, i) => projectCard(p, { featured: i === 0, delay: i % 2, site: "sngdnn" }))
+    .join("\n\n                    ")}\n                </div>`;
+}
+
 function miniWork() {
-  const list = projects.filter((p) => p.caseStudy).slice(0, 4);
+  const list = studioProjects;
   return `<div class="mini-work">\n${list
     .map(
-      (p, i) => `                    <a href="${caseHref(p)}" class="reveal${i ? ` reveal-d${i}` : ""}">
+      (p, i) => `                    <a href="${caseHref(p, "sngdnn")}" class="reveal${i ? ` reveal-d${i}` : ""}">
                         <div class="project-media"><img src="{{ROOT}}${p.image}" alt="${esc(p.alt)}" loading="lazy" width="400" height="300"></div>
-                        <h4>${p.short || p.title}</h4><p>${p.tagline}</p>
+                        <h4>${p.short || p.title}</h4><p>${p.studioLabel} · ${p.tagline}</p>
                     </a>`
     )
     .join("\n")}\n                </div>`;
 }
 
-function caseStudyBody(p) {
+function caseStudyBody(p, site = "portfolio") {
   const cs = p.caseStudy;
-  const i = projects.filter((x) => x.caseStudy).indexOf(p);
-  const withCases = projects.filter((x) => x.caseStudy);
-  const next = withCases[(i + 1) % withCases.length];
+  const { list, back, contact } = CASE[site];
+  const next = list[(list.indexOf(p) + 1) % list.length];
   const stats = cs.stats
     ? `<div class="cs-stats">${cs.stats.map(([n, l]) => `<div class="card"><strong class="grad-text">${n}</strong><span>${l}</span></div>`).join("")}</div>`
     : "";
   const gallery = cs.gallery
-    ? `<section class="cs-section"><h3>Inside the system</h3><div class="cs-gallery">${cs.gallery
+    ? `<section class="cs-section"><h3>${cs.galleryTitle || "Inside the system"}</h3><div class="cs-gallery${cs.galleryFit === "contain" ? " is-contain" : ""}">${cs.gallery
         .map(([src, cap]) => `<figure><button type="button" data-zoom="{{ROOT}}${src}" aria-label="Enlarge: ${esc(cap)}"><img src="{{ROOT}}${src}" alt="${esc(cap)}" loading="lazy"></button><figcaption>${cap}</figcaption></figure>`)
         .join("")}</div></section>`
     : "";
   return `
         <article class="section case-page">
             <div class="container case-container">
-                <a href="{{ROOT}}work.html" class="back-link reveal">← All work</a>
+                <a href="${back[0]}" class="back-link reveal">${back[1]}</a>
                 <header class="case-head reveal">
-                    <span class="eyebrow">Case study</span>
+                    <span class="eyebrow">${site === "sngdnn" ? `Client · ${p.studioLabel}` : "Case study"}</span>
                     <h1>${p.title}</h1>
                     <p class="cs-sub">${cs.subtitle}</p>
                 </header>
@@ -134,11 +149,11 @@ function caseStudyBody(p) {
                     ${cs.note ? `<p class="cs-note">${cs.note}</p>` : ""}
                     <div class="cs-actions">
                         ${cs.live ? `<a class="btn btn-primary" href="${cs.live}" target="_blank" rel="noopener">View live website <span class="arrow">↗</span></a>` : ""}
-                        <a class="btn ${cs.live ? "btn-ghost" : "btn-primary"}" href="{{ROOT}}contact.html">Start a similar project</a>
+                        <a class="btn ${cs.live ? "btn-ghost" : "btn-primary"}" href="${contact}">Start a similar project</a>
                     </div>
                 </div>
-                <a class="next-case reveal" href="${caseHref(next)}">
-                    <span>Next case study</span>
+                <a class="next-case reveal" href="${caseHref(next, site)}">
+                    <span>${site === "sngdnn" ? "Next client" : "Next case study"}</span>
                     <strong>${next.title} →</strong>
                 </a>
             </div>
@@ -179,7 +194,8 @@ function render(content, root) {
   html = html.replace(/\{\{FORM ([^}]+)\}\}/g, (_, source) => partial("intake-form").replace("{{SOURCE}}", esc(source.trim())));
   html = html.replace(/\{\{PROJECTS (all|featured)\}\}/g, (_, w) => projectGrid(w));
   html = html.replace(/\{\{MINI_WORK\}\}/g, () => miniWork());
-  html = html.replace(/\{\{PROJECT_COUNT\}\}/g, `${projects.length}+`);
+  html = html.replace(/\{\{CLIENTS\}\}/g, () => clientGrid());
+  html = html.replace(/\{\{PROJECT_COUNT\}\}/g, `${portfolioProjects.length}+`);
   html = html.replace(/\{\{YEAR\}\}/g, String(new Date().getFullYear()));
   return cleanUrls(html.replace(/\{\{ROOT\}\}/g, root));
 }
@@ -281,21 +297,20 @@ for (const site of Object.keys(SITES)) {
   }
 }
 
-for (const p of projects.filter((x) => x.caseStudy)) {
-  write(
-    `work/${p.slug}.html`,
-    page(
-      "portfolio",
-      {
-        title: `${p.title} — Case Study | Genesis Jr`,
-        description: p.caseStudy.subtitle,
-        nav: "work",
-        urlPath: `/work/${p.slug}`,
-      },
-      caseStudyBody(p),
-      "/"
-    )
-  );
+for (const site of ["portfolio", "sngdnn"]) {
+  const sub = site === "sngdnn" ? "sngdnn/work" : "work";
+  const suffix = site === "sngdnn" ? "Project SNGDNN" : "Genesis Jr";
+  for (const p of CASE[site].list) {
+    write(
+      `${sub}/${p.slug}.html`,
+      page(
+        site,
+        { title: `${p.title} — Case Study | ${suffix}`, description: p.caseStudy.subtitle, nav: "work", urlPath: `/${sub}/${p.slug}` },
+        caseStudyBody(p, site),
+        "/"
+      )
+    );
+  }
 }
 
 // Sitemap
