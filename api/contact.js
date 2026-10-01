@@ -19,6 +19,8 @@ const RATE_LIMIT = { max: 5, windowSec: 15 * 60 }; // 5 submissions per 15 minut
 const RESEND_TIMEOUT_MS = 10000;
 
 const DEFAULT_ORIGINS = [
+  'https://www.genesisjr.com',
+  'https://genesisjr.com',
   'https://genesisjr.tech',
   'https://www.genesisjr.tech',
   'https://genesisjr.vercel.app',

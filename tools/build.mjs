@@ -31,7 +31,7 @@ import { projects } from "../src/data/projects.mjs";
 
 const ROOT_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const SRC = path.join(ROOT_DIR, "src");
-const BASE_URL = "https://genesisjr.tech";
+const BASE_URL = "https://www.genesisjr.com";
 
 const SITES = {
   portfolio: {
