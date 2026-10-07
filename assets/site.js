@@ -96,49 +96,87 @@
   // Data comes from api/github.js; the section stays hidden if the request fails.
   const contrib = $("[data-contrib]");
   if (contrib) {
-    fetch("/api/github")
-      .then((res) => (res.ok ? res.json() : Promise.reject(res.status)))
-      .then(({ total, weeks }) => {
-        if (!Array.isArray(weeks) || !weeks.length) return;
-        const grid = $(".contrib-grid", contrib);
-        const months = $(".contrib-months", contrib);
-        const fmt = new Intl.DateTimeFormat("en", { month: "short", day: "numeric", timeZone: "UTC" });
-        const monthName = new Intl.DateTimeFormat("en", { month: "short", timeZone: "UTC" });
-        const cells = document.createDocumentFragment();
-        let lastMonth = -1;
+    const grid = $(".contrib-grid", contrib);
+    const months = $(".contrib-months", contrib);
+    const yearsNav = $(".contrib-years", contrib);
+    const scroller = $(".contrib-scroll", contrib);
+    const fmt = new Intl.DateTimeFormat("en", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" });
+    const monthName = new Intl.DateTimeFormat("en", { month: "short", timeZone: "UTC" });
+    const cache = new Map(); // "" = last 12 months, otherwise a calendar year
 
-        weeks.forEach((week, col) => {
-          week.forEach(([date, count, level]) => {
-            const d = new Date(`${date}T00:00:00Z`);
-            const cell = document.createElement("span");
-            cell.dataset.l = level;
-            cell.style.gridColumn = col + 1;
-            cell.style.gridRow = d.getUTCDay() + 1;
-            cell.title = `${count || "No"} contribution${count === 1 ? "" : "s"} on ${fmt.format(d)}`;
-            cells.appendChild(cell);
-          });
-          // Label a month above the first week that starts in it (skip a partial first week)
-          const first = new Date(`${week[0][0]}T00:00:00Z`);
-          if (first.getUTCMonth() !== lastMonth) {
-            if ((col > 0 || first.getUTCDate() <= 7) && col < weeks.length - 2) {
-              const label = document.createElement("span");
-              label.textContent = monthName.format(first);
-              label.style.gridColumn = `${col + 1} / span 3`;
-              months.appendChild(label);
-            }
-            lastMonth = first.getUTCMonth();
-          }
+    const load = (year) => {
+      if (!cache.has(year)) {
+        cache.set(year, fetch(`/api/github${year ? `?year=${year}` : ""}`).then((res) => (res.ok ? res.json() : Promise.reject(res.status))));
+      }
+      return cache.get(year).catch((err) => { cache.delete(year); throw err; });
+    };
+
+    const renderYears = (years, active) => {
+      if (yearsNav.childElementCount || !Array.isArray(years) || years.length < 2) return;
+      ["", ...years].forEach((y) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "contrib-year";
+        btn.dataset.year = y;
+        btn.textContent = y || "Last 12 months";
+        btn.setAttribute("aria-pressed", String(String(y) === active));
+        btn.addEventListener("click", () => show(String(y)));
+        yearsNav.appendChild(btn);
+      });
+    };
+
+    const render = ({ total, weeks }, year) => {
+      const cells = document.createDocumentFragment();
+      let lastMonth = -1;
+      grid.textContent = "";
+      months.textContent = "";
+
+      weeks.forEach((week, col) => {
+        week.forEach(([date, count, level]) => {
+          const d = new Date(`${date}T00:00:00Z`);
+          const cell = document.createElement("span");
+          cell.dataset.l = level;
+          cell.style.gridColumn = col + 1;
+          cell.style.gridRow = d.getUTCDay() + 1;
+          cell.title = `${count || "No"} contribution${count === 1 ? "" : "s"} on ${fmt.format(d)}`;
+          cells.appendChild(cell);
         });
+        // Label a month above the first week that starts in it (skip a partial first week)
+        const first = new Date(`${week[0][0]}T00:00:00Z`);
+        if (first.getUTCMonth() !== lastMonth) {
+          if ((col > 0 || first.getUTCDate() <= 7) && col < weeks.length - 2) {
+            const label = document.createElement("span");
+            label.textContent = monthName.format(first);
+            label.style.gridColumn = `${col + 1} / span 3`;
+            months.appendChild(label);
+          }
+          lastMonth = first.getUTCMonth();
+        }
+      });
 
-        contrib.style.setProperty("--weeks", weeks.length);
-        grid.appendChild(cells);
-        grid.setAttribute("aria-label", `${total} GitHub contributions in the last year`);
-        $("[data-contrib-total]", contrib).textContent = Number(total).toLocaleString("en");
-        contrib.hidden = false;
-        const scroller = $(".contrib-scroll", contrib);
-        scroller.scrollLeft = scroller.scrollWidth; // show the most recent weeks first on narrow screens
-      })
-      .catch(() => {});
+      const when = year ? `in ${year}` : "in the last year";
+      contrib.style.setProperty("--weeks", weeks.length);
+      grid.appendChild(cells);
+      grid.setAttribute("aria-label", `${total} GitHub contributions ${when}`);
+      $("[data-contrib-total]", contrib).textContent = Number(total).toLocaleString("en");
+      $("[data-contrib-when]", contrib).textContent = `${when}.`;
+      $$(".contrib-year", contrib).forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.year === year)));
+      scroller.scrollLeft = year ? 0 : scroller.scrollWidth; // latest weeks first for the rolling view
+    };
+
+    const show = (year) => {
+      contrib.classList.add("is-loading");
+      load(year)
+        .then((data) => {
+          if (!Array.isArray(data.weeks) || !data.weeks.length) return;
+          contrib.hidden = false; // unhide first so the scroll position can be set
+          renderYears(data.years, year);
+          render(data, year);
+        })
+        .catch(() => {})
+        .finally(() => contrib.classList.remove("is-loading"));
+    };
+    show("");
   }
 
   /* Modals ----------------------------------------------------------------- */

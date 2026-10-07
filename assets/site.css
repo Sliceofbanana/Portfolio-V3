@@ -347,6 +347,12 @@ p { margin: 0; }
 .contrib-card [data-l="2"] { background: rgba(255, 90, 31, 0.5); }
 .contrib-card [data-l="3"] { background: rgba(255, 90, 31, 0.75); }
 .contrib-card [data-l="4"] { background: var(--accent); }
+.contrib-years { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
+.contrib-years:empty { display: none; }
+.contrib-year { font: inherit; font-size: 13px; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--line-strong); background: none; color: var(--muted); cursor: pointer; transition: color 0.2s, border-color 0.2s, background 0.2s; }
+.contrib-year:hover { color: var(--text); }
+.contrib-year[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #140a04; font-weight: 600; }
+.contrib-section.is-loading .contrib-cal { opacity: 0.5; transition: opacity 0.2s; }
 .contrib-legend { display: flex; align-items: center; justify-content: flex-end; gap: 4px; margin-top: 14px; font-size: 12px; color: var(--faint); }
 .contrib-legend i { display: inline-block; }
 @media (min-width: 1100px) { .contrib-cal { --cell: 13px; } }
