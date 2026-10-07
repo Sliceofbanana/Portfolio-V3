@@ -56,22 +56,4 @@ export const services = [
     stack: ["Next.js", "WooCommerce", "Supabase", "Payment gateways", "Vercel"],
     projects: ["mqprints", "bodega"],
   },
-  {
-    slug: "architecture-consulting",
-    icon: "git-network-outline",
-    title: "Architecture & consulting",
-    short: "Database, API and stack planning",
-    summary: "Technical planning for complex projects — database design, API architecture, stack selection, deployment and scalability.",
-    lead: "Before you build, get the foundation right. I help you choose the stack, design the data and plan the rollout so the system still holds up when it grows.",
-    includes: [
-      ["Stack selection", "The right tools for your team, budget and timeline — not the trendiest ones."],
-      ["Database design", "Schemas that model your business clearly and stay fast as data grows."],
-      ["API architecture", "Validated, secure endpoints that web, mobile and partner apps can share."],
-      ["Security review", "Authentication, rate limiting, input validation and safe handling of secrets."],
-      ["DevOps", "Docker, CI/CD, environments and deployments you can repeat with confidence."],
-      ["Code review", "A second pair of eyes on an existing codebase, with a prioritized fix list."],
-    ],
-    stack: ["System design", "PostgreSQL", "Docker", "Vercel", "Zod", "CI/CD"],
-    projects: ["atms"],
-  },
 ];

@@ -8,7 +8,7 @@ export const testimonials = [
     role: "Owner, MQ Printing Services",
     project: "mqprints",
     quote:
-      "Sauna sa Facebook ra jud mi mag-agad para sa inquiries. Pagka-launch sa among website, daghan na nag-message nga nakakita sa amo sa Google. Paspas kaayo si Genesis mo-reply, ug kung naa mi gustong i-change, ayo dayon. Sulit kaayo — highly recommended!",
+      "Paspas kaayo si Genesis mo-reply, ug kung naa mi gustong i-change, ayo dayon. Klaro mo-explain ug dali ra ka-istorya. Sulit kaayo — highly recommended!",
   },
   {
     name: "Wilmar Luyao",

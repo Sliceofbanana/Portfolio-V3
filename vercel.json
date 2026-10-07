@@ -12,6 +12,11 @@
       "source": "/sngdnn/:path*",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/services/architecture-consulting",
+      "destination": "/services",
+      "permanent": true
     }
   ],
   "headers": [
