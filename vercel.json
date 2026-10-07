@@ -54,12 +54,17 @@
       ]
     },
     {
-      "source": "/api/(.*)",
+      "source": "/api/contact",
       "headers": [
         {
           "key": "Cache-Control",
           "value": "no-store"
-        },
+        }
+      ]
+    },
+    {
+      "source": "/api/(.*)",
+      "headers": [
         {
           "key": "X-Robots-Tag",
           "value": "noindex"

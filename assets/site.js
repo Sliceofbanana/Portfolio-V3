@@ -92,6 +92,55 @@
     el.textContent = months % 12 >= 6 ? `${years}.5` : `${Math.max(years, 1)}`;
   });
 
+  /* GitHub contribution calendar (About) ------------------------------------- */
+  // Data comes from api/github.js; the section stays hidden if the request fails.
+  const contrib = $("[data-contrib]");
+  if (contrib) {
+    fetch("/api/github")
+      .then((res) => (res.ok ? res.json() : Promise.reject(res.status)))
+      .then(({ total, weeks }) => {
+        if (!Array.isArray(weeks) || !weeks.length) return;
+        const grid = $(".contrib-grid", contrib);
+        const months = $(".contrib-months", contrib);
+        const fmt = new Intl.DateTimeFormat("en", { month: "short", day: "numeric", timeZone: "UTC" });
+        const monthName = new Intl.DateTimeFormat("en", { month: "short", timeZone: "UTC" });
+        const cells = document.createDocumentFragment();
+        let lastMonth = -1;
+
+        weeks.forEach((week, col) => {
+          week.forEach(([date, count, level]) => {
+            const d = new Date(`${date}T00:00:00Z`);
+            const cell = document.createElement("span");
+            cell.dataset.l = level;
+            cell.style.gridColumn = col + 1;
+            cell.style.gridRow = d.getUTCDay() + 1;
+            cell.title = `${count || "No"} contribution${count === 1 ? "" : "s"} on ${fmt.format(d)}`;
+            cells.appendChild(cell);
+          });
+          // Label a month above the first week that starts in it (skip a partial first week)
+          const first = new Date(`${week[0][0]}T00:00:00Z`);
+          if (first.getUTCMonth() !== lastMonth) {
+            if ((col > 0 || first.getUTCDate() <= 7) && col < weeks.length - 2) {
+              const label = document.createElement("span");
+              label.textContent = monthName.format(first);
+              label.style.gridColumn = `${col + 1} / span 3`;
+              months.appendChild(label);
+            }
+            lastMonth = first.getUTCMonth();
+          }
+        });
+
+        contrib.style.setProperty("--weeks", weeks.length);
+        grid.appendChild(cells);
+        grid.setAttribute("aria-label", `${total} GitHub contributions in the last year`);
+        $("[data-contrib-total]", contrib).textContent = Number(total).toLocaleString("en");
+        contrib.hidden = false;
+        const scroller = $(".contrib-scroll", contrib);
+        scroller.scrollLeft = scroller.scrollWidth; // show the most recent weeks first on narrow screens
+      })
+      .catch(() => {});
+  }
+
   /* Modals ----------------------------------------------------------------- */
   let lastFocus = null;
   function openModal(modal) {

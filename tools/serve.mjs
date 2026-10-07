@@ -4,7 +4,7 @@
 import http from "node:http";
 import fs from "node:fs";
 import path from "node:path";
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const PORT = Number(process.argv[2]) || 5173;
@@ -20,9 +20,26 @@ function resolve(urlPath) {
   return null;
 }
 
+// Minimal Vercel-style adapter so GET functions in api/ (e.g. /api/github) work locally.
+// Env vars come from the shell, e.g. GITHUB_TOKEN=... node tools/serve.mjs
+async function runApi(url, req, res) {
+  const file = path.join(ROOT, `${url}.js`);
+  if (!fs.existsSync(file)) { res.writeHead(404); return res.end("Not found"); }
+  try {
+    const { default: handler } = await import(`${pathToFileURL(file).href}?t=${Date.now()}`);
+    res.status = (code) => { res.statusCode = code; return res; };
+    res.json = (body) => { res.setHeader("Content-Type", "application/json"); res.end(JSON.stringify(body)); };
+    await handler(req, res);
+  } catch (err) {
+    console.error(err);
+    res.writeHead(500); res.end("API error");
+  }
+}
+
 http.createServer((req, res) => {
   const url = decodeURIComponent(req.url.split("?")[0]);
   if (BLOCKED.test(url)) { res.writeHead(404); return res.end("Not found"); }
+  if (/^\/api\/[a-z-]+$/.test(url) && req.method === "GET") return runApi(url, req, res);
   if (url.endsWith(".html") || (url.length > 1 && url.endsWith("/"))) {
     const clean = url.replace(/(\/index)?\.html$/, "").replace(/\/$/, "") || "/";
     res.writeHead(308, { Location: clean });
