@@ -5,7 +5,12 @@
   "redirects": [
     {
       "source": "/sngdnn.html",
-      "destination": "/sngdnn",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/sngdnn/:path*",
+      "destination": "/",
       "permanent": true
     }
   ],

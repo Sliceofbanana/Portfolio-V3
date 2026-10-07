@@ -40,7 +40,7 @@ const FIELDS = {
   Notes: { label: 'Notes', max: 3000 },
 };
 const ALLOWED_GOALS = ['Showcase services', 'Sell products', 'Blog', 'Internal system', 'Info Site', 'Portfolio'];
-const ALLOWED_SOURCES = ['Genesis Jr Portfolio', 'Project SNGDNN'];
+const ALLOWED_SOURCES = ['Genesis Jr Portfolio'];
 const EMAIL_RE = /^[^\s@<>()[\]\\,;:"]+@[^\s@<>()[\]\\,;:"]+\.[a-z]{2,}$/i;
 
 /* ---------------------------------------------------------------- helpers */

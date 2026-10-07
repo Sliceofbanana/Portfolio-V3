@@ -21,7 +21,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&family=Silkscreen&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/boot.js"></script>
 </head>
@@ -38,10 +38,31 @@
                 <ul class="nav-links">
                     <li><a href="/work">Work</a></li>
                     <li><a href="/about">About</a></li>
-                    <li><a href="/services">Services</a></li>
+                    <li class="has-menu">
+                        <a href="/services">Services</a>
+                        <button type="button" class="submenu-toggle" aria-expanded="false" aria-controls="menu-services" aria-label="Show services"><ion-icon name="chevron-down-outline"></ion-icon></button>
+                        <div class="submenu" id="menu-services">
+                            <a href="/services/web-applications" class="submenu-item">
+                                <span class="submenu-icon"><ion-icon name="layers-outline"></ion-icon></span>
+                                <span><strong>Custom web applications</strong><small>Portals, booking systems and dashboards</small></span>
+                            </a>
+                            <a href="/services/wordpress-cms" class="submenu-item">
+                                <span class="submenu-icon"><ion-icon name="globe-outline"></ion-icon></span>
+                                <span><strong>WordPress & CMS solutions</strong><small>Business sites your team can edit</small></span>
+                            </a>
+                            <a href="/services/e-commerce" class="submenu-item">
+                                <span class="submenu-icon"><ion-icon name="cart-outline"></ion-icon></span>
+                                <span><strong>E-commerce systems</strong><small>Stores, payments and inventory</small></span>
+                            </a>
+                            <a href="/services/architecture-consulting" class="submenu-item">
+                                <span class="submenu-icon"><ion-icon name="git-network-outline"></ion-icon></span>
+                                <span><strong>Architecture & consulting</strong><small>Database, API and stack planning</small></span>
+                            </a>
+                            <a href="/services" class="submenu-all">All services &amp; how I work <span aria-hidden="true">→</span></a>
+                        </div>
+                    </li>
                     <li><a href="/experience" class="active" aria-current="page">Experience</a></li>
                     <li><a href="/contact">Contact</a></li>
-                    <li><a href="/sngdnn" class="pill-link">Project SNGDNN ↗</a></li>
                 </ul>
             </nav>
 
@@ -64,6 +85,7 @@
                     <div>
                         <p class="col-title reveal">Work</p>
                         <ol class="timeline">
+                            <li class="reveal"><h3>Website Developer · Project-based</h3><span class="org">Magis Realty &amp; Brokerage — in development, not yet public</span><span class="when now">Present</span></li>
                             <li class="reveal"><h3>Founder &amp; CEO</h3><span class="org">Project SNGDNN Solutions</span><span class="when now">Sep 2025 — Present</span></li>
                             <li class="reveal"><h3>Website Developer · Contract</h3><span class="org">Camp Digital</span><span class="when now">Oct 2025 — Present</span></li>
                             <li class="reveal"><h3>Software Developer · Project-based</h3><span class="org">Agila Tax Management Services — built the <a class="inline" href="/work/atms">ATMS platform</a></span><span class="when">Feb 2026 — Jul 2026</span></li>
@@ -143,12 +165,6 @@
                     <a href="/services">Services</a>
                     <a href="/experience">Experience</a>
                     <a href="/contact">Contact</a>
-                </div>
-                <div>
-                    <h4>Project SNGDNN</h4>
-                    <a href="/sngdnn">Studio home</a>
-                    <a href="/sngdnn/services">Services</a>
-                    <a href="/sngdnn/contact">Work with us</a>
                 </div>
             </nav>
         </div>

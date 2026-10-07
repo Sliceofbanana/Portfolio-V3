@@ -6,7 +6,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const pages = ["", "sngdnn", "work", "sngdnn/work"].flatMap((d) =>
+const pages = ["", "work", "services"].flatMap((d) =>
   fs.readdirSync(path.join(ROOT, d)).filter((f) => f.endsWith(".html")).map((f) => path.join(d, f))
 );
 

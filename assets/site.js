@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Genesis Jr / Project SNGDNN — shared behaviour
+   Genesis Jr — site behaviour
    ========================================================================== */
 (function () {
   "use strict";
@@ -26,6 +26,32 @@
       })
     );
   }
+
+  // Services dropdown: click/tap toggles it (desktop also opens on hover via CSS)
+  $$(".has-menu").forEach((item) => {
+    const btn = $(".submenu-toggle", item);
+    if (!btn) return;
+    const setOpen = (open) => {
+      item.classList.toggle("open", open);
+      btn.setAttribute("aria-expanded", String(open));
+    };
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      setOpen(!item.classList.contains("open"));
+    });
+    document.addEventListener("click", (e) => {
+      if (!item.contains(e.target)) setOpen(false);
+    });
+    item.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && item.classList.contains("open")) {
+        setOpen(false);
+        btn.focus();
+      }
+    });
+    item.addEventListener("focusout", (e) => {
+      if (window.matchMedia("(min-width: 901px)").matches && !item.contains(e.relatedTarget)) setOpen(false);
+    });
+  });
 
   // "Back to top" scrolls without adding #top to the address bar
   $$("[data-top]").forEach((btn) =>
@@ -132,7 +158,7 @@
     $(".modal-close", lightbox).focus();
   });
 
-  /* Contact / intake form (shared by portfolio and SNGDNN) ----------------- */
+  /* Contact / intake form ---------------------------------------------------- */
   // Keep these limits in sync with api/contact.js
   const EMAIL_RE = /^[^\s@<>()[\]\\,;:"]+@[^\s@<>()[\]\\,;:"]+\.[a-z]{2,}$/i;
   const RULES = {

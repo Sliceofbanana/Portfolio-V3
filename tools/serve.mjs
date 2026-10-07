@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Local static server that mimics Vercel's cleanUrls: /work → work.html, /sngdnn → sngdnn/index.html,
+// Local static server that mimics Vercel's cleanUrls: /work → work.html, /work/atms → work/atms.html,
 // and redirects *.html requests to the clean URL.   Usage: node tools/serve.mjs [port]
 import http from "node:http";
 import fs from "node:fs";

@@ -7,7 +7,7 @@
     "@type": "Person",
     "name": "Genesis Esdrilon Jr",
     "jobTitle": "Full-Stack Web Developer",
-    "description": "Full-stack web developer and founder of Project SNGDNN, building custom web solutions, systems and brands.",
+    "description": "Full-stack web developer building custom websites, booking platforms and enterprise systems.",
     "url": "https://www.genesisjr.com",
     "image": "https://www.genesisjr.com/Image/genesis.webp",
     "email": "mailto:genesis.esdrilonjr@gmail.com",
@@ -27,7 +27,7 @@
                         <span class="line">into digital</span>
                         <span class="line grad-text">experiences that work.</span>
                     </h1>
-                    <p class="hero-lead reveal reveal-d2">I'm <strong>Genesis Esdrilon Jr</strong> — a full-stack web developer and founder of <strong>Project SNGDNN</strong>. I build production-grade websites and systems that generate revenue and solve real business problems.</p>
+                    <p class="hero-lead reveal reveal-d2">I'm <strong>Genesis Esdrilon Jr</strong> — a full-stack web developer based in Cebu, Philippines. I build production-grade websites and systems that generate revenue and solve real business problems.</p>
                     <div class="hero-actions reveal reveal-d3">
                         <a href="{{ROOT}}work.html" class="btn btn-primary">See my work <span class="arrow">→</span></a>
                         <a href="{{ROOT}}contact.html" class="btn btn-ghost">Let's talk</a>
@@ -95,28 +95,24 @@
                     <a href="{{ROOT}}services.html" class="more-link">Services &amp; process →</a>
                 </div>
                 <div class="mini-services">
-                    <a href="{{ROOT}}services.html" class="card mini-service reveal"><ion-icon name="layers-outline"></ion-icon><h3>Custom web applications</h3><p>Portals, booking systems and dashboards.</p></a>
-                    <a href="{{ROOT}}services.html" class="card mini-service reveal reveal-d1"><ion-icon name="globe-outline"></ion-icon><h3>WordPress &amp; CMS</h3><p>Fast-turnaround business websites.</p></a>
-                    <a href="{{ROOT}}services.html" class="card mini-service reveal reveal-d2"><ion-icon name="cart-outline"></ion-icon><h3>E-commerce systems</h3><p>Stores, payments and inventory.</p></a>
-                    <a href="{{ROOT}}services.html" class="card mini-service reveal reveal-d3"><ion-icon name="git-network-outline"></ion-icon><h3>Architecture &amp; consulting</h3><p>Database, API and stack planning.</p></a>
+                    <a href="{{ROOT}}services/web-applications.html" class="card mini-service reveal"><ion-icon name="layers-outline"></ion-icon><h3>Custom web applications</h3><p>Portals, booking systems and dashboards.</p></a>
+                    <a href="{{ROOT}}services/wordpress-cms.html" class="card mini-service reveal reveal-d1"><ion-icon name="globe-outline"></ion-icon><h3>WordPress &amp; CMS</h3><p>Fast-turnaround business websites.</p></a>
+                    <a href="{{ROOT}}services/e-commerce.html" class="card mini-service reveal reveal-d2"><ion-icon name="cart-outline"></ion-icon><h3>E-commerce systems</h3><p>Stores, payments and inventory.</p></a>
+                    <a href="{{ROOT}}services/architecture-consulting.html" class="card mini-service reveal reveal-d3"><ion-icon name="git-network-outline"></ion-icon><h3>Architecture &amp; consulting</h3><p>Database, API and stack planning.</p></a>
                 </div>
             </div>
         </section>
 
         {{> metrics}}
 
-        <!-- SNGDNN promo -->
-        <section class="section" style="padding-top:0">
+        <section class="section">
             <div class="container">
-                <div class="promo reveal">
-                    <div>
-                        <span class="logo-pixel">SNGDNN</span>
-                        <h2>Need a whole team, not just a developer?</h2>
-                        <p>Project SNGDNN is my studio for full-stack web &amp; system development and branding — built for businesses, churches and organizations that want one partner for their entire digital foundation.</p>
-                    </div>
-                    <a href="{{ROOT}}sngdnn/index.html" class="btn btn-primary">Visit Project SNGDNN <span class="arrow">→</span></a>
+                <div class="section-head reveal">
+                    <span class="eyebrow">Kind words</span>
+                    <h2>What clients say.</h2>
                 </div>
+                {{TESTIMONIALS}}
             </div>
         </section>
 
-        {{> cta-portfolio}}
+        {{> cta}}

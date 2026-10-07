@@ -4,19 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services | Genesis Jr</title>
-    <meta name="description" content="Custom web applications, WordPress and CMS sites, e-commerce systems and architecture consulting — built end to end by Genesis Esdrilon Jr.">
+    <title>Custom web applications | Genesis Jr</title>
+    <meta name="description" content="Sales portals, booking systems and dashboards — full-stack applications with real business logic, role-based access and reporting.">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#0a0a0c">
-    <link rel="canonical" href="https://www.genesisjr.com/services">
+    <link rel="canonical" href="https://www.genesisjr.com/services/web-applications">
     <link rel="icon" type="image/webp" href="/Image/default1-67ce61e262485.webp">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Genesis Jr">
-    <meta property="og:title" content="Services | Genesis Jr">
-    <meta property="og:description" content="Custom web applications, WordPress and CMS sites, e-commerce systems and architecture consulting — built end to end by Genesis Esdrilon Jr.">
+    <meta property="og:title" content="Custom web applications | Genesis Jr">
+    <meta property="og:description" content="Sales portals, booking systems and dashboards — full-stack applications with real business logic, role-based access and reporting.">
     <meta property="og:image" content="https://www.genesisjr.com/Image/genesis.webp">
-    <meta property="og:url" content="https://www.genesisjr.com/services">
+    <meta property="og:url" content="https://www.genesisjr.com/services/web-applications">
     <meta name="twitter:card" content="summary_large_image">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,10 +39,10 @@
                     <li><a href="/work">Work</a></li>
                     <li><a href="/about">About</a></li>
                     <li class="has-menu">
-                        <a href="/services" class="active" aria-current="page">Services</a>
+                        <a href="/services" class="active">Services</a>
                         <button type="button" class="submenu-toggle" aria-expanded="false" aria-controls="menu-services" aria-label="Show services"><ion-icon name="chevron-down-outline"></ion-icon></button>
                         <div class="submenu" id="menu-services">
-                            <a href="/services/web-applications" class="submenu-item">
+                            <a href="/services/web-applications" class="submenu-item active" aria-current="page">
                                 <span class="submenu-icon"><ion-icon name="layers-outline"></ion-icon></span>
                                 <span><strong>Custom web applications</strong><small>Portals, booking systems and dashboards</small></span>
                             </a>
@@ -72,48 +72,79 @@
     </header>
 
     <main id="top">
-<section class="page-hero">
+
+        <section class="page-hero service-hero">
             <div class="container">
-                <span class="eyebrow reveal">Services</span>
-                <h1 class="reveal reveal-d1">From a two-week launch<br><span class="grad-text">to a custom platform.</span></h1>
-                <p class="page-lead reveal reveal-d2">One developer who owns the whole project — planning, design, build, deployment and support.</p>
+                <a href="/services" class="back-link reveal">← All services</a>
+                <div class="service-hero-row reveal">
+                    <span class="service-hero-icon"><ion-icon name="layers-outline"></ion-icon></span>
+                    <span class="eyebrow">Service</span>
+                </div>
+                <h1 class="reveal reveal-d1">Custom web applications</h1>
+                <p class="page-lead reveal reveal-d2">When spreadsheets and group chats stop scaling, I build the system your team actually runs on: one source of truth, the right access for each role, and reports you can trust.</p>
+                <div class="hero-actions reveal reveal-d3" style="margin-top:28px">
+                    <a href="/contact" class="btn btn-primary">Start a project <span class="arrow">→</span></a>
+                    <a href="/work" class="btn btn-ghost">See my work</a>
+                </div>
             </div>
         </section>
 
         <section class="section" style="padding-top:0">
             <div class="container">
-                <div class="services-grid">
-                    <a class="card service-card reveal" href="/services/web-applications">
-                        <div class="icon"><ion-icon name="layers-outline"></ion-icon></div>
-                        <span class="num">01</span>
-                        <h3>Custom web applications</h3>
-                        <p>Sales portals, booking systems and dashboards — full-stack applications with real business logic, role-based access and reporting.</p>
-                        <div class="tags"><span class="tag">React</span><span class="tag">Next.js</span><span class="tag">TypeScript</span><span class="tag">Laravel</span><span class="tag">Prisma</span></div>
-                        <span class="more-link">Explore service →</span>
+                <div class="section-head reveal">
+                    <span class="eyebrow">What's included</span>
+                    <h2>Everything you need,<br>handled end to end.</h2>
+                </div>
+                <div class="include-grid">
+                    <div class="card include reveal"><span class="num">01</span><h3>Portals & dashboards</h3><p>Role-based portals for each department, with the numbers that matter on the first screen.</p></div>
+                    <div class="card include reveal reveal-d1"><span class="num">02</span><h3>Booking & reservations</h3><p>Rooms, events and appointments with schedules, payments and confirmations.</p></div>
+                    <div class="card include reveal reveal-d2"><span class="num">03</span><h3>Workflows & approvals</h3><p>Tasks, requests and approvals routed to the right people, with a full history.</p></div>
+                    <div class="card include reveal"><span class="num">04</span><h3>Reports & exports</h3><p>PDF and Excel exports, payslips, invoices and summaries generated from live data.</p></div>
+                    <div class="card include reveal reveal-d1"><span class="num">05</span><h3>Authentication & roles</h3><p>Secure sign-in, per-role permissions and activity logs.</p></div>
+                    <div class="card include reveal reveal-d2"><span class="num">06</span><h3>Deployment & support</h3><p>Production hosting, monitoring, backups and ongoing improvements.</p></div>
+                </div>
+                <div class="stack-row reveal">
+                    <span class="col-title">Tools I use</span>
+                    <div class="tags"><span class="tag">React</span><span class="tag">Next.js</span><span class="tag">TypeScript</span><span class="tag">Laravel</span><span class="tag">Prisma</span><span class="tag">PostgreSQL</span><span class="tag">MySQL</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-head section-head-row reveal">
+                    <div>
+                        <span class="eyebrow">Related work</span>
+                        <h2>Built with this service.</h2>
+                    </div>
+                    <a href="/work" class="more-link">All work →</a>
+                </div>
+                <div class="work-grid">
+                    <a class="project reveal" href="/work/atms" data-category="development applications">
+                        <div class="project-media">
+                            <img src="/Image/atms/portals.webp" alt="ATMS main dashboard showing all enterprise portals" loading="lazy" width="800" height="500">
+                            <span class="view">Read case study →</span>
+                        </div>
+                        <div class="project-info">
+                            <div>
+                                <h3>ATMS — Agila Tax Management System</h3>
+                                <p>Enterprise operations platform · Next.js + Prisma + PostgreSQL</p>
+                            </div>
+                            <span class="project-year">Case study</span>
+                        </div>
                     </a>
-                    <a class="card service-card reveal reveal-d1" href="/services/wordpress-cms">
-                        <div class="icon"><ion-icon name="globe-outline"></ion-icon></div>
-                        <span class="num">02</span>
-                        <h3>WordPress & CMS solutions</h3>
-                        <p>Fast-turnaround business websites with custom themes, WooCommerce and ongoing performance optimization — easy for your team to edit.</p>
-                        <div class="tags"><span class="tag">WordPress</span><span class="tag">Elementor</span><span class="tag">WooCommerce</span><span class="tag">Odoo</span><span class="tag">Hostinger</span></div>
-                        <span class="more-link">Explore service →</span>
-                    </a>
-                    <a class="card service-card reveal" href="/services/e-commerce">
-                        <div class="icon"><ion-icon name="cart-outline"></ion-icon></div>
-                        <span class="num">03</span>
-                        <h3>E-commerce systems</h3>
-                        <p>Complete online store setup — product management, payment integration, inventory tracking and conversion optimization.</p>
-                        <div class="tags"><span class="tag">Next.js</span><span class="tag">WooCommerce</span><span class="tag">Supabase</span><span class="tag">Payment gateways</span><span class="tag">Vercel</span></div>
-                        <span class="more-link">Explore service →</span>
-                    </a>
-                    <a class="card service-card reveal reveal-d1" href="/services/architecture-consulting">
-                        <div class="icon"><ion-icon name="git-network-outline"></ion-icon></div>
-                        <span class="num">04</span>
-                        <h3>Architecture & consulting</h3>
-                        <p>Technical planning for complex projects — database design, API architecture, stack selection, deployment and scalability.</p>
-                        <div class="tags"><span class="tag">System design</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span><span class="tag">Vercel</span><span class="tag">Zod</span></div>
-                        <span class="more-link">Explore service →</span>
+                    <a class="project reveal reveal-d1" href="/work/bodega" data-category="development design">
+                        <div class="project-media">
+                            <img src="/Image/bodega.webp" alt="Bodega Coworking website" loading="lazy" width="800" height="500">
+                            <span class="view">Read case study →</span>
+                        </div>
+                        <div class="project-info">
+                            <div>
+                                <h3>Bodega Coworking Café</h3>
+                                <p>Design + development · Booking & payments</p>
+                            </div>
+                            <span class="project-year">Case study</span>
+                        </div>
                     </a>
                 </div>
             </div>
@@ -122,15 +153,13 @@
         <section class="section">
             <div class="container">
                 <div class="section-head reveal">
-                    <span class="eyebrow">How I work</span>
-                    <h2>A clear path from<br>first call to launch.</h2>
+                    <span class="eyebrow">Other services</span>
+                    <h2>Need something else?</h2>
                 </div>
-                <div class="process">
-                    <div class="step reveal"><span class="num">01</span><h3>Discovery &amp; planning</h3><p>Understanding your business goals and technical requirements.</p></div>
-                    <div class="step reveal reveal-d1"><span class="num">02</span><h3>Design &amp; prototype</h3><p>Wireframes and mockups in Figma for your review.</p></div>
-                    <div class="step reveal reveal-d2"><span class="num">03</span><h3>Development</h3><p>Building your system with clean, scalable code.</p></div>
-                    <div class="step reveal reveal-d3"><span class="num">04</span><h3>Testing &amp; launch</h3><p>Quality assurance and deployment to production.</p></div>
-                    <div class="step reveal reveal-d3"><span class="num">05</span><h3>Support</h3><p>Ongoing updates and performance optimization.</p></div>
+                <div class="other-services">
+                    <a class="card other-service reveal" href="/services/wordpress-cms"><span class="submenu-icon"><ion-icon name="globe-outline"></ion-icon></span><span><strong>WordPress & CMS solutions</strong><small>Business sites your team can edit</small></span><span class="arrow" aria-hidden="true">→</span></a>
+                    <a class="card other-service reveal" href="/services/e-commerce"><span class="submenu-icon"><ion-icon name="cart-outline"></ion-icon></span><span><strong>E-commerce systems</strong><small>Stores, payments and inventory</small></span><span class="arrow" aria-hidden="true">→</span></a>
+                    <a class="card other-service reveal" href="/services/architecture-consulting"><span class="submenu-icon"><ion-icon name="git-network-outline"></ion-icon></span><span><strong>Architecture & consulting</strong><small>Database, API and stack planning</small></span><span class="arrow" aria-hidden="true">→</span></a>
                 </div>
             </div>
         </section>
@@ -150,7 +179,6 @@
                 </div>
             </div>
         </section>
-
 
     </main>
 

@@ -21,7 +21,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&family=Silkscreen&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/boot.js"></script>
 </head>
@@ -38,10 +38,31 @@
                 <ul class="nav-links">
                     <li><a href="/work" class="active" aria-current="page">Work</a></li>
                     <li><a href="/about">About</a></li>
-                    <li><a href="/services">Services</a></li>
+                    <li class="has-menu">
+                        <a href="/services">Services</a>
+                        <button type="button" class="submenu-toggle" aria-expanded="false" aria-controls="menu-services" aria-label="Show services"><ion-icon name="chevron-down-outline"></ion-icon></button>
+                        <div class="submenu" id="menu-services">
+                            <a href="/services/web-applications" class="submenu-item">
+                                <span class="submenu-icon"><ion-icon name="layers-outline"></ion-icon></span>
+                                <span><strong>Custom web applications</strong><small>Portals, booking systems and dashboards</small></span>
+                            </a>
+                            <a href="/services/wordpress-cms" class="submenu-item">
+                                <span class="submenu-icon"><ion-icon name="globe-outline"></ion-icon></span>
+                                <span><strong>WordPress & CMS solutions</strong><small>Business sites your team can edit</small></span>
+                            </a>
+                            <a href="/services/e-commerce" class="submenu-item">
+                                <span class="submenu-icon"><ion-icon name="cart-outline"></ion-icon></span>
+                                <span><strong>E-commerce systems</strong><small>Stores, payments and inventory</small></span>
+                            </a>
+                            <a href="/services/architecture-consulting" class="submenu-item">
+                                <span class="submenu-icon"><ion-icon name="git-network-outline"></ion-icon></span>
+                                <span><strong>Architecture & consulting</strong><small>Database, API and stack planning</small></span>
+                            </a>
+                            <a href="/services" class="submenu-all">All services &amp; how I work <span aria-hidden="true">→</span></a>
+                        </div>
+                    </li>
                     <li><a href="/experience">Experience</a></li>
                     <li><a href="/contact">Contact</a></li>
-                    <li><a href="/sngdnn" class="pill-link">Project SNGDNN ↗</a></li>
                 </ul>
             </nav>
 
@@ -69,6 +90,15 @@
                     <section class="cs-section"><h3>How it was built</h3><div class="cs-cols"><div class="card"><h4>WordPress — marketing layer</h4><ul><li>Core marketing site with customised Elementor and custom plugin extensions</li><li>Dynamic service sections, tuned for performance</li></ul></div><div class="card"><h4>Next.js — app layer</h4><ul><li>Order system built for scalability</li><li>Frontend structured for performance</li></ul></div><div class="card"><h4>Supabase — backend</h4><ul><li>Data handling and storage</li><li>Structured form data and backend management</li></ul></div><div class="card"><h4>DevOps & maintenance</h4><ul><li>Hostinger + Vercel, env vars, DNS, SSL</li><li>Uptime monitoring, SEO and performance tuning</li></ul></div></div></section>
                     <section class="cs-section"><h3>Tech stack</h3><div class="tags"><span class="tag">WordPress</span><span class="tag">Elementor</span><span class="tag">Next.js</span><span class="tag">Supabase</span><span class="tag">Hostinger</span><span class="tag">Vercel</span></div></section>
                     <section class="cs-section"><h3>Results</h3><ul><li><strong>70% less reliance</strong> on social media for leads.</li><li><strong>Improved local SEO rankings</strong> for key services.</li><li><strong>Mobile traffic up 55%.</strong></li><li><strong>Hybrid approach</strong> — WordPress for marketing, Next.js for performance.</li></ul></section>
+                    <section class="cs-section"><h3>What the client says</h3><figure class="card quote reveal">
+                        <span class="quote-mark" aria-hidden="true">“</span>
+                        <blockquote>Sauna sa Facebook ra jud mi mag-agad para sa inquiries. Pagka-launch sa among website, daghan na nag-message nga nakakita sa amo sa Google. Paspas kaayo si Genesis mo-reply, ug kung naa mi gustong i-change, ayo dayon. Sulit kaayo — highly recommended!</blockquote>
+                        <figcaption>
+                            <span class="quote-avatar" aria-hidden="true">MQ</span>
+                            <span class="quote-who"><strong>Michael Quijada</strong><small>Owner, MQ Printing Services</small></span>
+                            <a class="more-link" href="/work/mqprints">Case study →</a>
+                        </figcaption>
+                    </figure></section>
                     
                     <div class="cs-actions">
                         <a class="btn btn-primary" href="https://mqprintsph.com/" target="_blank" rel="noopener">View live website <span class="arrow">↗</span></a>
@@ -102,12 +132,6 @@
                     <a href="/services">Services</a>
                     <a href="/experience">Experience</a>
                     <a href="/contact">Contact</a>
-                </div>
-                <div>
-                    <h4>Project SNGDNN</h4>
-                    <a href="/sngdnn">Studio home</a>
-                    <a href="/sngdnn/services">Services</a>
-                    <a href="/sngdnn/contact">Work with us</a>
                 </div>
             </nav>
         </div>
