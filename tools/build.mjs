@@ -20,7 +20,7 @@
  *   {{PROJECTS all|featured}} project cards
  *   {{SERVICES}}              service cards linking to each service page
  *   {{TESTIMONIALS}}          client quotes
- *   {{PROJECT_COUNT}}         e.g. "8+"
+ *   {{PROJECT_COUNT}}         e.g. "8"
  *   {{YEAR}}                  current year
  *
  * Generated HTML is committed; Vercel serves it as plain static files.
@@ -279,7 +279,7 @@ function render(content, root) {
   html = html.replace(/\{\{PROJECTS (all|featured)\}\}/g, (_, w) => projectGrid(w));
   html = html.replace(/\{\{SERVICES\}\}/g, () => serviceGrid());
   html = html.replace(/\{\{TESTIMONIALS\}\}/g, () => testimonialGrid());
-  html = html.replace(/\{\{PROJECT_COUNT\}\}/g, `${projects.length}+`);
+  html = html.replace(/\{\{PROJECT_COUNT\}\}/g, `${projects.length}`);
   html = html.replace(/\{\{YEAR\}\}/g, String(new Date().getFullYear()));
   return cleanUrls(html.replace(/\{\{ROOT\}\}/g, root));
 }

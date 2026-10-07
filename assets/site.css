@@ -24,7 +24,7 @@
   --radius-sm: 10px;
   --max: 1180px;
   --gutter: clamp(16px, 4vw, 32px);
-  --section: clamp(80px, 12vw, 140px);
+  --section: clamp(64px, 8vw, 104px);
   --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
 
   color-scheme: dark;
@@ -220,18 +220,10 @@ p { margin: 0; }
 .portrait-meta { position: absolute; left: 20px; right: 20px; bottom: 20px; z-index: 1; display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; }
 .portrait-meta h3 { font-size: 20px; }
 .portrait-meta p { color: var(--muted); font-size: 14px; }
-.portrait-badge { font-family: var(--font-display); font-size: 12px; padding: 6px 12px; border-radius: 999px; background: var(--grad); color: #140a04; font-weight: 600; white-space: nowrap; }
-.floating-chip { position: absolute; z-index: 2; padding: 10px 14px; border-radius: 14px; background: rgba(18, 18, 22, 0.85); backdrop-filter: blur(10px); border: 1px solid var(--line-strong); font-size: 13px; display: flex; align-items: center; gap: 10px; animation: float 6s ease-in-out infinite; }
-.floating-chip strong { font-family: var(--font-display); font-size: 18px; }
-.floating-chip.one { top: 22px; left: -18px; }
-.floating-chip.two { top: 42%; right: -18px; animation-delay: -3s; }
-@keyframes float { 50% { transform: translateY(-10px); } }
 
 @media (max-width: 900px) {
   .hero-grid { grid-template-columns: 1fr; }
   .portrait-wrap { max-width: 420px; }
-  .floating-chip.one { left: 12px; }
-  .floating-chip.two { right: 12px; top: auto; bottom: 112px; }
 }
 
 /* Marquee ------------------------------------------------------------------ */
@@ -301,7 +293,7 @@ p { margin: 0; }
 }
 
 /* Process ------------------------------------------------------------------ */
-.process { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; border-top: 1px solid var(--line); }
+.process { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--line); }
 .step { padding: 28px 22px 0 0; position: relative; }
 .step::before { content: ""; position: absolute; top: -5px; left: 0; width: 9px; height: 9px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 5px var(--bg); }
 .step .num { font-family: var(--font-display); color: var(--accent); font-size: 14px; font-weight: 600; }
