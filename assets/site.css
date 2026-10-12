@@ -685,3 +685,13 @@ a.service-card { color: inherit; }
 @media (max-width: 600px) {
   .dz-cap span:last-child { margin-left: 0; width: 100%; }
 }
+
+/* Campaigns and series — natural-shape masonry under a ruled heading */
+.dz-series { padding: 0 0 var(--section); }
+.dz-series-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px 24px; flex-wrap: wrap; padding-bottom: 12px; border-bottom: 2px solid var(--text); }
+.dz-series-head h2 { font-size: clamp(30px, 4.4vw, 54px); font-weight: 700; letter-spacing: -0.04em; }
+.dz-series-head p { font-size: 14px; color: var(--muted); }
+.dz-series-note { margin: 16px 0 clamp(24px, 3.5vw, 36px); max-width: 60ch; color: var(--muted); }
+.dz-masonry { list-style: none; margin: 0; padding: 0; columns: 3 240px; column-gap: clamp(14px, 2.2vw, 28px); }
+.dz-masonry li { break-inside: avoid; margin-bottom: clamp(14px, 2.2vw, 28px); }
+.dz-masonry .dz-print img { aspect-ratio: auto; object-fit: contain; background: #fff; }
