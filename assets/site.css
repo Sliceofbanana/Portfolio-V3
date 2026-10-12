@@ -633,26 +633,15 @@ a.service-card { color: inherit; }
 .btn-ink { background: #121212; color: var(--bg); }
 .btn-ink:hover { background: var(--accent); color: #121212; }
 
-/* Hero */
-.dz-hero { padding: clamp(120px, 16vw, 168px) 0 clamp(40px, 6vw, 64px); }
-.dz-masthead {
-  display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
-  padding: 10px 0; border-top: 2px solid var(--text); border-bottom: 1px solid var(--text);
-  font-family: var(--font-display); font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
-}
-.dz-title {
-  margin: clamp(28px, 5vw, 56px) 0 clamp(28px, 4vw, 44px);
-  font-size: clamp(52px, 10.5vw, 148px); font-weight: 700; line-height: 0.9; letter-spacing: -0.055em;
-}
-.dz-title em, .dz-h2 em {
-  font-family: var(--font-serif); font-style: italic; font-weight: 400; letter-spacing: -0.02em; color: var(--accent);
-}
-.dz-intro { display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(20px, 5vw, 64px); align-items: end; padding-top: 22px; border-top: 1px solid var(--line-strong); }
-.dz-intro p { color: var(--muted); max-width: 46ch; }
-.dz-intro .dz-lead { font-size: clamp(19px, 2.1vw, 24px); line-height: 1.45; color: var(--text); max-width: 34ch; }
+/* Hero — plain, left-aligned */
+.dz-hero { padding: clamp(130px, 17vw, 180px) 0 clamp(36px, 5vw, 56px); }
+.dz-title { font-size: clamp(46px, 8vw, 112px); font-weight: 700; line-height: 0.95; letter-spacing: -0.05em; }
+.dz-intro { display: flex; justify-content: space-between; align-items: end; gap: 16px 40px; flex-wrap: wrap; margin-top: clamp(24px, 4vw, 40px); padding-bottom: 14px; border-bottom: 2px solid var(--text); }
+.dz-intro p { max-width: 46ch; font-size: clamp(17px, 1.6vw, 19px); }
+.dz-intro .dz-meta { font-size: 14px; color: var(--muted); }
 
 /* Gallery — framed prints */
-.dz-gallery { padding: clamp(24px, 4vw, 48px) 0 var(--section); }
+.dz-gallery { padding: clamp(28px, 4vw, 44px) 0 var(--section); }
 .dz-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-flow: dense; align-items: start; gap: clamp(28px, 4vw, 48px) clamp(16px, 2.6vw, 32px); }
 .dz-feature { grid-column: span 2; grid-row: span 2; }
 .dz-feature-right { grid-column: 2 / span 2; }
@@ -662,41 +651,37 @@ a.service-card { color: inherit; }
   transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease);
 }
 .dz-print img { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; background: var(--surface-2); }
-.dz-item:nth-child(3n + 1) .dz-print:hover { transform: rotate(-1.2deg) translateY(-6px); }
-.dz-item:nth-child(3n + 2) .dz-print:hover { transform: rotate(1deg) translateY(-6px); }
-.dz-item:nth-child(3n) .dz-print:hover { transform: rotate(-0.6deg) translateY(-6px); }
-.dz-print:hover { box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06), 0 30px 60px -28px rgba(0, 0, 0, 0.55); }
+.dz-print:hover { transform: translateY(-4px); box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06), 0 30px 60px -28px rgba(0, 0, 0, 0.55); }
 .dz-cap { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-top: 14px; font-size: 14px; color: var(--muted); }
 .dz-cap strong { font-family: var(--font-display); font-weight: 600; color: var(--text); }
 .dz-cap span:last-child { margin-left: auto; }
 .dz-no { font-family: var(--font-display); font-size: 12px; font-weight: 600; color: var(--accent); }
 .dz-feature .dz-cap strong { font-size: 18px; }
 
-/* Roles */
-.dz-roles { padding: var(--section) 0; border-top: 2px solid var(--text); }
-.dz-roles-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: clamp(32px, 6vw, 80px); align-items: start; }
-.dz-kicker { font-family: var(--font-display); font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
-.dz-h2 { margin-top: 14px; font-size: clamp(38px, 5.4vw, 68px); font-weight: 700; letter-spacing: -0.045em; line-height: 0.95; }
-.dz-note { margin-top: 22px; color: var(--muted); max-width: 36ch; }
-.dz-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--text); }
-.dz-list li { display: grid; grid-template-columns: 1fr 1fr auto; gap: 16px; align-items: baseline; padding: 18px 0; border-bottom: 1px solid var(--line-strong); }
-.dz-list strong { font-family: var(--font-display); font-size: 18px; font-weight: 600; }
-.dz-list span { color: var(--muted); }
-.dz-list em { font-family: var(--font-serif); font-size: 20px; color: var(--accent); white-space: nowrap; }
+/* Capabilities — one big justified line of type */
+.dz-skills { padding: var(--section) 0; border-top: 2px solid var(--text); }
+.dz-skills-title { font-size: 15px; font-weight: 600; letter-spacing: 0; color: var(--muted); }
+.dz-skill-list {
+  margin-top: 22px; text-transform: uppercase;
+  font-family: var(--font-display); font-weight: 700; letter-spacing: -0.035em; line-height: 1.05;
+  font-size: clamp(34px, 6vw, 80px); color: var(--text);
+}
+.dz-prev { margin-top: 32px; color: var(--muted); max-width: 60ch; }
 
-/* CTA */
-.dz-cta { padding: 0 0 var(--section); }
-.dz-cta-band { display: flex; justify-content: space-between; align-items: end; gap: 28px; flex-wrap: wrap; padding: clamp(28px, 5vw, 56px); background: #fff; box-shadow: 0 18px 40px -26px rgba(0, 0, 0, 0.4); }
-.dz-cta-band .dz-h2 { margin: 0; }
+/* Connect — solid orange band */
+.dz-h2 { font-size: clamp(38px, 5.6vw, 72px); font-weight: 700; letter-spacing: -0.045em; line-height: 0.98; }
+.dz-connect { padding: clamp(64px, 9vw, 112px) 0; background: var(--accent); color: #121212; text-align: center; }
+.dz-connect p { margin: 18px auto 0; max-width: 44ch; font-size: 18px; color: rgba(18, 18, 18, 0.78); }
+.dz-connect .cta-actions { justify-content: center; margin-top: 30px; }
+.dz-connect .btn-ink:hover { background: #fff; color: #121212; }
+.dz-connect .btn-ghost { border-color: rgba(18, 18, 18, 0.45); color: #121212; }
+.dz-connect .btn-ghost:hover { border-color: #121212; }
+.theme-paper main:has(.dz-connect) + .site-footer { border-top: 0; }
 
 @media (max-width: 900px) {
-  .dz-intro, .dz-roles-grid { grid-template-columns: 1fr; }
   .dz-grid { grid-template-columns: repeat(2, 1fr); }
   .dz-feature, .dz-feature-right { grid-column: 1 / -1; grid-row: auto; }
 }
 @media (max-width: 600px) {
-  .dz-list li { grid-template-columns: 1fr auto; }
-  .dz-list span { grid-column: 1; grid-row: 2; }
-  .dz-list em { grid-row: 1 / span 2; align-self: center; }
   .dz-cap span:last-child { margin-left: 0; width: 100%; }
 }
