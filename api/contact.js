@@ -14,6 +14,8 @@
  *      (or Vercel KV's KV_REST_API_URL + KV_REST_API_TOKEN) for durable rate limiting.
  */
 
+import { inquiryEmail } from './_inquiry-email.js';
+
 const MAX_BODY_BYTES = 16 * 1024;
 const RATE_LIMIT = { max: 5, windowSec: 15 * 60 }; // 5 submissions per 15 minutes per IP
 const RESEND_TIMEOUT_MS = 10000;
@@ -44,14 +46,6 @@ const ALLOWED_SOURCES = ['Genesis Jr Portfolio'];
 const EMAIL_RE = /^[^\s@<>()[\]\\,;:"]+@[^\s@<>()[\]\\,;:"]+\.[a-z]{2,}$/i;
 
 /* ---------------------------------------------------------------- helpers */
-
-const escapeHtml = (value) =>
-  String(value)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#39;');
 
 /** Normalise and strip anything that isn't printable text. */
 function clean(value, { singleLine = false } = {}) {
@@ -230,32 +224,14 @@ export default async function handler(req, res) {
       return res.status(500).json({ error: 'Service unavailable' });
     }
 
-    const name = data['Full Name / Company'];
-    const email = data.Email;
-    const row = (label, value) =>
-      `<p><strong>${label}:</strong> ${value ? escapeHtml(value).replace(/\n/g, '<br>') : '<em>Not provided</em>'}</p>`;
-
+    const { subject, html, text } = inquiryEmail(data);
     const emailData = {
-      from: 'noreply@genesisjr.com', // must be a domain verified in Resend
+      from: 'Portfolio Inquiries <noreply@genesisjr.com>', // must be a domain verified in Resend
       to: process.env.MY_EMAIL,
-      reply_to: email, // validated by EMAIL_RE: no spaces, commas or angle brackets
-      subject: `[${data.Source}] New project inquiry from ${name}`.replace(/[\r\n]+/g, ' ').slice(0, 150),
-      html: `
-        <h2>New Project Inquiry — ${escapeHtml(data.Source)}</h2>
-        ${row('Name', name)}
-        ${row('Email', email)}
-        ${row('Phone', data.Phone)}
-        ${row('Business', data['Business Description'])}
-        ${row('Goals', data.Goals.join(', '))}
-        ${row('Budget', data.Budget)}
-        ${row('Timeline', data.Timeline)}
-        ${row('Pages', data.Pages)}
-        ${row('Features', data.Features)}
-        ${row('Design Preferences', data['Design Preferences'])}
-        ${row('Notes', data.Notes)}
-        <hr>
-        <p><em>Submitted via ${escapeHtml(data.Source)} · Reply to this email to respond to ${escapeHtml(email)}</em></p>
-      `,
+      reply_to: data.Email, // validated by EMAIL_RE: no spaces, commas or angle brackets
+      subject,
+      html,
+      text,
     };
 
     const response = await fetch('https://api.resend.com/emails', {
