@@ -20,7 +20,7 @@
  *   {{FORM Source Value}}     the intake form, tagged with its source
  *   {{PROJECTS all|featured}} project cards
  *   {{SERVICES}}              service cards linking to each service page
- *   {{TESTIMONIALS}}          client quotes
+ *   {{TESTIMONIALS}}          "What clients say" section (confirmed quotes only)
  *   {{PROJECT_COUNT}}         e.g. "8"
  *   {{YEAR}}                  current year
  *
@@ -31,7 +31,10 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { projects } from "../src/data/projects.mjs";
 import { services } from "../src/data/services.mjs";
-import { testimonials } from "../src/data/testimonials.mjs";
+import { testimonials as allTestimonials } from "../src/data/testimonials.mjs";
+
+// Only quotes the client has approved go on the site
+const testimonials = allTestimonials.filter((t) => t.confirmed);
 
 const ROOT_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const SRC = path.join(ROOT_DIR, "src");
@@ -113,8 +116,20 @@ function quoteCard(t, delay = 0) {
                     </figure>`;
 }
 
-function testimonialGrid() {
-  return `<div class="quotes">\n                    ${testimonials.map((t, i) => quoteCard(t, i % 2)).join("\n                    ")}\n                </div>`;
+// The whole "What clients say" section — empty until at least one quote is confirmed
+function testimonialSection() {
+  if (!testimonials.length) return "";
+  return `<section class="section">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="eyebrow">Kind words</span>
+                    <h2>What clients say.</h2>
+                </div>
+                <div class="quotes">
+                    ${testimonials.map((t, i) => quoteCard(t, i % 2)).join("\n                    ")}
+                </div>
+            </div>
+        </section>`;
 }
 
 function caseStudyBody(p) {
@@ -279,7 +294,7 @@ function render(content, root) {
   html = html.replace(/\{\{FORM ([^}]+)\}\}/g, (_, source) => partial("intake-form").replace("{{SOURCE}}", esc(source.trim())));
   html = html.replace(/\{\{PROJECTS (all|featured)\}\}/g, (_, w) => projectGrid(w));
   html = html.replace(/\{\{SERVICES\}\}/g, () => serviceGrid());
-  html = html.replace(/\{\{TESTIMONIALS\}\}/g, () => testimonialGrid());
+  html = html.replace(/\{\{TESTIMONIALS\}\}/g, () => testimonialSection());
   html = html.replace(/\{\{PROJECT_COUNT\}\}/g, `${projects.length}`);
   html = html.replace(/\{\{YEAR\}\}/g, String(new Date().getFullYear()));
   return cleanUrls(html.replace(/\{\{ROOT\}\}/g, root));
