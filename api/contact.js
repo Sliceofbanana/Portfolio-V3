@@ -236,7 +236,7 @@ export default async function handler(req, res) {
       `<p><strong>${label}:</strong> ${value ? escapeHtml(value).replace(/\n/g, '<br>') : '<em>Not provided</em>'}</p>`;
 
     const emailData = {
-      from: 'noreply@genesisjr.tech',
+      from: 'noreply@genesisjr.com', // must be a domain verified in Resend
       to: process.env.MY_EMAIL,
       reply_to: email, // validated by EMAIL_RE: no spaces, commas or angle brackets
       subject: `[${data.Source}] New project inquiry from ${name}`.replace(/[\r\n]+/g, ' ').slice(0, 150),
