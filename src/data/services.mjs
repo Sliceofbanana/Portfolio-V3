@@ -25,8 +25,8 @@ export const services = [
     icon: "globe-outline",
     title: "WordPress & CMS solutions",
     short: "Business sites your team can edit",
-    summary: "Fast-turnaround business websites with custom themes, WooCommerce and ongoing performance optimization — easy for your team to edit.",
-    lead: "A professional website in weeks, not months — fast, found on Google, and simple enough that your team can update it without calling a developer.",
+    summary: "Business websites with custom themes, WooCommerce and ongoing performance optimization — easy for your team to edit.",
+    lead: "A professional website that is fast, found on Google, and simple enough that your team can update it without calling a developer.",
     includes: [
       ["Custom themes", "Designs built around your brand instead of a template everyone else uses."],
       ["Easy editing", "Elementor or block-based layouts so your team can change text, photos and pages."],
