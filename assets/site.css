@@ -618,6 +618,8 @@ a.service-card { color: inherit; }
 .faq summary::after { content: "+"; color: var(--accent); font-size: 24px; line-height: 1; transition: transform 0.3s var(--ease); }
 .faq details[open] summary::after { transform: rotate(45deg); }
 .faq details p { color: var(--muted); padding: 0 0 22px; max-width: 68ch; }
+.faq details ul { color: var(--muted); margin: -8px 0 22px; padding-left: 20px; display: grid; gap: 8px; max-width: 68ch; }
+.faq details li strong { color: var(--text); font-weight: 500; }
 .faq a.inline { color: var(--accent-2); }
 @media (max-width: 900px) { .plans { grid-template-columns: 1fr; } }
 
