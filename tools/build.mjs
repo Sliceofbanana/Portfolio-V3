@@ -41,7 +41,7 @@ const SRC = path.join(ROOT_DIR, "src");
 const BASE_URL = "https://www.genesisjr.com";
 
 const SITE = {
-  brand: `<a href="{{ROOT}}index.html" class="logo" aria-label="Genesis Jr — home">genesis<span class="dot"></span>jr</a>`,
+  brand: `<a href="{{ROOT}}index.html" class="logo logo-mark" aria-label="SNGDNN, Genesis Jr — home"><img src="{{ROOT}}Image/sngdnn-logo.webp" alt="SNGDNN" width="384" height="69"></a>`,
   nav: [["work", "Work"], ["design", "Design"], ["about", "About"], ["services", "Services"], ["experience", "Experience"], ["contact", "Contact"]],
   cta: "Start a project",
   ogImage: "Image/genesis.webp",
