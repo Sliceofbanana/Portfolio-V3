@@ -712,6 +712,7 @@ a.service-card { color: inherit; }
 
 /* Campaigns and series — natural-shape masonry under a ruled heading */
 .dz-series { padding: 0 0 var(--section); }
+.dz-series-lead { padding-top: clamp(28px, 4vw, 44px); }
 .dz-series-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px 24px; flex-wrap: wrap; padding-bottom: 12px; border-bottom: 2px solid var(--text); }
 .dz-series-head h2 { font-size: clamp(30px, 4.4vw, 54px); font-weight: 700; letter-spacing: -0.04em; }
 .dz-series-head p { font-size: 14px; color: var(--muted); }
