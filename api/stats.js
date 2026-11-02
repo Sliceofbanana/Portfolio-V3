@@ -1,5 +1,5 @@
 /**
- * Private analytics read-out for /stats (Vercel serverless function).
+ * Private analytics read-out (Vercel serverless function), pulled into the visitor dashboard artifact.
  *
  * GET /api/stats?days=30   with header  Authorization: Bearer <STATS_KEY>
  * → { days, from, to, totals: {pageviews, visitors}, live, daily: [{date, pageviews, visitors}],
