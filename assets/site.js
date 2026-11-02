@@ -398,4 +398,15 @@
       }
     });
   });
+
+  /* Analytics: one cookieless page view, skipped for Do Not Track / GPC ---- */
+  if (!navigator.globalPrivacyControl && navigator.doNotTrack !== "1" && !/^(localhost|127\.|\[::1\])/.test(location.hostname)) {
+    const q = new URLSearchParams(location.search);
+    const view = JSON.stringify({ p: location.pathname, r: document.referrer, s: q.get("utm_source") || q.get("ref") || "" });
+    try {
+      if (!(navigator.sendBeacon && navigator.sendBeacon("/api/track", view))) {
+        fetch("/api/track", { method: "POST", body: view, keepalive: true }).catch(() => {});
+      }
+    } catch (e) { /* analytics must never break the page */ }
+  }
 })();
