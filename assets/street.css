@@ -17,7 +17,7 @@
   --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 
-  background: var(--asphalt);
+  background: var(--bg);
 }
 
 /* Softer ambience than the old glow, plus a faint print grain */
@@ -246,7 +246,7 @@
   font-size: clamp(56px, 11vw, 176px); line-height: 0.9; margin: 18px 0 clamp(40px, 6vw, 72px);
 }
 .st-contact-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 32px 48px; align-items: end; border-top: 2px solid var(--asphalt); padding-top: 32px; }
-.st-email { font-family: var(--font-display); font-weight: 600; font-size: clamp(22px, 3.2vw, 44px); letter-spacing: -0.02em; overflow-wrap: anywhere; background-image: linear-gradient(var(--hot), var(--hot)); background-size: 100% 0.3em; background-position: 0 88%; background-repeat: no-repeat; transition: background-size 0.4s var(--ease-out); }
+.st-email { font-family: var(--font-display); font-weight: 500; font-size: clamp(18px, 1.7vw, 24px); letter-spacing: -0.01em; overflow-wrap: anywhere; justify-self: start; background-image: linear-gradient(var(--hot), var(--hot)); background-size: 100% 0.3em; background-position: 0 88%; background-repeat: no-repeat; transition: background-size 0.4s var(--ease-out); }
 .st-email:hover { background-size: 100% 0.9em; }
 .st-socials { list-style: none; margin: 0; padding: 0; display: grid; }
 .st-socials a { display: flex; justify-content: space-between; min-height: 48px; align-items: center; border-bottom: 1px solid rgba(20, 20, 20, 0.2); transition: padding 0.3s var(--ease-out); }
@@ -339,3 +339,97 @@
 }
 
 .st-contact-title .st-mark { display: inline-block; line-height: 0.95; padding: 0.06em 0.1em 0; margin-top: 0.1em; }
+
+/* ==========================================================================
+   Site-wide: every page shares the homepage's type, shapes and rhythm
+   ========================================================================== */
+.theme-street { --radius: 4px; --radius-sm: 2px; }
+
+/* Headlines in Anton, uppercase */
+.theme-street .page-hero h1,
+.theme-street .case-head h1,
+.theme-street .contact-title {
+  font-family: var(--font-anton); font-weight: 400; text-transform: uppercase;
+  font-size: clamp(52px, 9vw, 136px); line-height: 0.9; letter-spacing: -0.005em;
+}
+.theme-street .case-head h1 { font-size: clamp(44px, 7vw, 104px); }
+.theme-street .contact-title { font-size: clamp(48px, 6.4vw, 96px); }
+.theme-street .section-head h2,
+.theme-street .cta-band h2 {
+  font-family: var(--font-anton); font-weight: 400; text-transform: uppercase;
+  font-size: clamp(40px, 6.4vw, 96px); line-height: 0.92; letter-spacing: -0.005em;
+}
+.theme-street .cta-band h2 { font-size: clamp(36px, 5vw, 72px); }
+.theme-street .page-lead, .theme-street .cs-sub { font-family: var(--font-display); }
+
+/* Small labels in mono */
+.theme-street .eyebrow { font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.04em; font-weight: 400; }
+.theme-street .col-title, .theme-street .project-year, .theme-street .timeline .when,
+.theme-street .cs-meta small, .theme-street .next-case span, .theme-street .footer-cols h2,
+.theme-street .step .num, .theme-street .service-card .num, .theme-street .include .num {
+  font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.04em;
+}
+.theme-street .more-link { font-family: var(--font-mono); font-weight: 500; font-size: 14px; text-transform: uppercase; letter-spacing: 0.04em; }
+
+/* Buttons, tags, chips and filters: square, mono, generous targets */
+.theme-street .btn {
+  border-radius: 0; min-height: 50px; padding: 0 24px;
+  font-family: var(--font-mono); font-weight: 500; font-size: 14px; text-transform: uppercase; letter-spacing: 0.04em;
+}
+.theme-street .btn:hover { transform: none; }
+.theme-street .btn:active { transform: scale(0.98); }
+.theme-street .btn-primary:hover { box-shadow: none; filter: brightness(1.08); }
+.theme-street .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+.theme-street .nav-cta { min-height: 42px; padding: 0 18px; font-size: 13px; }
+.theme-street .tag, .theme-street .chip span, .theme-street .filter-btn, .theme-street .submenu-icon, .theme-street .quote-avatar, .theme-street .role-card .role-icon { border-radius: 0; }
+.theme-street .tag { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; }
+.theme-street .filter-btn { font-family: var(--font-mono); font-size: 13px; text-transform: uppercase; min-height: 44px; }
+.theme-street .filter-btn.active { background: var(--grad); color: #140a04; border-color: transparent; }
+
+/* Navigation: underline instead of pills */
+.theme-street .nav-links > li > a { border-radius: 0; }
+.theme-street .nav-links > li > a.active { background: none; box-shadow: inset 0 -2px 0 var(--accent); }
+.theme-street .nav-links > li > a.active::after { display: none; }
+.theme-street .submenu { border-radius: 6px; }
+.theme-street .submenu-item, .theme-street .submenu-all { border-radius: 2px; }
+@media (max-width: 900px) {
+  .theme-street .nav-links > li > a.active { box-shadow: inset 3px 0 0 var(--accent); }
+}
+
+/* Cards and panels: flat, square, hairline */
+.theme-street .card, .theme-street .cta-band, .theme-street .metrics, .theme-street .modal-panel,
+.theme-street .project-media, .theme-street .case-hero, .theme-street .next-case, .theme-street .plan-qs { border-radius: 0; }
+.theme-street .card:hover { border-color: var(--line-strong); }
+.theme-street .cta-band { background: var(--surface); border-color: var(--line-strong); }
+
+/* Project tiles (/work and service pages) */
+.theme-street .project-info h3 { font-family: var(--font-anton); font-weight: 400; text-transform: uppercase; font-size: clamp(26px, 2.6vw, 34px); line-height: 1; }
+.theme-street .project-media .view { border-radius: 0; font-family: var(--font-mono); text-transform: uppercase; font-size: 12px; background: var(--grad); color: #140a04; }
+
+/* Card titles */
+.theme-street .service-card h3, .theme-street .plan h3, .theme-street .step h3, .theme-street .include h3,
+.theme-street .mini-service h3, .theme-street .cs-section h3, .theme-street .next-case strong, .theme-street .rates-block h3 {
+  font-family: var(--font-anton); font-weight: 400; text-transform: uppercase; letter-spacing: 0;
+}
+.theme-street .service-card h3 { font-size: clamp(28px, 3vw, 40px); }
+.theme-street .plan h3 { font-size: 34px; }
+.theme-street .step h3 { font-size: 26px; }
+.theme-street .include h3 { font-size: 24px; }
+.theme-street .cs-section h3 { font-size: 28px; }
+.theme-street .rates-block h3 { font-size: 28px; }
+.theme-street .next-case strong { font-size: clamp(28px, 3.6vw, 48px); }
+
+/* Big numbers */
+.theme-street .metric .value, .theme-street .plan-price strong, .theme-street .cs-stats strong {
+  font-family: var(--font-anton); font-weight: 400; letter-spacing: 0;
+}
+
+/* Forms */
+.theme-street .field input, .theme-street .field textarea { border-radius: 2px; }
+
+/* Design page (paper): keep its editorial serif, sharpen the controls */
+.theme-street.theme-paper :focus-visible { outline-color: #121212; }
+.theme-street.theme-paper .site-header.scrolled { background: rgba(239, 236, 228, 0.86); }
+
+/* Standalone text links: comfortable tap height */
+.theme-street .back-link, .theme-street .more-link:not(.inline) { padding-block: 10px; }

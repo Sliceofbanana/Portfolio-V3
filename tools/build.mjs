@@ -382,18 +382,13 @@ function page({ title, description, nav, service, jsonld, urlPath, theme, ogImag
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ROOT}}assets/site.css">${
-      theme === "street"
-        ? `
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ROOT}}assets/street.css">`
-        : ""
-    }
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ROOT}}assets/site.css">
+    <link rel="stylesheet" href="{{ROOT}}assets/street.css">
     <script src="{{ROOT}}assets/boot.js"></script>
 ${jsonld ? `\n    <script type="application/ld+json">\n${JSON.stringify(jsonld, null, 4).replace(/^/gm, "    ")}\n    </script>\n` : ""}</head>
 
-<body${theme ? ` class="theme-${theme}"` : ""}>
+<body class="theme-street${theme && theme !== "street" ? ` theme-${theme}` : ""}">
     <a class="skip-link" href="#top">Skip to content</a>
     <div class="bg-glow" aria-hidden="true"></div>
     <div class="bg-grid" aria-hidden="true"></div>
