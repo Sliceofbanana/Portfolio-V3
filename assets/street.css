@@ -882,3 +882,27 @@
 .st-clients { display: grid; gap: 14px; margin-top: clamp(28px, 5vh, 56px); }
 .client img { max-width: 84%; max-height: 70%; filter: grayscale(1) brightness(0.45) contrast(1.35); opacity: 0.9; }
 .client .client-mark { max-height: 50%; }
+
+/* Client groups: 3 direct clients, 5 brands worked on */
+.clients--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.clients--5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.clients--3 .client { aspect-ratio: 5 / 2; }
+.client img { max-height: 58%; }
+.client--text strong {
+  font-family: var(--font-anton); font-weight: 400; text-transform: uppercase; text-align: center;
+  font-size: clamp(18px, min(1.8vw, 3vh), 28px); line-height: 1; color: #3d3b36;
+}
+.client--text:hover strong, .client--text:focus-visible strong { color: var(--asphalt); }
+.client-name { font-size: 10px; }
+.clients-note { margin-top: 10px; font-size: 11px; color: var(--ink-2); text-transform: none; }
+.st-clients-sub { margin-top: 18px; }
+@media (max-width: 1024px) {
+  .clients--5 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 680px) {
+  .clients--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .clients--3 .client { aspect-ratio: 1 / 1; padding: 8px; }
+  .clients--5 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .client--text strong { font-size: 16px; }
+}
+.clients--3 .client img { max-height: 78%; }
