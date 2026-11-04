@@ -10,7 +10,7 @@
   --line-strong: rgba(255, 255, 255, 0.16);
   --text: #f3f1ec;
   --muted: #a09d95;
-  --faint: #6b6962;
+  --faint: #85827a;
   --accent: #ff5a1f;
   --accent-2: #ffb020;
   --accent-soft: rgba(255, 90, 31, 0.12);
@@ -204,7 +204,7 @@ p { margin: 0; }
 /* Hero --------------------------------------------------------------------- */
 .hero { padding: clamp(130px, 18vw, 180px) 0 clamp(60px, 8vw, 90px); position: relative; }
 .hero-grid { display: grid; grid-template-columns: 1.35fr 1fr; gap: clamp(32px, 5vw, 72px); align-items: center; }
-.hero h1 { font-size: clamp(42px, 7.4vw, 92px); font-weight: 600; letter-spacing: -0.04em; line-height: 1; margin: 22px 0 26px; }
+.hero h1 { font-size: clamp(40px, 6.6vw, 84px); font-weight: 600; letter-spacing: -0.04em; line-height: 1; margin: 22px 0 26px; }
 .hero h1 .line { display: block; }
 .hero-lead { font-size: clamp(17px, 1.6vw, 20px); color: var(--muted); max-width: 560px; }
 .hero-lead strong { color: var(--text); font-weight: 500; }
@@ -219,7 +219,7 @@ p { margin: 0; }
 .portrait-card img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
 .portrait-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 58%, rgba(10, 10, 12, 0.9)); }
 .portrait-meta { position: absolute; left: 20px; right: 20px; bottom: 20px; z-index: 1; display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; }
-.portrait-meta h3 { font-size: 20px; }
+.portrait-meta .portrait-name { font-family: var(--font-display); font-size: 20px; font-weight: 600; color: var(--text); }
 .portrait-meta p { color: var(--muted); font-size: 14px; }
 
 @media (max-width: 900px) {
@@ -490,7 +490,7 @@ p { margin: 0; }
 .footer-brand p { color: var(--muted); }
 .footer-cols { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
 .footer-cols div { display: grid; gap: 10px; align-content: start; }
-.footer-cols h4 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--faint); font-family: var(--font-display); margin-bottom: 4px; }
+.footer-cols h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--faint); font-family: var(--font-display); margin-bottom: 4px; }
 .footer-cols a { color: var(--muted); }
 .footer-cols a:hover { color: var(--text); }
 @media (max-width: 700px) { .footer-grid { grid-template-columns: 1fr; } }
@@ -547,7 +547,7 @@ p { margin: 0; }
 .footer-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; }
 .footer-row nav { display: flex; flex-wrap: wrap; gap: 20px; }
 .footer-row a:hover { color: var(--text); }
-.back-top { background: none; border: 0; padding: 0; color: inherit; font-size: 14px; cursor: pointer; }
+.back-top { background: none; border: 0; padding: 4px 0; color: inherit; font-size: 14px; cursor: pointer; }
 .back-top:hover { color: var(--text); }
 
 /* Reveal ------------------------------------------------------------------- */
@@ -636,7 +636,7 @@ a.service-card { color: inherit; }
   --line-strong: rgba(17, 17, 17, 0.22);
   --text: #121212;
   --muted: #57534b;
-  --faint: #8c877c;
+  --faint: #6a655b;
   --font-serif: "Instrument Serif", Georgia, serif;
   color-scheme: light;
 }
@@ -827,3 +827,11 @@ a.service-card { color: inherit; }
 .rates-teaser-text strong { font-family: var(--font-display); font-size: 17px; font-weight: 600; }
 .rates-teaser-text small { color: var(--muted); font-size: 14px; }
 @media (max-width: 700px) { .rates-teaser { flex-wrap: wrap; padding: 18px; } .rates-teaser-icon { display: none; } .rates-teaser .more-link { width: 100%; } }
+
+/* Accessibility: skip link, comfortable footer tap targets */
+.skip-link { position: fixed; top: 12px; left: 12px; z-index: 200; padding: 10px 16px; border-radius: 999px; background: var(--accent); color: #140a04; font-family: var(--font-display); font-weight: 600; transform: translateY(-160%); transition: transform 0.2s var(--ease); }
+.skip-link:focus { transform: none; }
+main:focus { outline: none; }
+.footer-cols a, .back-top { padding: 4px 0; }
+.footer-cols div { gap: 4px; }
+.logo-mark { padding: 6px 0; }
