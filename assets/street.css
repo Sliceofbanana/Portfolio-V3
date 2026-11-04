@@ -433,3 +433,78 @@
 
 /* Standalone text links: comfortable tap height */
 .theme-street .back-link, .theme-street .more-link:not(.inline) { padding-block: 10px; }
+
+/* ==========================================================================
+   Hero fits the first screen: two-line headline sized by width AND height,
+   portrait fills the leftover space instead of pushing the page down
+   ========================================================================== */
+.st-hero {
+  min-height: 100vh; min-height: 100svh;
+  display: flex; flex-direction: column;
+  padding: 92px 0 clamp(20px, 3.5vh, 40px);
+}
+.st-hero-grid {
+  flex: 1; min-height: 0;
+  grid-template-rows: auto auto 1fr;
+  row-gap: 0;
+}
+.st-hero-title {
+  font-size: clamp(44px, min(9vw, 12.6vh), 160px);
+  line-height: 0.88;
+  margin: clamp(16px, 3.5vh, 40px) 0 clamp(16px, 3vh, 32px);
+}
+.st-line { white-space: nowrap; }
+.st-line--shift { padding-left: clamp(0px, 6vw, 110px); }
+
+.st-hero-portrait { grid-row: 2 / 4; margin: clamp(16px, 3.5vh, 40px) 0 0; position: relative; min-height: 200px; }
+.st-hero-portrait img { position: absolute; inset: 0; }
+
+.st-hero-foot { align-self: end; gap: 16px 40px; }
+.st-hero-lead { font-size: clamp(17px, min(1.6vw, 2.6vh), 24px); }
+.st-hero-id { gap: 6px; }
+.st-hero-id div { padding-top: 6px; }
+
+/* Tablet and small laptops: headline across, then text beside the portrait */
+@media (max-width: 1024px) {
+  .st-hero-title { font-size: clamp(44px, min(11vw, 10.5vh), 128px); }
+  .st-hero-portrait { grid-row: 3; margin-top: 0; aspect-ratio: auto; }
+  .st-hero-foot { grid-template-columns: 1fr; }
+}
+
+/* Phone: headline, portrait strip, short intro, two buttons side by side */
+@media (max-width: 680px) {
+  .st-hero { padding-top: 80px; padding-bottom: 20px; }
+  .st-hero-grid { grid-template-rows: auto auto 1fr auto; }
+  .st-hero-title { font-size: clamp(38px, min(15vw, 7.6vh), 64px); margin: 16px 0 14px; }
+  .st-line--shift { padding-left: 0; }
+  .st-hero-portrait { grid-row: 3; margin: 0 10px 20px 0; min-height: 150px; }
+  .st-hero-id { display: none; }
+  .st-hero-foot { gap: 16px; }
+  .st-hero-foot .st-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .st-hero-foot .st-actions .st-btn { padding: 0 12px; font-size: 13px; }
+}
+
+/* Very short screens (landscape phones): let it scroll naturally */
+@media (max-height: 520px) {
+  .st-hero { min-height: 0; }
+  .st-hero-portrait { min-height: 240px; }
+}
+
+/* Desktop: wider portrait column (title 8 / portrait 4) */
+@media (min-width: 1025px) {
+  .st-hero-grid {
+    grid-template-areas:
+      "top   top   top   top   top   top   top   top   top   top   top   top"
+      "title title title title title title title title photo photo photo photo"
+      "foot  foot  foot  foot  foot  foot  foot  foot  photo photo photo photo";
+  }
+}
+/* Short phones (iPhone SE and similar): smaller portrait strip */
+@media (max-width: 680px) and (max-height: 700px) {
+  .st-hero-portrait { min-height: 110px; margin-bottom: 14px; }
+  .st-hero-title { margin: 12px 0 10px; }
+}
+@media (max-width: 680px) {
+  .st-hero-foot .st-actions .st-btn { white-space: nowrap; font-size: 12px; letter-spacing: 0.02em; padding: 0 8px; gap: 6px; }
+  .st-hero-issue { display: none; }
+}
