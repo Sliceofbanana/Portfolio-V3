@@ -629,3 +629,85 @@
 @media (max-width: 680px) { .st-section { padding: 34px 0; } }
 @media (max-width: 680px) and (max-height: 700px) { .st-section { padding: 26px 0; } }
 @media (max-width: 680px) and (max-height: 700px) { .st-about-lead { line-height: 1.35; } }
+
+/* ==========================================================================
+   Design page in the new style: dark gallery, white prints, numbered series
+   ========================================================================== */
+.theme-street .dz-hero { padding: calc(62px + clamp(28px, 7vh, 96px)) 0 clamp(24px, 5vh, 56px); }
+.dz-top { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; color: var(--ink-2); padding-bottom: 16px; border-bottom: 1px solid var(--line-strong); }
+.theme-street .dz-title {
+  font-family: var(--font-anton); font-weight: 400; text-transform: uppercase; letter-spacing: -0.005em;
+  font-size: clamp(48px, min(9.6vw, 13vh), 150px); line-height: 0.9; margin-top: clamp(20px, 4vh, 44px);
+}
+.theme-street .dz-intro { border-bottom-color: var(--line-strong); }
+.theme-street .dz-intro p { color: var(--muted); }
+.theme-street .dz-intro .dz-meta { color: var(--ink-2); font-size: 12px; }
+
+/* Series: "01 / WL CONSTRUCTION" */
+.theme-street main:has(.dz-hero) { counter-reset: dz; }
+.theme-street .dz-series-head { border-bottom: 2px solid var(--text); align-items: end; }
+.theme-street .dz-series-head h2 {
+  font-family: var(--font-anton); font-weight: 400; text-transform: uppercase; letter-spacing: 0;
+  font-size: clamp(34px, min(5.6vw, 8vh), 84px); line-height: 0.95;
+}
+.theme-street .dz-series-head h2::before {
+  counter-increment: dz; content: counter(dz, decimal-leading-zero) " /";
+  display: block; margin-bottom: 8px; font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.04em; color: var(--accent);
+}
+.theme-street .dz-series-head p { font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--ink-2); }
+.theme-street .dz-series-note { color: var(--muted); }
+.theme-street .dz-series, .theme-street .dz-gallery { padding-bottom: clamp(48px, 9vh, 112px); }
+
+/* Prints: white paper on asphalt, square, lift on hover */
+.theme-street .dz-print { border-radius: 0; box-shadow: none; outline: 1px solid rgba(255, 255, 255, 0.06); }
+.theme-street .dz-print:hover { transform: translateY(-4px); box-shadow: 0 24px 50px -24px rgba(0, 0, 0, 0.9), 0 0 0 2px var(--accent); }
+.theme-street .dz-print img { background: #fff; }
+.theme-street .dz-masonry .dz-print img, .theme-street .dz-tiles .dz-print img { max-height: calc(100svh - 180px); }
+.theme-street .dz-cap { color: var(--ink-2); }
+.theme-street .dz-cap strong { color: var(--text); }
+.theme-street .dz-no { font-family: var(--font-mono); font-weight: 500; color: var(--accent); }
+.theme-street .dz-feature .dz-print img { max-height: calc(100svh - 200px); }
+
+/* What I make */
+.theme-street .dz-skills { border-top: 2px solid var(--text); padding: clamp(48px, 9vh, 104px) 0; }
+.theme-street .dz-skills-title { font-family: var(--font-mono); font-size: 13px; font-weight: 400; text-transform: uppercase; letter-spacing: 0.04em; color: var(--ink-2); }
+.theme-street .dz-skill-list { font-family: var(--font-anton); font-weight: 400; text-transform: uppercase; letter-spacing: 0; line-height: 1.02; font-size: clamp(32px, min(5vw, 7.4vh), 76px); }
+.theme-street .dz-prev { color: var(--muted); }
+
+/* Closing band, like the homepage rates band */
+.theme-street .dz-connect { background: var(--grad); color: #140a04; padding: clamp(56px, 11vh, 120px) 0; }
+.theme-street .dz-h2 { font-family: var(--font-anton); font-weight: 400; text-transform: uppercase; letter-spacing: 0; line-height: 0.92; font-size: clamp(40px, min(7vw, 10vh), 112px); }
+.theme-street .dz-connect p { color: rgba(20, 10, 4, 0.8); }
+.theme-street .dz-connect .btn-ink { background: #0a0a0c; color: var(--text); }
+.theme-street .dz-connect .btn-ink:hover { background: #fff; color: #0a0a0c; }
+.theme-street .dz-connect .btn-ghost { border-color: rgba(20, 10, 4, 0.5); color: #140a04; background: transparent; }
+.theme-street .dz-connect .btn-ghost:hover { border-color: #140a04; color: #140a04; }
+.theme-street .dz-connect :focus-visible { outline-color: #0a0a0c; }
+.theme-street main:has(.dz-connect) + .site-footer { border-top: 0; }
+
+/* ==========================================================================
+   All pages: heroes, headings, sections and big images fit the screen
+   ========================================================================== */
+.theme-street .page-hero { padding: calc(62px + clamp(28px, 8vh, 110px)) 0 clamp(28px, 6vh, 72px); }
+.theme-street .page-hero h1 { font-size: clamp(44px, min(9vw, 12.5vh), 136px); margin: clamp(12px, 2.4vh, 22px) 0 clamp(14px, 2.6vh, 24px); }
+.theme-street .page-lead { font-size: clamp(16px, min(1.6vw, 2.5vh), 20px); }
+.theme-street .case-page { padding-top: calc(62px + clamp(24px, 6vh, 80px)); }
+.theme-street .case-head h1 { font-size: clamp(40px, min(7vw, 10vh), 104px); }
+.theme-street .contact-page { padding-top: calc(62px + clamp(24px, 6vh, 80px)); }
+.theme-street .contact-title { font-size: clamp(44px, min(6.4vw, 10vh), 96px); }
+.theme-street .section { padding: clamp(40px, 8vh, 104px) 0; }
+.theme-street .section-head { margin-bottom: clamp(24px, 5vh, 64px); }
+.theme-street .section-head h2 { font-size: clamp(34px, min(6vw, 8.6vh), 96px); }
+.theme-street .cta-band h2 { font-size: clamp(32px, min(5vw, 8vh), 72px); }
+.theme-street .case-hero { margin: clamp(20px, 4vh, 40px) 0; }
+.theme-street .case-hero img { max-height: calc(100svh - 140px); }
+.theme-street .project-media { max-height: calc(100svh - 180px); }
+.theme-street .about-photo img, .theme-street .cs-gallery img { max-height: calc(100svh - 160px); object-fit: cover; }
+.theme-street .metric .value { font-size: clamp(36px, min(5vw, 8vh), 64px); }
+@media (max-width: 680px) and (max-height: 700px) {
+  .theme-street .card { padding: 18px; }
+  .theme-street .plan { gap: 9px; }
+  .theme-street .plan ul { gap: 7px; padding-top: 10px; }
+  .theme-street .plan li, .theme-street .rate-list dt, .theme-street .rate-list dd { font-size: 14px; }
+  .theme-street .rate-list div { padding: 9px 0; }
+}
