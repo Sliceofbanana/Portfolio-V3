@@ -965,3 +965,42 @@
   .ab-story-text p { font-size: 15px; line-height: 1.4; }
   .ab-statement { font-size: 24px; }
 }
+
+/* Experience: expandable role details */
+.xp-details { grid-column: 2 / -1; margin-top: 4px; }
+.xp-details summary {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 32px; cursor: pointer; list-style: none;
+  font-size: 12px; color: var(--accent-2); user-select: none;
+}
+.xp-details summary::-webkit-details-marker { display: none; }
+.xp-details summary::after { content: "+"; font-size: 16px; line-height: 1; transition: transform 0.25s var(--ease-out); }
+.xp-details[open] summary::after { transform: rotate(45deg); }
+.xp-details summary:hover { color: var(--text); }
+.xp-details ul { margin: 8px 0 6px; padding-left: 18px; display: grid; gap: 6px; max-width: 80ch; color: var(--muted); font-size: 15px; line-height: 1.5; }
+.xp-details li::marker { color: var(--accent); }
+.xp-row { row-gap: 2px; }
+@media (max-width: 1024px) { .xp-details { grid-column: 2; } }
+@media (max-width: 680px) { .xp-details { grid-column: 1; } .xp-details ul { font-size: 14px; } }
+/* Details toggle sits in the row's top-right corner; only the opened list takes space */
+.xp-row:has(.xp-details) { padding-right: 110px; }
+.xp-details { grid-column: 1 / -1; margin: 0; }
+.xp-details summary { position: absolute; top: clamp(10px, 2.2vh, 22px); right: 10px; min-height: 36px; padding: 0 4px; }
+.xp-details ul { margin-top: 10px; }
+@media (max-width: 1024px) { .xp-details { grid-column: 1 / -1; } }
+@media (max-width: 680px) {
+  .xp-row:has(.xp-details) { padding-right: 84px; }
+  .xp-details summary { right: 0; top: 6px; }
+  .xp-role { font-size: 22px; }
+  .xp-list .xp-row { padding-block: 10px; }
+}
+@media (max-width: 680px) and (max-height: 700px) {
+  .xp-role { font-size: 20px; }
+  .xp-org { font-size: 14px; }
+  .xp-list .xp-row { padding-block: 8px; }
+}
+@media (max-width: 680px) and (max-height: 700px) {
+  .xp-section { padding-top: 20px; padding-bottom: 20px; }
+  .xp-head { margin-bottom: 8px; }
+  .xp-h2 { font-size: 30px; }
+  .xp-row { gap: 2px; }
+}

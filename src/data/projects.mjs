@@ -24,7 +24,7 @@ export const projects = [
       subtitle: "An all-in-one operations platform for a Philippine tax and accounting firm — one system of record for sales, accounting, tax compliance, HR, payroll and field liaison work.",
       live: null,
       note: "Internal system, not publicly accessible. Screenshots were taken from a local demo instance running on sample data. No real client information is shown.",
-      meta: [["Client", "Agila Tax Management Services"], ["Industry", "Tax, accounting & compliance"], ["Role", "Lead developer · Feb – Jul 2026"]],
+      meta: [["Client", "Agila Tax Management Services"], ["Industry", "Tax, accounting & compliance"], ["Role", "Lead developer · Mar – Aug 2026"]],
       stats: [["146", "Screens across 10 portals"], ["261", "API endpoints"], ["118", "Database models"], ["5", "Connected apps shipped"]],
       gallery: [
         ["Image/atms/accounting.webp", "Accounting & finance — collections, outstanding balances and payments awaiting confirmation"],
