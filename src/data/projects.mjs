@@ -11,6 +11,7 @@ const tags = (list) => `<div class="tags">${list.map((t) => `<span class="tag">$
 export const projects = [
   {
     slug: "atms",
+    feature: { order: 4, kind: "Operations platform", role: "Lead developer", stack: ["Next.js", "React", "TypeScript", "Prisma", "PostgreSQL"] },
     title: "ATMS — Agila Tax Management System",
     short: "ATMS — Agila",
     blurb: "Enterprise operations platform · Next.js + Prisma + PostgreSQL",
@@ -63,10 +64,11 @@ export const projects = [
   },
   {
     slug: "mqprints",
+    feature: { order: 1, kind: "Website + order system", role: "Full ownership", stack: ["WordPress", "PHP", "Custom plugin", "MySQL"] },
     title: "MQ Printing Services",
     blurb: "WordPress · Custom portal, ordering & quotes",
     tagline: "WordPress site + custom ordering plugin",
-    image: "Image/mq.webp",
+    image: "Image/mq-2026.jpg",
     alt: "MQ Printing Services website",
     categories: ["development", "design"],
     featured: true,
@@ -91,6 +93,7 @@ export const projects = [
   },
   {
     slug: "bodega",
+    feature: { order: 2, kind: "Brand website + booking platform", role: "Concept, design, full-stack build, deployment", stack: ["HTML", "CSS", "JavaScript", "PHP", "MySQL", "Figma"] },
     title: "Bodega Coworking Café",
     blurb: "Design + development · Booking & payments",
     tagline: "Brand-led site + bookings",
@@ -143,6 +146,7 @@ export const projects = [
   },
   {
     slug: "acesphils",
+    feature: { order: 3, kind: "Retail website", role: "Design, development, deployment, maintenance", stack: [] },
     title: "Acesphils Hardware",
     blurb: "Web design · Retail",
     tagline: "Retail web design",

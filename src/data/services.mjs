@@ -23,13 +23,13 @@ export const services = [
   {
     slug: "wordpress-cms",
     icon: "globe-outline",
-    title: "WordPress & CMS solutions",
-    short: "Business sites your team can edit",
-    summary: "Business websites with custom themes, WooCommerce and ongoing performance optimization — easy for your team to edit.",
+    title: "Business websites",
+    short: "Fast sites your team can update",
+    summary: "Professional websites with a custom design, fast pages and simple editing, built with the tools that fit your business.",
     lead: "A professional website that is fast, found on Google, and simple enough that your team can update it without calling a developer.",
     includes: [
       ["Custom themes", "Designs built around your brand instead of a template everyone else uses."],
-      ["Easy editing", "Elementor or block-based layouts so your team can change text, photos and pages."],
+      ["Easy editing", "A simple editor so your team can change text, photos and pages without code."],
       ["Local SEO", "Structure, speed and metadata tuned so nearby customers can find you."],
       ["Lead capture", "Inquiry forms, quotes and click-to-chat that land in your inbox."],
       ["Performance", "Image optimization, caching and clean code for fast load times on mobile."],

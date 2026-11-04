@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!-- Link-preview image for /rates. Render to Image/og-rates.png with: node tools/og/render.mjs -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    background: #0a0a0c; color: #f3f1ec; font-family: "Inter", sans-serif;
+    position: relative; padding: 72px 80px;
+    background-image:
+      radial-gradient(48rem 26rem at 100% 0%, rgba(255, 90, 31, 0.28), transparent 70%),
+      linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+    background-size: auto, 56px 56px, 56px 56px;
+  }
+  .logo { height: 34px; }
+  .eyebrow { margin-top: 44px; display: flex; align-items: center; gap: 14px; font-family: "Space Grotesk"; font-size: 22px; letter-spacing: 0.16em; text-transform: uppercase; color: #a09d95; }
+  .eyebrow::before { content: ""; width: 44px; height: 2px; background: #ff5a1f; }
+  h1 { margin-top: 22px; font-family: "Space Grotesk"; font-weight: 600; font-size: 76px; line-height: 1.02; letter-spacing: -0.04em; }
+  .grad { background: linear-gradient(120deg, #ff5a1f, #ffb02e); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .tiers { position: absolute; left: 80px; right: 80px; bottom: 64px; display: flex; gap: 16px; }
+  .tier { flex: 1; padding: 20px 24px; border-radius: 18px; border: 1px solid rgba(255,255,255,0.14); background: #121216; }
+  .tier.pick { border-color: #ff5a1f; background: linear-gradient(rgba(255,90,31,0.12), rgba(255,90,31,0.12)), #121216; }
+  .tier small { display: block; font-size: 18px; color: #a09d95; }
+  .tier strong { display: block; margin-top: 6px; font-family: "Space Grotesk"; font-size: 34px; font-weight: 600; letter-spacing: -0.02em; }
+</style>
+</head>
+<body>
+  <img class="logo" src="../../Image/sngdnn-logo.webp" alt="">
+  <div class="eyebrow">Rates &amp; plans · genesisjr.com</div>
+  <h1>Clear prices,<br><span class="grad">before we start.</span></h1>
+  <div class="tiers">
+    <div class="tier"><small>Websites, from</small><strong>₱30,000</strong></div>
+    <div class="tier pick"><small>Growth websites</small><strong>₱35k–45k</strong></div>
+    <div class="tier"><small>Custom platforms</small><strong>₱60k+</strong></div>
+    <div class="tier"><small>Maintenance</small><strong>₱2,500/mo</strong></div>
+  </div>
+</body>
+</html>

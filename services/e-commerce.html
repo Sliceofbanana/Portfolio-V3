@@ -21,12 +21,14 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/site.css">
+    <link rel="stylesheet" href="/assets/street.css">
     <script src="/assets/boot.js"></script>
 </head>
 
-<body>
+<body class="theme-street">
+    <a class="skip-link" href="#top">Skip to content</a>
     <div class="bg-glow" aria-hidden="true"></div>
     <div class="bg-grid" aria-hidden="true"></div>
 
@@ -49,7 +51,7 @@
                             </a>
                             <a href="/services/wordpress-cms" class="submenu-item">
                                 <span class="submenu-icon"><ion-icon name="globe-outline"></ion-icon></span>
-                                <span><strong>WordPress & CMS solutions</strong><small>Business sites your team can edit</small></span>
+                                <span><strong>Business websites</strong><small>Fast sites your team can update</small></span>
                             </a>
                             <a href="/services/e-commerce" class="submenu-item active" aria-current="page">
                                 <span class="submenu-icon"><ion-icon name="cart-outline"></ion-icon></span>
@@ -72,7 +74,7 @@
         </div>
     </header>
 
-    <main id="top">
+    <main id="top" tabindex="-1">
 
         <section class="page-hero service-hero">
             <div class="container">
@@ -123,7 +125,7 @@
                 <div class="work-grid">
                     <a class="project reveal" href="/work/mqprints" data-category="development design">
                         <div class="project-media">
-                            <img src="/Image/mq.webp" alt="MQ Printing Services website" loading="lazy" width="800" height="500">
+                            <img src="/Image/mq-2026.jpg" alt="MQ Printing Services website" loading="lazy" width="800" height="500">
                             <span class="view">Read case study →</span>
                         </div>
                         <div class="project-info">
@@ -159,7 +161,7 @@
                 </div>
                 <div class="other-services">
                     <a class="card other-service reveal" href="/services/web-applications"><span class="submenu-icon"><ion-icon name="layers-outline"></ion-icon></span><span><strong>Custom web applications</strong><small>Portals, booking systems and dashboards</small></span><span class="arrow" aria-hidden="true">→</span></a>
-                    <a class="card other-service reveal" href="/services/wordpress-cms"><span class="submenu-icon"><ion-icon name="globe-outline"></ion-icon></span><span><strong>WordPress & CMS solutions</strong><small>Business sites your team can edit</small></span><span class="arrow" aria-hidden="true">→</span></a>
+                    <a class="card other-service reveal" href="/services/wordpress-cms"><span class="submenu-icon"><ion-icon name="globe-outline"></ion-icon></span><span><strong>Business websites</strong><small>Fast sites your team can update</small></span><span class="arrow" aria-hidden="true">→</span></a>
                 </div>
             </div>
         </section>
@@ -195,16 +197,16 @@
             </div>
             <nav aria-label="Footer" class="footer-cols">
                 <div>
-                    <h4>Case studies</h4>
+                    <h2>Case studies</h2>
                     <a href="/work/atms">ATMS</a>
                     <a href="/work/mqprints">MQ Printing Services</a>
                     <a href="/work/bodega">Bodega Coworking Café</a>
                     <a href="/work">All work</a>
                 </div>
                 <div>
-                    <h4>Services</h4>
+                    <h2>Services</h2>
                     <a href="/services/web-applications">Web applications</a>
-                    <a href="/services/wordpress-cms">WordPress &amp; CMS</a>
+                    <a href="/services/wordpress-cms">Business websites</a>
                     <a href="/services/e-commerce">E-commerce</a>
                     <a href="/design">Graphic design</a>
                     <a href="/rates">Rates &amp; plans</a>
