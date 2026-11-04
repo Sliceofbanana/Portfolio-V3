@@ -1,114 +1,176 @@
 <!-- meta {
-  "title": "Genesis Jr | Full-Stack Web Developer",
-  "description": "Genesis Esdrilon Jr — full-stack developer in Cebu, PH building websites, booking platforms, portals and operations systems.",
+  "title": "Genesis Esdrilon Jr | Think Outside. Build Beyond.",
+  "description": "Genesis Esdrilon Jr — creative developer and digital solutions builder in Cebu, Philippines. Websites, systems and products, from first idea to launch and beyond.",
   "nav": "home",
+  "theme": "street",
   "jsonld": {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Genesis Esdrilon Jr",
-    "jobTitle": "Full-Stack Web Developer",
-    "description": "Full-stack web developer building custom websites, booking platforms and enterprise systems.",
+    "jobTitle": "Creative Developer",
+    "description": "Creative developer and digital solutions builder in Cebu: websites, systems and products from idea to launch.",
     "url": "https://www.genesisjr.com",
     "image": "https://www.genesisjr.com/Image/genesis.webp",
     "email": "mailto:genesis.esdrilonjr@gmail.com",
     "sameAs": ["https://www.linkedin.com/in/heeeeeeeeeeenesis/", "https://github.com/Sliceofbanana"],
     "address": { "@type": "PostalAddress", "addressLocality": "Cebu", "addressCountry": "PH" },
     "alumniOf": "Cebu Technological University",
-    "knowsAbout": ["Web Development", "Web Design", "React", "Next.js", "Vue.js", "Laravel", "WordPress", "Supabase"]
+    "knowsAbout": ["Web Development", "UI/UX Design", "Full-Stack Development", "Next.js", "React", "Laravel", "WordPress", "Graphic Design"]
   }
 } -->
-        <!-- Hero -->
-        <section class="hero">
-            <div class="container hero-grid">
-                <div>
-                    <span class="status reveal"><span class="pulse"></span>Available for new projects · Cebu, PH</span>
-                    <h1 class="reveal reveal-d1">
-                        <span class="line">Sharp websites.</span>
-                        <span class="line">Solid systems.</span>
-                        <span class="line grad-text">Built in Cebu.</span>
-                    </h1>
-                    <p class="hero-lead reveal reveal-d2">I'm <strong>Genesis Esdrilon Jr</strong>, a full-stack developer running the <strong>SNGDNN</strong> studio. I build business websites and the systems behind them, like <strong>ATMS</strong>, which runs sales, accounting and payroll for a Philippine tax firm.</p>
-                    <div class="hero-actions reveal reveal-d3">
-                        <a href="{{ROOT}}work.html" class="btn btn-primary">See my work <span class="arrow">→</span></a>
-                        <a href="{{ROOT}}rates.html" class="btn btn-ghost">See rates &amp; plans</a>
-                    </div>
+        <!-- Hero ============================================================ -->
+        <section class="st-hero" aria-labelledby="hero-title">
+            <div class="container st-hero-grid">
+                <div class="st-hero-top st-mono">
+                    <span class="st-status"><span class="st-dot" aria-hidden="true"></span>Available for projects</span>
+                    <span class="st-hero-issue">Portfolio Vol. 03 / 2026</span>
                 </div>
 
-                <div class="portrait-wrap reveal reveal-d2">
-                    <div style="position:relative">
-                        <div class="portrait-card">
-                            <img src="{{ROOT}}Image/genesis.webp" alt="Portrait of Genesis Esdrilon Jr" width="1080" height="1434">
-                            <div class="portrait-meta">
-                                <div>
-                                    <p class="portrait-name">Genesis Esdrilon Jr</p>
-                                    <p>Full-stack developer · Cebu, PH</p>
-                                </div>
-                            </div>
-                        </div>
+                <h1 id="hero-title" class="st-hero-title">
+                    <span class="st-line"><span>Think</span></span>
+                    <span class="st-line"><span>Outside.</span></span>
+                    <span class="st-line st-line--shift"><span>Build</span></span>
+                    <span class="st-line st-line--shift"><span class="st-mark">Beyond.</span></span>
+                </h1>
+
+                <figure class="st-hero-portrait">
+                    <img src="{{ROOT}}Image/genesis.webp" alt="Portrait of Genesis Esdrilon Jr" width="1080" height="1434" fetchpriority="high">
+                    <figcaption class="st-mono">GEJ / CEB / PH</figcaption>
+                </figure>
+
+                <div class="st-hero-foot">
+                    <p class="st-hero-lead">I turn ideas into meaningful digital experiences, systems, and products built to do more.</p>
+                    <dl class="st-hero-id st-mono">
+                        <div><dt>Name</dt><dd>Genesis Esdrilon Jr.</dd></div>
+                        <div><dt>Role</dt><dd>Creative Developer / Digital Solutions Builder</dd></div>
+                        <div><dt>Base</dt><dd>Cebu, Philippines</dd></div>
+                    </dl>
+                    <div class="st-actions">
+                        <a href="#work" class="st-btn st-btn--lime">Explore my work <span aria-hidden="true">↓</span></a>
+                        <a href="{{ROOT}}contact.html" class="st-btn st-btn--ghost">Let's talk</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        {{> marquee}}
+        <!-- Ticker ========================================================== -->
+        <div class="st-ticker" aria-hidden="true">
+            <div class="st-ticker-track">
+                <span>Websites</span><span>Systems</span><span>UI/UX</span><span>Full-stack</span><span>Deployment</span><span>Graphic design</span><span>Fingerboards</span><span>Hip-hop</span>
+                <span>Websites</span><span>Systems</span><span>UI/UX</span><span>Full-stack</span><span>Deployment</span><span>Graphic design</span><span>Fingerboards</span><span>Hip-hop</span>
+            </div>
+        </div>
 
-        <!-- Featured work -->
-        <section class="section">
+        <!-- Selected works ================================================== -->
+        <section class="st-section st-works" id="work" aria-labelledby="work-title">
             <div class="container">
-                <div class="section-head section-head-row reveal">
-                    <div>
-                        <span class="eyebrow">Selected work</span>
-                        <h2>Systems and sites<br>shipped to production.</h2>
-                    </div>
-                    <a href="{{ROOT}}work.html" class="more-link">View all {{PROJECT_COUNT}} projects →</a>
-                </div>
-                {{PROJECTS featured}}
-            </div>
-        </section>
+                <header class="st-head reveal">
+                    <span class="st-mono st-kicker">(01) Selected works</span>
+                    <h2 id="work-title" class="st-h2">Built, shipped,<br>still running.</h2>
+                </header>
 
-        <!-- About teaser -->
-        <section class="section">
-            <div class="container split">
-                <div class="reveal">
-                    <span class="eyebrow">About</span>
-                    <p class="big-quote">Most of my work starts where the group chat and the shared spreadsheet stop keeping up.</p>
-                </div>
-                <div class="split-body reveal reveal-d1">
-                    <p>Since 2024 I've shipped a booking site for a coworking café, a website and order system for a print shop, an orthopaedic clinic site and an operations platform for a tax firm.</p>
-                    <p>I work directly with the owner or the team that will use it, and I stay on after launch.</p>
-                    <a href="{{ROOT}}about.html" class="more-link">More about me →</a>
-                </div>
-            </div>
-        </section>
+                {{FEATURES}}
 
-        <!-- Services teaser -->
-        <section class="section">
-            <div class="container">
-                <div class="section-head section-head-row reveal">
-                    <div>
-                        <span class="eyebrow">What I build</span>
-                        <h2>From a business website<br>to a custom platform.</h2>
-                    </div>
-                    <a href="{{ROOT}}services.html" class="more-link">Services &amp; process →</a>
-                </div>
-                <div class="mini-services">
-                    <a href="{{ROOT}}services/web-applications.html" class="card mini-service reveal"><ion-icon name="layers-outline"></ion-icon><h3>Custom web applications</h3><p>Portals, booking systems and dashboards.</p></a>
-                    <a href="{{ROOT}}services/wordpress-cms.html" class="card mini-service reveal reveal-d1"><ion-icon name="globe-outline"></ion-icon><h3>Business websites</h3><p>Fast sites your team can update.</p></a>
-                    <a href="{{ROOT}}services/e-commerce.html" class="card mini-service reveal reveal-d2"><ion-icon name="cart-outline"></ion-icon><h3>E-commerce systems</h3><p>Stores, payments and inventory.</p></a>
-                </div>
-                <a href="{{ROOT}}rates.html" class="rates-teaser reveal">
-                    <span class="rates-teaser-icon"><ion-icon name="pricetag-outline"></ion-icon></span>
-                    <span class="rates-teaser-text">
-                        <strong>Business websites around <span class="grad-text">₱40,000</span> · Custom platforms <span class="grad-text">₱60,000+</span></strong>
-                        <small>Clear prices, monthly maintenance plans, and a quotation within 24 hours.</small>
-                    </span>
-                    <span class="more-link">See rates &amp; plans →</span>
+                <a class="st-more reveal" href="{{ROOT}}work.html">
+                    <span class="st-mono">Archive</span>
+                    <strong>All {{PROJECT_COUNT}} projects</strong>
+                    <span class="st-more-arrow" aria-hidden="true">→</span>
                 </a>
             </div>
         </section>
 
-        {{> metrics}}
+        <!-- Capabilities ==================================================== -->
+        <section class="st-section st-paper" id="capabilities" aria-labelledby="cap-title">
+            <div class="container">
+                <header class="st-head reveal">
+                    <span class="st-mono st-kicker">(02) Capabilities</span>
+                    <h2 id="cap-title" class="st-h2">Idea to live,<br>one pair of hands.</h2>
+                </header>
+                <ol class="st-caps">
+                    <li class="st-cap reveal">
+                        <span class="st-cap-num st-mono">01</span>
+                        <h3 class="st-cap-title">Strategy</h3>
+                        <p>Understanding business needs, planning solutions, and defining project direction.</p>
+                        <span class="st-cap-tags st-mono">Discovery · Scope · Planning</span>
+                    </li>
+                    <li class="st-cap reveal">
+                        <span class="st-cap-num st-mono">02</span>
+                        <h3 class="st-cap-title">Design</h3>
+                        <p>Creating meaningful digital experiences, interfaces, and visual systems.</p>
+                        <span class="st-cap-tags st-mono">UI/UX · Figma · Brand</span>
+                    </li>
+                    <li class="st-cap reveal">
+                        <span class="st-cap-num st-mono">03</span>
+                        <h3 class="st-cap-title">Development</h3>
+                        <p>Building responsive, scalable, and functional web applications.</p>
+                        <span class="st-cap-tags st-mono">Next.js · Laravel · WordPress</span>
+                    </li>
+                    <li class="st-cap reveal">
+                        <span class="st-cap-num st-mono">04</span>
+                        <h3 class="st-cap-title">Deployment</h3>
+                        <p>Taking projects live, managing infrastructure, and maintaining systems.</p>
+                        <span class="st-cap-tags st-mono">Vercel · cPanel · Care plans</span>
+                    </li>
+                </ol>
+                <div class="st-cap-foot reveal">
+                    <a class="st-link st-link--dark" href="{{ROOT}}services.html">Services &amp; process <span aria-hidden="true">→</span></a>
+                    <a class="st-link st-link--dark" href="{{ROOT}}rates.html">Rates &amp; plans <span aria-hidden="true">→</span></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About =========================================================== -->
+        <section class="st-section st-about" id="about" aria-labelledby="about-title">
+            <div class="container st-about-grid">
+                <figure class="st-about-photo reveal">
+                    <img src="{{ROOT}}Image/genesis.webp" alt="Genesis Esdrilon Jr" width="1080" height="1434" loading="lazy">
+                </figure>
+                <div class="st-about-body">
+                    <span class="st-mono st-kicker reveal">(03) About</span>
+                    <h2 id="about-title" class="st-h2 reveal">Not just<br>the code.</h2>
+                    <p class="st-about-lead reveal">I'm a Computer Engineering graduate who likes the point where design, technology and a real problem meet. I sit with the people who'll use the thing, figure out what they actually need, then design it, build it, launch it and keep it running.</p>
+                    <ul class="st-chips st-mono reveal" aria-label="Experience">
+                        <li>Web development</li><li>Full-stack solutions</li><li>UI/UX design</li><li>WordPress</li><li>Digital systems</li><li>Project management</li><li>Deployment &amp; maintenance</li>
+                    </ul>
+                    <dl class="st-stats reveal">
+                        <div><dt class="st-mono">Screens in ATMS</dt><dd>146</dd></div>
+                        <div><dt class="st-mono">Projects shipped</dt><dd>{{PROJECT_COUNT}}</dd></div>
+                        <div><dt class="st-mono">Years building</dt><dd data-experience>2.5</dd></div>
+                    </dl>
+                    <p class="st-offclock st-mono reveal">Off the clock: fingerboarding, hip-hop, graphic design.</p>
+                    <a class="st-link reveal" href="{{ROOT}}about.html">More about me <span aria-hidden="true">→</span></a>
+                </div>
+            </div>
+        </section>
 
         {{TESTIMONIALS}}
 
-        {{> cta}}
+        <!-- Rates band ====================================================== -->
+        <a class="st-rates" href="{{ROOT}}rates.html">
+            <span class="container st-rates-inner">
+                <span class="st-mono">Rates</span>
+                <strong>Websites around ₱40,000 <span aria-hidden="true">/</span> Custom platforms ₱60,000+</strong>
+                <span class="st-rates-cta">See rates &amp; plans <span aria-hidden="true">→</span></span>
+            </span>
+        </a>
+
+        <!-- Contact: the back page ========================================== -->
+        <section class="st-section st-paper st-contact" id="contact" aria-labelledby="contact-title">
+            <div class="container">
+                <span class="st-mono st-kicker reveal">(04) Contact</span>
+                <h2 id="contact-title" class="st-contact-title reveal">Got something in mind?<br><span class="st-mark st-mark--ink">Let's make it real.</span></h2>
+                <div class="st-contact-grid reveal">
+                    <a class="st-email" href="mailto:genesis.esdrilonjr@gmail.com">genesis.esdrilonjr@gmail.com</a>
+                    <ul class="st-socials st-mono">
+                        <li><a href="https://www.linkedin.com/in/heeeeeeeeeeenesis/" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></li>
+                        <li><a href="https://github.com/Sliceofbanana" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></li>
+                        <li><a href="{{ROOT}}contact.html">Project form <span aria-hidden="true">→</span></a></li>
+                    </ul>
+                    <div class="st-actions">
+                        <a href="{{ROOT}}contact.html" class="st-btn st-btn--ink">Start a project <span aria-hidden="true">→</span></a>
+                        <a href="{{ROOT}}rates.html" class="st-btn st-btn--outline">Request a quotation</a>
+                    </div>
+                </div>
+                <p class="st-colophon st-mono">Set in Anton, Space Grotesk &amp; IBM Plex Mono. Designed and built by hand in Cebu.</p>
+            </div>
+        </section>
