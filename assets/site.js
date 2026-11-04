@@ -99,6 +99,44 @@
     sync();
   });
 
+  /* Design page: each series is a sideways strip; add count + prev/next ------- */
+  $$(".dz-series-head").forEach((head) => {
+    const section = head.closest("section");
+    const strip = section && $(".dz-tiles, .dz-masonry, .dz-grid", section);
+    if (!strip) return;
+    const title = ($("h2", head) || head).textContent.trim();
+    const count = strip.children.length;
+    // Keep each print's shape before it loads, so the strip has its full width
+    $$("img", strip).forEach((img) => {
+      const w = +img.getAttribute("width"), h = +img.getAttribute("height");
+      if (w && h) img.style.aspectRatio = `${w} / ${h}`;
+    });
+    strip.setAttribute("tabindex", "0");
+    strip.setAttribute("role", "region");
+    strip.setAttribute("aria-label", `${title}: ${count} pieces, scroll sideways`);
+
+    const nav = document.createElement("div");
+    nav.className = "dz-nav";
+    nav.innerHTML = `<span class="dz-count">${count} pieces</span>
+      <button type="button" aria-label="Previous pieces in ${title}">←</button>
+      <button type="button" aria-label="Next pieces in ${title}">→</button>`;
+    head.appendChild(nav);
+    const [prev, next] = $$("button", nav);
+    const step = () => Math.max(strip.clientWidth * 0.8, 200);
+    prev.addEventListener("click", () => strip.scrollBy({ left: -step() }));
+    next.addEventListener("click", () => strip.scrollBy({ left: step() }));
+    const update = () => {
+      const max = strip.scrollWidth - strip.clientWidth;
+      nav.hidden = max <= 2;
+      prev.disabled = strip.scrollLeft <= 2;
+      next.disabled = strip.scrollLeft >= max - 2;
+    };
+    strip.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    $$("img", strip).forEach((img) => img.addEventListener("load", update));
+    update();
+  });
+
   /* Reveal on scroll ------------------------------------------------------- */
   const reveals = $$(".reveal");
   if ("IntersectionObserver" in window) {

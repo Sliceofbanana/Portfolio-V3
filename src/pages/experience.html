@@ -1,68 +1,144 @@
 <!-- meta {
   "title": "Experience | Genesis Jr",
-  "description": "Work history, education, skills and certifications of Genesis Esdrilon Jr, full-stack web developer."
+  "description": "Work history, freelance projects, education, skills and certifications of Genesis Esdrilon Jr, full-stack web developer in Cebu."
 } -->
-        <section class="page-hero">
+        <!-- Hero ============================================================ -->
+        <section class="xp-hero">
             <div class="container">
-                <span class="eyebrow reveal">Experience</span>
-                <h1 class="reveal reveal-d1">Where I've been<br><span class="grad-text">building.</span></h1>
+                <div class="dz-top st-mono reveal"><span>(Experience) Track record</span><span>Since March 2024 · Cebu, PH</span></div>
+                <h1 class="xp-title reveal reveal-d1">Where I've been<br><span class="st-mark">building.</span></h1>
+                <dl class="xp-stats reveal reveal-d2">
+                    <div><dt class="st-mono">Years building</dt><dd data-experience>2.5</dd></div>
+                    <div><dt class="st-mono">Developer roles</dt><dd>6</dd></div>
+                    <div><dt class="st-mono">Projects shipped</dt><dd>{{PROJECT_COUNT}}</dd></div>
+                </dl>
             </div>
         </section>
 
-        <section class="section" style="padding-top:0">
+        <!-- Work =================================================== -->
+        <section class="st-section xp-section" aria-labelledby="xp-work">
             <div class="container">
-                <div class="exp-grid">
-                    <div>
-                        <p class="col-title reveal">Work</p>
-                        <ol class="timeline">
-                            <li class="reveal"><h3>Website Developer · Contract</h3><span class="org">Camp Digital</span><span class="when now">Oct 2025 — Present</span></li>
-                            <li class="reveal"><h3>Jr. Website Solution Developer</h3><span class="org">Boombox Marketing</span><span class="when">Sep 2024 — Feb 2025</span></li>
-                            <li class="reveal"><h3>Website Developer · Intern</h3><span class="org">Boombox Marketing</span><span class="when">Mar 2024 — Jun 2024</span></li>
-                        </ol>
+                <header class="xp-head reveal">
+                    <span class="st-mono st-kicker">(01)</span>
+                    <h2 id="xp-work" class="xp-h2">Work</h2>
+                </header>
+                <ol class="xp-list">
+                    <li class="xp-row reveal">
+                        <span class="xp-when st-mono">Oct 2025 — <b>Now</b></span>
+                        <h3 class="xp-role">Website Developer</h3>
+                        <p class="xp-org">Camp Digital <span class="xp-type st-mono">Contract</span></p>
+                    </li>
+                    <li class="xp-row reveal">
+                        <span class="xp-when st-mono">Sep 2024 — Feb 2025</span>
+                        <h3 class="xp-role">Jr. Website Solution Developer</h3>
+                        <p class="xp-org">Boombox Marketing</p>
+                    </li>
+                    <li class="xp-row reveal">
+                        <span class="xp-when st-mono">Mar 2024 — Jun 2024</span>
+                        <h3 class="xp-role">Website Developer</h3>
+                        <p class="xp-org">Boombox Marketing <span class="xp-type st-mono">Intern</span></p>
+                    </li>
+                </ol>
+            </div>
+        </section>
 
-                        <p class="col-title reveal" style="margin-top:48px">Freelance</p>
-                        <ol class="timeline">
-                            <li class="reveal"><h3>Website Developer</h3><span class="org">Magis Realty &amp; Brokerage — in development, not yet public</span><span class="when now">Present</span></li>
-                            <li class="reveal"><h3>Software Developer</h3><span class="org">Agila Tax Management Services — built the <a class="inline" href="{{ROOT}}work/atms.html">ATMS platform</a></span><span class="when">Feb 2026 — Jul 2026</span></li>
-                            <li class="reveal"><h3>Website Developer</h3><span class="org">MQ Prints — website, portal and ordering system, revamp in progress</span><span class="when now">Sep 2025 — Present</span></li>
-                        </ol>
+        <!-- Freelance ========================================================== -->
+        <section class="st-section xp-section xp-section--tight" aria-labelledby="xp-freelance">
+            <div class="container">
+                <header class="xp-head reveal">
+                    <span class="st-mono st-kicker">(02)</span>
+                    <h2 id="xp-freelance" class="xp-h2">Freelance</h2>
+                </header>
+                <ol class="xp-list">
+                    <li class="xp-row reveal">
+                        <span class="xp-when st-mono"><b>Now</b></span>
+                        <h3 class="xp-role">Website Developer</h3>
+                        <p class="xp-org">Magis Realty &amp; Brokerage <span class="xp-note">In development, not yet public</span></p>
+                    </li>
+                    <li class="xp-row reveal">
+                        <span class="xp-when st-mono">Feb 2026 — Jul 2026</span>
+                        <h3 class="xp-role">Software Developer</h3>
+                        <p class="xp-org">Agila Tax Management Services <a class="xp-note xp-link" href="{{ROOT}}work/atms.html">Built the ATMS platform →</a></p>
+                    </li>
+                    <li class="xp-row reveal">
+                        <span class="xp-when st-mono">Sep 2025 — <b>Now</b></span>
+                        <h3 class="xp-role">Website Developer</h3>
+                        <p class="xp-org">MQ Prints <a class="xp-note xp-link" href="{{ROOT}}work/mqprints.html">Website, portal and ordering, revamp in progress →</a></p>
+                    </li>
+                </ol>
+            </div>
+        </section>
 
-                        <p class="col-title reveal" style="margin-top:48px">Creative</p>
-                        <ol class="timeline">
-                            <li class="reveal"><h3>Creative Head</h3><span class="org">Graduating Class Council — Cebu Technological University</span><span class="when">Former</span></li>
-                            <li class="reveal"><h3>Creative Officer</h3><span class="org">ICpEP.SE — Cebu Technological University</span><span class="when">Former</span></li>
-                        </ol>
+        <!-- Creative + education ================================================ -->
+        <section class="st-section xp-section xp-section--tight" aria-labelledby="xp-creative">
+            <div class="container xp-split">
+                <div>
+                    <header class="xp-head reveal">
+                        <span class="st-mono st-kicker">(03)</span>
+                        <h2 id="xp-creative" class="xp-h2">Creative</h2>
+                    </header>
+                    <ol class="xp-list">
+                        <li class="xp-row xp-row--compact reveal">
+                            <span class="xp-when st-mono">Former</span>
+                            <h3 class="xp-role">Creative Head</h3>
+                            <p class="xp-org">Graduating Class Council, Cebu Technological University</p>
+                        </li>
+                        <li class="xp-row xp-row--compact reveal">
+                            <span class="xp-when st-mono">Former</span>
+                            <h3 class="xp-role">Creative Officer</h3>
+                            <p class="xp-org">ICpEP.SE, Cebu Technological University</p>
+                        </li>
+                    </ol>
+                </div>
+                <div>
+                    <header class="xp-head reveal">
+                        <span class="st-mono st-kicker">(04)</span>
+                        <h2 class="xp-h2">Education</h2>
+                    </header>
+                    <ol class="xp-list">
+                        <li class="xp-row xp-row--compact reveal">
+                            <span class="xp-when st-mono">Degree</span>
+                            <h3 class="xp-role">BS Computer Engineering</h3>
+                            <p class="xp-org">Cebu Technological University, Main Campus</p>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </section>
 
-                        <p class="col-title reveal" style="margin-top:48px">Education</p>
-                        <ol class="timeline">
-                            <li class="reveal"><h3>BS in Computer Engineering</h3><span class="org">Cebu Technological University — Main Campus</span></li>
-                        </ol>
-                    </div>
+        <!-- Skills (paper) ======================================================= -->
+        <section class="st-section st-paper xp-skills" aria-labelledby="xp-skills">
+            <div class="container">
+                <header class="xp-head reveal">
+                    <span class="st-mono st-kicker">(05)</span>
+                    <h2 id="xp-skills" class="xp-h2">Toolkit</h2>
+                </header>
+                <div class="xp-skill-grid">
+                    <div class="xp-skill reveal"><h3 class="st-mono">Frontend</h3><ul><li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>TypeScript</li><li>React</li><li>Next.js</li><li>Vue.js</li><li>Flutter</li></ul></div>
+                    <div class="xp-skill reveal"><h3 class="st-mono">Backend</h3><ul><li>PHP</li><li>Laravel</li><li>Node.js</li><li>Prisma</li><li>PostgreSQL</li><li>MySQL</li><li>Supabase</li></ul></div>
+                    <div class="xp-skill reveal"><h3 class="st-mono">Deployment</h3><ul><li>Vercel</li><li>Docker</li><li>Firebase</li><li>cPanel</li><li>Hostinger</li><li>a2Hosting</li><li>Git / GitHub</li></ul></div>
+                    <div class="xp-skill reveal"><h3 class="st-mono">Design</h3><ul><li>Photoshop</li><li>Illustrator</li><li>Figma</li><li>Adobe XD</li></ul></div>
+                    <div class="xp-skill reveal"><h3 class="st-mono">CMS</h3><ul><li>WordPress</li><li>Odoo</li></ul></div>
+                </div>
+            </div>
+        </section>
 
-                    <div class="side-stack">
-                        <div>
-                            <p class="col-title reveal">Skills</p>
-                            <div class="skill-group reveal"><h4>Frontend</h4><div class="tags"><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span><span class="tag">TypeScript</span><span class="tag">React</span><span class="tag">Next.js</span><span class="tag">Vue.js</span><span class="tag">Flutter</span></div></div>
-                            <div class="skill-group reveal"><h4>Backend</h4><div class="tags"><span class="tag">PHP</span><span class="tag">Laravel</span><span class="tag">Node.js</span><span class="tag">Prisma</span><span class="tag">PostgreSQL</span><span class="tag">MySQL</span><span class="tag">Supabase</span></div></div>
-                            <div class="skill-group reveal"><h4>Deployment</h4><div class="tags"><span class="tag">Vercel</span><span class="tag">Docker</span><span class="tag">Firebase</span><span class="tag">cPanel</span><span class="tag">Hostinger</span><span class="tag">a2Hosting</span><span class="tag">Git / GitHub</span></div></div>
-                            <div class="skill-group reveal"><h4>Design</h4><div class="tags"><span class="tag">Photoshop</span><span class="tag">Illustrator</span><span class="tag">Figma</span><span class="tag">Adobe XD</span></div></div>
-                            <div class="skill-group reveal"><h4>CMS</h4><div class="tags"><span class="tag">WordPress</span><span class="tag">Odoo</span></div></div>
-                        </div>
-
-                        <div>
-                            <p class="col-title reveal">Certifications</p>
-                            <div class="certs">
-                                <button class="cert reveal" data-lightbox="{{ROOT}}Image/cert 1.webp" data-alt="Certificate for Creative Web Design">
-                                    <img src="{{ROOT}}Image/cert 1.webp" alt="" loading="lazy" width="400" height="300">
-                                    <span>Creative Web Design<small>Call Center Academy · Jun 2024</small></span>
-                                </button>
-                                <button class="cert reveal reveal-d1" data-lightbox="{{ROOT}}Image/cert 2.webp" data-alt="Certificate for Internet of Things">
-                                    <img src="{{ROOT}}Image/cert 2.webp" alt="" loading="lazy" width="400" height="300">
-                                    <span>Internet of Things<small>Call Center Academy · Feb 2024</small></span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+        <!-- Certifications ====================================================== -->
+        <section class="st-section xp-section" aria-labelledby="xp-certs">
+            <div class="container">
+                <header class="xp-head reveal">
+                    <span class="st-mono st-kicker">(06)</span>
+                    <h2 id="xp-certs" class="xp-h2">Certifications</h2>
+                </header>
+                <div class="xp-certs">
+                    <button type="button" class="xp-cert reveal" data-lightbox="{{ROOT}}Image/cert 1.webp" data-alt="Certificate for Creative Web Design">
+                        <img src="{{ROOT}}Image/cert 1.webp" alt="" loading="lazy" width="400" height="300">
+                        <span class="xp-cert-text"><strong>Creative Web Design</strong><small class="st-mono">Call Center Academy · Jun 2024</small></span>
+                    </button>
+                    <button type="button" class="xp-cert reveal reveal-d1" data-lightbox="{{ROOT}}Image/cert 2.webp" data-alt="Certificate for Internet of Things">
+                        <img src="{{ROOT}}Image/cert 2.webp" alt="" loading="lazy" width="400" height="300">
+                        <span class="xp-cert-text"><strong>Internet of Things</strong><small class="st-mono">Call Center Academy · Feb 2024</small></span>
+                    </button>
                 </div>
             </div>
         </section>
