@@ -254,11 +254,18 @@ function servicesMenu(cur, activeService) {
                             </a>`
     )
     .join("\n                            ");
+  // Rates page sits in the dropdown after the service pages
+  const ratesCur = activeService === "rates";
+  const rates = `<a href="{{ROOT}}rates.html" class="submenu-item${ratesCur ? " active" : ""}"${ratesCur ? ' aria-current="page"' : ""}>
+                                <span class="submenu-icon"><ion-icon name="pricetag-outline"></ion-icon></span>
+                                <span><strong>Rates &amp; plans</strong><small>Project prices and maintenance plans</small></span>
+                            </a>`;
   return `<li class="has-menu">
                         <a href="{{ROOT}}services.html"${cur ? ' class="active"' : ""}${cur && !activeService ? ' aria-current="page"' : ""}>Services</a>
                         <button type="button" class="submenu-toggle" aria-expanded="false" aria-controls="menu-services" aria-label="Show services"><ion-icon name="chevron-down-outline"></ion-icon></button>
                         <div class="submenu" id="menu-services">
                             ${items}
+                            ${rates}
                             <a href="{{ROOT}}services.html" class="submenu-all">All services &amp; how I work <span aria-hidden="true">→</span></a>
                         </div>
                     </li>`;

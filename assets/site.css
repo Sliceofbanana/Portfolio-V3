@@ -727,3 +727,103 @@ a.service-card { color: inherit; }
 .dz-masonry { list-style: none; margin: 0; padding: 0; columns: 3 240px; column-gap: clamp(14px, 2.2vw, 28px); }
 .dz-masonry li { break-inside: avoid; margin-bottom: clamp(14px, 2.2vw, 28px); }
 .dz-masonry .dz-print img { aspect-ratio: auto; object-fit: contain; background: #fff; }
+
+/* Rates page --------------------------------------------------------------- */
+.rates-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.rates-jump { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 28px; font-family: var(--font-display); font-size: 15px; }
+.rates-jump a { color: var(--muted); border-bottom: 1px solid var(--line-strong); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; }
+.rates-jump a:hover { color: var(--text); border-color: var(--accent); }
+.rates-print-meta, .rates-print-contact { display: none; }
+.rates-section { scroll-margin-top: 80px; }
+.plan-price { flex-wrap: wrap; }
+.plan-price strong { overflow-wrap: anywhere; }
+.plan .plan-quote { margin-top: 6px; }
+.plan-terms { margin: 4px 0 0; padding-top: 14px; border-top: 1px solid var(--line); display: grid; gap: 8px; font-size: 14px; }
+.plan-terms div, .rate-list div { display: flex; justify-content: space-between; gap: 6px 16px; flex-wrap: wrap; }
+.plan-terms dt { color: var(--muted); }
+.plan-terms dd { margin: 0; font-weight: 500; }
+.rates-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+.rates-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+.rates-block { display: grid; gap: 12px; align-content: start; }
+.rates-block h3 { font-size: 20px; }
+.rates-sub { color: var(--muted); font-size: 15px; }
+.rates-foot { margin-top: 4px; }
+.rates-ticks { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; font-size: 15px; }
+.rates-ticks li { position: relative; padding-left: 20px; }
+.rates-ticks li::before { content: ""; position: absolute; left: 0; top: 0.55em; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+.rates-ticks-muted li { color: var(--muted); }
+.rates-ticks-muted li::before { background: var(--faint); }
+.rates-block a.inline, .plans-note a.inline { color: var(--accent-2); }
+.rate-list { margin: 0; display: grid; border-top: 1px solid var(--line); }
+.rate-list div { padding: 12px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+.rate-list div:last-child { border-bottom: 0; }
+.rate-list dt { font-weight: 500; font-size: 15px; flex: 1 1 200px; }
+.rate-list dd { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 15px; text-align: right; }
+.rate-list small { display: block; font-family: var(--font-body); font-weight: 400; font-size: 13px; color: var(--muted); margin-top: 2px; }
+.rates-notes { list-style: none; margin: 20px 0 0; padding: 0; display: grid; gap: 8px; color: var(--muted); font-size: 15px; max-width: 72ch; }
+.rates-notes li { position: relative; padding-left: 18px; }
+.rates-notes li::before { content: "·"; position: absolute; left: 4px; color: var(--accent); }
+@media (max-width: 900px) { .rates-cols, .rates-grid { grid-template-columns: 1fr; } }
+@media (max-width: 520px) { .rate-list dd { text-align: left; } .rates-actions .btn { flex: 1 1 100%; } }
+
+/* Print / Save as PDF: light, ink-friendly, no site chrome */
+@media print {
+  :root, body {
+    --bg: #fff; --surface: #fff; --line: #d8d6d0; --line-strong: #bdbab2;
+    --text: #111; --muted: #444; --faint: #777; --accent: #d9480f; --accent-2: #d9480f;
+  }
+  @page { margin: 14mm 12mm; }
+  html, body { background: #fff !important; color: #111; font-size: 12px; }
+  .bg-glow, .bg-grid, .site-header, .site-footer, .modal, .rates-actions, .rates-jump, .cta-band, .plan-quote, .back-top { display: none !important; }
+  .js .reveal, .reveal { opacity: 1 !important; transform: none !important; }
+  .grad-text { background: none; color: #111; -webkit-text-fill-color: currentColor; }
+  .page-hero { padding: 0 0 18px; }
+  .page-hero h1 { font-size: 34px; margin: 10px 0; }
+  .page-lead { font-size: 13px; }
+  .rates-print-meta, .rates-print-contact { display: block; color: #444; font-size: 11px; margin-top: 10px; }
+  .section { padding: 18px 0; }
+  .cta-section { padding-top: 0; }
+  .section-head { margin-bottom: 14px; gap: 6px; }
+  .section-head h2 { font-size: 24px; }
+  .section-head h2 br { display: none; }
+  .section-head p { font-size: 13px; }
+  #maintenance { break-before: page; }
+  .card { padding: 12px 14px; border-radius: 8px; box-shadow: none; }
+  .plan-pick { background: #fff; border-color: #d9480f; }
+  .plan-price strong { font-size: 20px; }
+  .plans { grid-template-columns: repeat(3, 1fr) !important; gap: 8px; }
+  .rates-cols, .rates-grid { grid-template-columns: 1fr 1fr !important; gap: 8px; margin-top: 8px; }
+  .process { grid-template-columns: repeat(4, 1fr) !important; border-left: 0; border-top: 1px solid var(--line); padding-left: 0; gap: 0; }
+  .step { padding: 14px 10px 0 0; }
+  .step::before { top: -5px; left: 0; box-shadow: none; }
+  .step h3 { font-size: 14px; }
+  .plan li, .rates-ticks, .rate-list dt, .rate-list dd, .step p, .rates-notes, .rates-sub { font-size: 11px; }
+  .card, .step, .rate-list div { break-inside: avoid; }
+  a { color: inherit; }
+}
+
+/* Rates page: plan buttons and quotation form */
+.plan .plan-choose { margin-top: 8px; justify-self: start; }
+.plan-choose-link { margin-top: 4px; }
+.quote-card { max-width: 860px; }
+.plan-group { display: grid; gap: 8px; }
+.plan-group small { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--faint); }
+.plan-chosen { font-size: 14px; color: var(--muted); }
+.plan-chosen strong { color: var(--text); font-weight: 600; }
+.fieldset legend em { font-style: normal; color: var(--accent); }
+.plan-qs { gap: 18px; padding: 20px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: rgba(255, 255, 255, 0.015); }
+.plan-qs[hidden], .plan-qs [hidden] { display: none; }
+.plan-qs-title { font-family: var(--font-display); font-size: 17px !important; font-weight: 600; float: left; width: 100%; margin-bottom: 4px; }
+.plan-qs-title + * { clear: both; }
+.rates-process { margin-top: clamp(40px, 6vw, 64px); }
+@media print { #request .section-head, .quote-card { display: none !important; } .rates-process { margin-top: 0; } }
+.rates-section .plan-price strong { font-size: clamp(26px, 2.5vw, 32px); white-space: nowrap; overflow-wrap: normal; }
+
+/* Homepage: rates teaser banner */
+.rates-teaser { display: flex; align-items: center; gap: 18px; margin-top: 16px; padding: 18px 24px; border-radius: var(--radius); border: 1px solid rgba(255, 90, 31, 0.3); background: linear-gradient(var(--accent-soft), var(--accent-soft)), var(--surface); transition: border-color 0.3s, transform 0.3s var(--ease); }
+.rates-teaser:hover { border-color: var(--accent); transform: translateY(-2px); }
+.rates-teaser-icon { flex: none; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 12px; background: var(--accent-soft); color: var(--accent); font-size: 20px; }
+.rates-teaser-text { flex: 1; display: grid; gap: 4px; }
+.rates-teaser-text strong { font-family: var(--font-display); font-size: 17px; font-weight: 600; }
+.rates-teaser-text small { color: var(--muted); font-size: 14px; }
+@media (max-width: 700px) { .rates-teaser { flex-wrap: wrap; padding: 18px; } .rates-teaser-icon { display: none; } .rates-teaser .more-link { width: 100%; } }

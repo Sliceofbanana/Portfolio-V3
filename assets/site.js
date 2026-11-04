@@ -62,6 +62,43 @@
     })
   );
 
+  // "Save as PDF" buttons open the print dialog (rates page)
+  $$("[data-print]").forEach((btn) => btn.addEventListener("click", () => window.print()));
+
+  /* Rates page: choose a plan, then show that plan's questions -------------- */
+  $$("form[data-quote]").forEach((form) => {
+    const radios = $$('input[name="Plan"]', form);
+    const sections = $$("[data-for]", form);
+    const label = $("[data-plan-label]", form);
+    const budget = $("[data-budget-field]", form);
+    let autoBudget = "";
+    function sync() {
+      const picked = radios.find((r) => r.checked);
+      const key = picked ? picked.dataset.key : "";
+      // Prefill the budget with the plan's price, unless the visitor typed their own
+      if (budget && (budget.value === "" || budget.value === autoBudget)) {
+        autoBudget = picked ? picked.dataset.budget || "" : "";
+        budget.value = autoBudget;
+      }
+      sections.forEach((sec) => {
+        const on = !!key && sec.dataset.for.split(" ").includes(key);
+        sec.hidden = !on;
+        sec.disabled = !on;
+      });
+      if (label) label.textContent = picked ? picked.value : "No plan chosen yet";
+    }
+    function choose(key) {
+      const r = radios.find((x) => x.dataset.key === key);
+      if (r) { r.checked = true; sync(); }
+    }
+    radios.forEach((r) => r.addEventListener("change", sync));
+    $$("[data-choose]").forEach((a) => a.addEventListener("click", () => choose(a.dataset.choose)));
+    form.addEventListener("intake:sent", () => setTimeout(sync));
+    const fromUrl = new URLSearchParams(location.search).get("plan");
+    if (fromUrl) choose(fromUrl.toLowerCase());
+    sync();
+  });
+
   /* Reveal on scroll ------------------------------------------------------- */
   const reveals = $$(".reveal");
   if ("IntersectionObserver" in window) {
@@ -350,13 +387,28 @@
         return;
       }
 
+      // Quotation form (rates page): a plan must be picked
+      const planPicker = $("[data-plan-picker]", form);
+      if (planPicker && !$('input[name="Plan"]:checked', form)) {
+        planPicker.scrollIntoView({ block: "center" });
+        showError("Please choose a plan first.");
+        return;
+      }
+
       const data = {};
       const goals = [];
+      const answers = {};
+      // Hidden plan sections are disabled, so FormData leaves their fields out
       for (const [key, value] of new FormData(form).entries()) {
-        if (key === "Goals[]") goals.push(value);
-        else data[key] = typeof value === "string" ? value.trim() : value;
+        const v = typeof value === "string" ? value.trim() : value;
+        if (key === "Goals[]") goals.push(v);
+        else if (key.startsWith("A:")) {
+          const q = key.slice(2);
+          if (v) answers[q] = answers[q] ? `${answers[q]}, ${v}` : v;
+        } else data[key] = v;
       }
       data.Goals = goals;
+      if (Object.keys(answers).length) data.Answers = answers;
 
       btn.disabled = true;
       btn.innerHTML = "Sending…";
@@ -388,6 +440,7 @@
         if (!res.ok || !json.success) throw new Error(json.error || `Request failed (${res.status})`);
 
         form.reset();
+        form.dispatchEvent(new CustomEvent("intake:sent"));
         if (thanks) openModal(thanks);
       } catch (err) {
         console.error(err);

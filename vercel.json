@@ -4,6 +4,12 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "rate.genesisjr.com" }],
+      "destination": "https://www.genesisjr.com/rates",
+      "permanent": false
+    },
+    {
       "source": "/sngdnn.html",
       "destination": "/",
       "permanent": true

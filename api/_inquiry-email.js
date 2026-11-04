@@ -88,7 +88,21 @@ export function inquiryEmail(data, now = new Date()) {
   const received = manilaTime(now);
   const replyBy = manilaTime(new Date(now.getTime() + 24 * 60 * 60 * 1000));
 
-  const subject = `New inquiry: ${name}${data.Budget ? ` · ${data.Budget}` : ''}`.replace(/[\r\n]+/g, ' ').slice(0, 150);
+  const plan = data.Plan || '';
+  const answers = data.Answers || [];
+  const kind = plan ? 'Quotation request' : 'New project inquiry';
+  const subject = (plan ? `Quotation request: ${plan} · ${name}` : `New inquiry: ${name}`)
+    .concat(data.Budget ? ` · ${data.Budget}` : '')
+    .replace(/[\r\n]+/g, ' ')
+    .slice(0, 150);
+  const answerRows = answers
+    .map(
+      ([label, value]) => `<tr><td style="padding:18px 0 0;">
+              <div style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:${C.muted};">${escapeHtml(label)}</div>
+              <div style="margin-top:6px;font-size:15px;line-height:1.6;color:${C.ink};">${richText(value)}</div>
+            </td></tr>`
+    )
+    .join('');
 
   const replyHref = `mailto:${encodeURIComponent(email)}?subject=${encodeURIComponent('Re: Your project inquiry')}&body=${encodeURIComponent(`Hi ${firstName},\n\nThanks for reaching out! `)}`;
   const buttons = [
@@ -116,7 +130,7 @@ export function inquiryEmail(data, now = new Date()) {
 <html lang="en">
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><title>${escapeHtml(subject)}</title></head>
 <body style="margin:0;padding:0;background:${C.page};font-family:${FONT};color:${C.ink};">
-  <div style="display:none;max-height:0;overflow:hidden;">${escapeHtml([data.Goals.join(', '), data.Timeline].filter(Boolean).join(' · ') || 'New project inquiry')}</div>
+  <div style="display:none;max-height:0;overflow:hidden;">${escapeHtml([plan, data.Goals.join(', '), data.Timeline].filter(Boolean).join(' · ') || kind)}</div>
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:${C.page};">
     <tr><td align="center" style="padding:24px 12px;">
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:600px;">
@@ -127,7 +141,7 @@ export function inquiryEmail(data, now = new Date()) {
         </td></tr>
 
         <tr><td style="background:${C.card};padding:28px 28px 8px;">
-          <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:${C.accent};font-weight:700;">New project inquiry</div>
+          <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:${C.accent};font-weight:700;">${kind}</div>
           <h1 style="margin:8px 0 6px;font-size:26px;line-height:1.25;color:${C.ink};">${escapeHtml(name)}</h1>
           <div style="font-size:14px;color:${C.muted};">
             <a href="mailto:${escapeHtml(email)}" style="color:${C.ink};">${escapeHtml(email)}</a>${data.Phone ? ` &nbsp;·&nbsp; <a href="tel:${escapeHtml(data.Phone.replace(/[^\d+]/g, ''))}" style="color:${C.ink};">${escapeHtml(data.Phone)}</a>` : ''}
@@ -140,13 +154,13 @@ export function inquiryEmail(data, now = new Date()) {
             <tr>${glanceCell('Budget', data.Budget ? escapeHtml(data.Budget) : notGiven)}<td width="8"></td>${glanceCell('Timeline', data.Timeline ? escapeHtml(data.Timeline) : notGiven)}</tr>
           </table>
           <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:separate;border-spacing:0 0;">
-            <tr>${glanceCell('Goals', goals)}</tr>
+            <tr>${plan ? glanceCell('Plan chosen', escapeHtml(plan)) : glanceCell('Goals', goals)}</tr>
           </table>
         </td></tr>
 
         <tr><td style="background:${C.card};padding:8px 28px 28px;">
           <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
-            ${detailRows || `<tr><td style="padding:18px 0 0;font-size:15px;color:${C.muted};">No project details were filled in. Worth asking a few questions in your reply.</td></tr>`}
+            ${answerRows}${detailRows || (answerRows ? '' : `<tr><td style="padding:18px 0 0;font-size:15px;color:${C.muted};">No project details were filled in. Worth asking a few questions in your reply.</td></tr>`)}
           </table>
           ${filled.length && empty.length ? `<p style="margin:22px 0 0;font-size:13px;color:${C.muted};">Left blank: ${empty.join(', ')}.</p>` : ''}
         </td></tr>
@@ -164,7 +178,7 @@ export function inquiryEmail(data, now = new Date()) {
 
   const line = (label, value) => `${label}: ${value || 'Not given'}`;
   const text = [
-    `New project inquiry — ${data.Source}`,
+    `${kind} — ${data.Source}`,
     '',
     line('Name', name),
     line('Email', email),
@@ -172,7 +186,8 @@ export function inquiryEmail(data, now = new Date()) {
     '',
     line('Budget', data.Budget),
     line('Timeline', data.Timeline),
-    line('Goals', data.Goals.join(', ')),
+    plan ? line('Plan chosen', plan) : line('Goals', data.Goals.join(', ')),
+    ...answers.flatMap(([label, value]) => ['', `${label}:`, value]),
     ...filled.flatMap(([key, label]) => ['', `${label}:`, data[key]]),
     '',
     `Received ${received}. Reply by ${replyBy}.`,

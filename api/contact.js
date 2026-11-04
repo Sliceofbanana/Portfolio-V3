@@ -42,7 +42,13 @@ const FIELDS = {
   Notes: { label: 'Notes', max: 3000 },
 };
 const ALLOWED_GOALS = ['Showcase services', 'Sell products', 'Blog', 'Internal system', 'Info Site', 'Portfolio'];
-const ALLOWED_SOURCES = ['Genesis Jr Portfolio'];
+const ALLOWED_SOURCES = ['Genesis Jr Portfolio', 'Rates page'];
+// Quotation requests from /rates: the chosen plan plus that plan's own questions
+const ALLOWED_PLANS = [
+  'Core', 'Growth', 'Full', 'Enhancement', 'Branding',
+  'Maintenance: Basic', 'Maintenance: Standard', 'Maintenance: Premium', 'Not sure yet',
+];
+const ANSWERS = { maxEntries: 20, keyMax: 80, valueMax: 1500 };
 const EMAIL_RE = /^[^\s@<>()[\]\\,;:"]+@[^\s@<>()[\]\\,;:"]+\.[a-z]{2,}$/i;
 
 /* ---------------------------------------------------------------- helpers */
@@ -86,6 +92,32 @@ function validate(body) {
   data.Goals = [...new Set(goals.map((g) => clean(String(g), { singleLine: true })).filter((g) => ALLOWED_GOALS.includes(g)))];
 
   data.Source = ALLOWED_SOURCES.includes(body.Source) ? body.Source : 'Website';
+
+  data.Plan = '';
+  if (body.Plan !== undefined && body.Plan !== '') {
+    if (ALLOWED_PLANS.includes(body.Plan)) data.Plan = body.Plan;
+    else errors.Plan = 'Choose a plan from the list.';
+  }
+
+  // Plan questions arrive as { "Question label": "answer" }; labels come from the page, so treat both as untrusted text
+  data.Answers = [];
+  if (body.Answers !== undefined) {
+    if (!body.Answers || typeof body.Answers !== 'object' || Array.isArray(body.Answers)) {
+      errors.Answers = 'Invalid answers.';
+    } else {
+      for (const [rawKey, rawValue] of Object.entries(body.Answers).slice(0, ANSWERS.maxEntries)) {
+        if (typeof rawValue !== 'string') continue;
+        const key = clean(rawKey, { singleLine: true }).slice(0, ANSWERS.keyMax);
+        const value = clean(rawValue);
+        if (!key || !value) continue;
+        if (value.length > ANSWERS.valueMax) {
+          errors[`A:${key}`] = `Keep this under ${ANSWERS.valueMax} characters.`;
+          continue;
+        }
+        data.Answers.push([key, value]);
+      }
+    }
+  }
   return { data, errors };
 }
 
