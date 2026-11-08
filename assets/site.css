@@ -139,6 +139,7 @@ p { margin: 0; }
 .nav-links > li > a.active { color: var(--text); background: rgba(255, 255, 255, 0.08); box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06) inset; }
 .nav-links > li > a.active::after { content: ""; position: absolute; left: 50%; bottom: 3px; width: 4px; height: 4px; margin-left: -2px; border-radius: 50%; background: var(--accent); }
 .nav-cta { padding: 11px 20px; font-size: 14px; }
+.nav-links-cta { display: none; }
 
 /* Services dropdown */
 .has-menu { position: relative; display: flex; align-items: center; }
@@ -178,6 +179,8 @@ p { margin: 0; }
   .site-header, .site-header.scrolled { --header-h: 64px; }
   .menu-toggle { display: block; }
   .nav-cta { display: none; }
+  .nav-links-cta { display: block; margin-top: 10px; }
+  .nav-links > li.nav-links-cta > a, .nav-links > li.nav-links-cta > a:hover { display: flex; justify-content: center; color: #140a04; }
   /* Full-width sheet that drops from under the bar */
   .nav-links {
     position: fixed; top: var(--header-h); left: 0; right: 0; max-height: calc(100dvh - var(--header-h)); overflow-y: auto;
@@ -268,6 +271,7 @@ p { margin: 0; }
 .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
 .filter-btn { padding: 9px 18px; border-radius: 999px; border: 1px solid var(--line-strong); background: transparent; color: var(--muted); cursor: pointer; font-size: 14px; transition: 0.2s; }
 .filter-btn:hover { color: var(--text); }
+.filter-link { display: inline-flex; align-items: center; gap: 6px; }
 .filter-btn.active { background: var(--text); color: var(--bg); border-color: var(--text); }
 
 .work-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }

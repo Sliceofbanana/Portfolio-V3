@@ -44,7 +44,7 @@ const BASE_URL = "https://www.genesisjr.com";
 
 const SITE = {
   brand: `<a href="{{ROOT}}index.html" class="logo logo-mark" aria-label="SNGDNN, Genesis Jr — home"><img src="{{ROOT}}Image/sngdnn-logo.webp" alt="SNGDNN" width="384" height="69"></a>`,
-  nav: [["work", "Work"], ["design", "Design"], ["about", "About"], ["services", "Services"], ["experience", "Experience"], ["contact", "Contact"]],
+  nav: [["work", "Work"], ["about", "About"], ["services", "Services"], ["experience", "Experience"]],
   cta: "Start a project",
   ogImage: "Image/genesis.webp",
   siteName: "Genesis Jr",
@@ -314,7 +314,8 @@ function servicesMenu(cur, activeService) {
 function header(active, activeService) {
   const links = SITE.nav
     .map(([key, label]) => {
-      const cur = key === active;
+      // The Design gallery is reached from Work, so it highlights Work
+      const cur = key === active || (key === "work" && active === "design");
       if (key === "services") return servicesMenu(cur, activeService);
       return `<li><a href="{{ROOT}}${key}.html"${cur ? ' class="active" aria-current="page"' : ""}>${label}</a></li>`;
     })
@@ -326,6 +327,7 @@ function header(active, activeService) {
             <nav aria-label="Primary">
                 <ul class="nav-links">
                     ${links}
+                    <li class="nav-links-cta"><a href="{{ROOT}}contact.html" class="btn btn-primary">${SITE.cta}</a></li>
                 </ul>
             </nav>
 

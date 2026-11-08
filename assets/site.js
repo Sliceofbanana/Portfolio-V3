@@ -283,7 +283,7 @@
   });
 
   /* Portfolio filters ------------------------------------------------------ */
-  const filterBtns = $$(".filter-btn");
+  const filterBtns = $$("button.filter-btn");
   filterBtns.forEach((btn) =>
     btn.addEventListener("click", () => {
       filterBtns.forEach((b) => b.classList.remove("active"));
