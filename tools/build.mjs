@@ -173,11 +173,12 @@ function testimonialSection() {
 function caseStudyBody(p) {
   const cs = p.caseStudy;
   const next = caseStudies[(caseStudies.indexOf(p) + 1) % caseStudies.length];
+  const story = cs.story; // Story-style case study: headline, big numbers, then a short narrative
   const stats = cs.stats
-    ? `<div class="cs-stats">${cs.stats.map(([n, l]) => `<div class="card"><strong class="grad-text">${n}</strong><span>${l}</span></div>`).join("")}</div>`
+    ? `<div class="cs-stats${story ? " cs-stats--big" : ""}">${cs.stats.map(([n, l]) => `<div class="card"><strong class="grad-text">${n}</strong><span>${l}</span></div>`).join("")}</div>`
     : "";
   const gallery = cs.gallery
-    ? `<section class="cs-section"><h3>Inside the system</h3><div class="cs-gallery">${cs.gallery
+    ? `<section class="cs-section"><h3>${story ? "Screenshots" : "Inside the system"}</h3><div class="cs-gallery">${cs.gallery
         .map(([src, cap]) => `<figure><button type="button" data-zoom="{{ROOT}}${src}" aria-label="Enlarge: ${esc(cap)}"><img src="{{ROOT}}${src}" alt="${esc(cap)}" loading="lazy"></button><figcaption>${cap}</figcaption></figure>`)
         .join("")}</div></section>`
     : "";
@@ -185,18 +186,18 @@ function caseStudyBody(p) {
         <article class="section case-page">
             <div class="container case-container">
                 <a href="{{ROOT}}work.html" class="back-link reveal">← All work</a>
-                <header class="case-head reveal">
-                    <span class="eyebrow">Case study</span>
-                    <h1>${p.title}</h1>
-                    <p class="cs-sub">${cs.subtitle}</p>
+                <header class="case-head${story ? " case-head--story" : ""} reveal">
+                    <span class="eyebrow">${story ? `Client: ${story.client || p.title}` : "Case study"}</span>
+                    <h1>${story ? story.headline : p.title}</h1>
+                    <p class="cs-sub">${story ? story.services : cs.subtitle}</p>
                 </header>
                 <div class="case-hero reveal"><img src="{{ROOT}}${p.heroImage || p.image}" alt="${esc(p.alt)}" width="2160" height="1350"></div>
                 <div class="cs-body">
-                    <div class="cs-meta">${cs.meta.map(([k, v]) => `<div><small>${k}</small><span>${v}</span></div>`).join("")}</div>
+                    ${story ? "" : `<div class="cs-meta">${cs.meta.map(([k, v]) => `<div><small>${k}</small><span>${v}</span></div>`).join("")}</div>`}
                     ${stats}
-                    ${gallery}
-                    ${cs.sections.map(([h, body]) => `<section class="cs-section"><h3>${h}</h3>${body}</section>`).join("\n                    ")}
-                    ${testimonials.filter((t) => t.project === p.slug).map((t) => `<section class="cs-section"><h3>What the client says</h3>${quoteCard(t, 0, false)}</section>`).join("")}
+                    ${story ? "" : gallery}
+                    ${story ? (story.sections || cs.sections).map(([h, body]) => `<section class="cs-section cs-story"><h3>${h}</h3>${body}</section>`).join("\n                    ") : cs.sections.map(([h, body]) => `<section class="cs-section"><h3>${h}</h3>${body}</section>`).join("\n                    ")}
+                    ${testimonials.filter((t) => t.project === p.slug).map((t) => `<section class="cs-section"><h3>What the client says</h3>${quoteCard(t, 0, false)}</section>`).join("")}${story ? gallery : ""}
                     ${cs.note ? `<p class="cs-note">${cs.note}</p>` : ""}
                     <div class="cs-actions">
                         ${cs.live ? `<a class="btn btn-primary" href="${cs.live}" target="_blank" rel="noopener">View live website <span class="arrow">↗</span></a>` : ""}
