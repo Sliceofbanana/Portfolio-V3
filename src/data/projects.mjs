@@ -11,7 +11,7 @@ const tags = (list) => `<div class="tags">${list.map((t) => `<span class="tag">$
 export const projects = [
   {
     slug: "atms",
-    feature: { order: 4, kind: "Operations platform", role: "Lead developer", stack: ["Next.js", "React", "TypeScript", "Prisma", "PostgreSQL"] },
+    feature: { order: 5, kind: "Operations platform", role: "Lead developer", stack: ["Next.js", "React", "TypeScript", "Prisma", "PostgreSQL"] },
     title: "ATMS — Agila Tax Management System",
     short: "ATMS — Agila",
     blurb: "Enterprise operations platform · Next.js + Prisma + PostgreSQL",
@@ -108,8 +108,51 @@ export const projects = [
     },
   },
   {
+    slug: "wl-construction",
+    feature: { order: 2, kind: "Brand identity + company profile", role: "Design consultant", stack: [] },
+    title: "WL Construction",
+    blurb: "Brand identity · Construction",
+    tagline: "Brand guidelines + company profile",
+    image: "Image/design/wlc-cover.webp",
+    alt: "WL Construction brand guidelines cover",
+    categories: ["design"],
+    caseStudy: {
+      subtitle: "Brand guidelines and a company profile for a Cebu builder, from the logo to the materials clients see.",
+      live: null,
+      story: {
+        headline: "Giving a Cebu builder a brand as solid as its work",
+        services: "Brand Identity • Graphic Design • Company Profile • Social Media",
+      },
+      gallery: [
+        ["Image/design/wlc-logo.webp", "Primary logo: a W shaped like a roof over a small window"],
+        ["Image/design/wlc-logo-variations.webp", "Logo variations for different backgrounds"],
+        ["Image/design/wlc-colour.webp", "Colour palette: deep navy, construction gold, soft white and charcoal grey"],
+        ["Image/design/wlc-profile.webp", "Company profile cover"],
+        ["Image/design/wlc-services.webp", "Company profile: services offered"],
+        ["Image/design/wlc-project.webp", "Company profile: project showcase"],
+        ["Image/design/wlc-business-card.webp", "Business cards"],
+      ],
+      sections: [
+        ["Project Overview", `<p>WL Construction is a Cebu builder working on residential, commercial and institutional developments. As design consultant through Project SNGDNN, I created its brand guidelines and the company materials built from them.</p>`],
+        ["The Challenge", `<p>A builder earns work on trust, and clients form an opinion from everything they see before a project starts. WL Construction needed one clear identity that could carry across its logo, company profile, social media and business cards, and present services from residential builds to interior fit-outs in a consistent way.</p>`],
+        ["My Role", `<p>Design consultant through Project SNGDNN, in 2026:</p>
+          <ul><li>Designing the logo and its variations</li><li>Setting the colours, typography, pattern and imagery direction</li><li>Putting it all together as brand guidelines</li><li>Designing the company profile</li><li>Applying the brand to social posts and business cards</li></ul>`],
+        ["The Process", `<ul><li><strong>Start with the mark.</strong> The logo is a W shaped like a roof over a small window, so it reads as a builder at a glance.</li><li><strong>Build the system.</strong> Navy and construction gold, Inter for type, a repeating W pattern and a direction for imagery.</li><li><strong>Document the rules.</strong> The brand guidelines show how each element should be used.</li><li><strong>Apply it everywhere.</strong> The profile, social posts and business cards were all built from that system.</li></ul>`],
+        ["The Solution", cols([
+          ["Brand identity", ["Primary logo and variations", "Works on gold, navy and white backgrounds"]],
+          ["Visual system", ["Colour palette and typography", "Repeating W pattern and imagery direction"]],
+          ["Company profile", ["Six service areas, each with its own photo", "Project showcases of completed work"]],
+          ["Everyday materials", ["Social media posts, including hiring", "Business cards"]],
+        ])],
+        ["Results &amp; Learnings", `<ul><li><strong>One consistent identity</strong> across the logo, profile, social posts and business cards.</li><li><strong>A company profile ready to present</strong> to prospective clients.</li><li><strong>A reusable system</strong> that future materials can follow.</li></ul>
+          <p><strong>What I learned:</strong> a logo is only the start. The real value is in the rules that keep every later piece looking like the same company.</p>
+          <p><a class="inline more-link" href="{{ROOT}}design.html">See the full series on my Design page →</a></p>`],
+      ],
+    },
+  },
+  {
     slug: "bodega",
-    feature: { order: 2, kind: "Brand website + booking platform", role: "Concept, design, full-stack build, deployment", stack: ["HTML", "CSS", "JavaScript", "PHP", "MySQL", "Figma"] },
+    feature: { order: 3, kind: "Brand website + booking platform", role: "Concept, design, full-stack build, deployment", stack: ["HTML", "CSS", "JavaScript", "PHP", "MySQL", "Figma"] },
     title: "Bodega Coworking Café",
     blurb: "Design + development · Booking & payments",
     tagline: "Brand-led site + bookings",
@@ -185,7 +228,7 @@ export const projects = [
   },
   {
     slug: "acesphils",
-    feature: { order: 3, kind: "Retail website", role: "Design, development, deployment, maintenance", stack: [] },
+    feature: { order: 4, kind: "Retail website", role: "Design, development, deployment, maintenance", stack: [] },
     title: "Acesphils Hardware",
     blurb: "Web design · Retail",
     tagline: "Retail web design",

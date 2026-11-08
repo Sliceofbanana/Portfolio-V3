@@ -91,7 +91,8 @@ const serviceHref = (sv) => `{{ROOT}}services/${sv.slug}.html`;
 
 // Homepage "Selected work": large editorial features, one composition per project (street theme)
 function featureList() {
-  const list = projects.filter((p) => p.feature).sort((a, b) => a.feature.order - b.feature.order);
+  // Only the top 3 by feature.order appear on the homepage; the rest stay on /work
+  const list = projects.filter((p) => p.feature).sort((a, b) => a.feature.order - b.feature.order).slice(0, 3);
   return list
     .map((p, i) => {
       const f = p.feature;
