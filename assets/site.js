@@ -490,6 +490,25 @@
     });
   });
 
+  /* Brand kits: tap a swatch or token block to copy it --------------------- */
+  const bkToast = document.querySelector(".bk-toast");
+  if (bkToast) {
+    let bkTimer;
+    const show = (msg) => {
+      bkToast.textContent = msg;
+      bkToast.classList.add("on");
+      clearTimeout(bkTimer);
+      bkTimer = setTimeout(() => bkToast.classList.remove("on"), 1600);
+    };
+    document.addEventListener("click", (e) => {
+      const b = e.target.closest("[data-copy],[data-copy-from]");
+      if (!b) return;
+      const text = b.dataset.copy || document.getElementById(b.dataset.copyFrom).textContent;
+      if (!navigator.clipboard) return show(text);
+      navigator.clipboard.writeText(text).then(() => show(`Copied ${b.dataset.copy || "CSS tokens"}`), () => show(text));
+    });
+  }
+
   /* Analytics: one cookieless page view, skipped for Do Not Track / GPC ---- */
   if (!navigator.globalPrivacyControl && navigator.doNotTrack !== "1" && !/^(localhost|127\.|\[::1\])/.test(location.hostname)) {
     const q = new URLSearchParams(location.search);

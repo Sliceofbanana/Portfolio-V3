@@ -1,6 +1,8 @@
 // Single source of truth for projects and case studies.
 // Image paths are relative to the site root; the build adds the right prefix per page.
-// Categories: development | design | applications
+// Categories: development | design | branding | applications
+// kit: "brand/<slug>.html" links a branding project to its brand kit page instead of a case study
+// media: optional HTML cover used instead of image
 
 const cols = (items) =>
   `<div class="cs-cols">${items
@@ -115,7 +117,7 @@ export const projects = [
     tagline: "Brand guidelines + company profile",
     image: "Image/design/wlc-cover.webp",
     alt: "WL Construction brand guidelines cover",
-    categories: ["design"],
+    categories: ["design", "branding"],
     caseStudy: {
       subtitle: "Brand guidelines and a company profile for a Cebu builder, from the logo to the materials clients see.",
       live: null,
@@ -146,9 +148,28 @@ export const projects = [
         ])],
         ["Results &amp; Learnings", `<ul><li><strong>One consistent identity</strong> across the logo, profile, social posts and business cards.</li><li><strong>A company profile ready to present</strong> to prospective clients.</li><li><strong>A reusable system</strong> that future materials can follow.</li></ul>
           <p><strong>What I learned:</strong> a logo is only the start. The real value is in the rules that keep every later piece looking like the same company.</p>
-          <p><a class="inline more-link" href="{{ROOT}}design.html">See the full series on my Design page →</a></p>`],
+          <p><a class="inline more-link" href="{{ROOT}}brand/wl-construction.html">Open the WL Construction brand kit →</a></p>`],
       ],
     },
+  },
+  {
+    slug: "agila-brand",
+    title: "Agila — Brand Guidelines",
+    blurb: "Official brand guidelines · Tax & accounting firm",
+    image: "Image/design/agila-cover.webp",
+    alt: "Agila brand guideline cover in white type on a royal blue panel",
+    categories: ["design", "branding"],
+    kit: "brand/agila.html",
+  },
+  {
+    slug: "sngdnn-brand",
+    title: "Project SNGDNN — Brand Kit",
+    blurb: "My studio's own identity and design system",
+    image: "Image/sngdnn-logo.webp",
+    alt: "SNGDNN pixel wordmark",
+    media: '<span class="bk-cover"><img src="{{ROOT}}Image/sngdnn-logo.webp" alt="SNGDNN pixel wordmark" width="384" height="69" loading="lazy"></span>',
+    categories: ["design", "branding"],
+    kit: "brand.html",
   },
   {
     slug: "bodega",
@@ -276,25 +297,53 @@ export const projects = [
     badge: "Live",
   },
   {
-    slug: "buoywatch",
-    title: "Buoy Watch — Thesis",
-    blurb: "Mobile application · Flutter",
+    slug: "bay-watch",
+    title: "Bay Watch — IoT Weather Station",
+    blurb: "Thesis · LoRa IoT + machine learning + Flutter app",
+    tagline: "IoT weather monitoring for fishermen",
     image: "Image/mobile.webp",
-    alt: "Buoy Watch mobile application",
+    alt: "The Bay Watch mobile app splash screen on a phone",
     categories: ["applications"],
-    href: "https://github.com/Sliceofbanana/buoy_watch.git",
-    linkLabel: "View on GitHub ↗",
-    badge: "GitHub",
-  },
-  {
-    slug: "first-portfolio",
-    title: "First Personal Portfolio",
-    blurb: "Design + development",
-    image: "Image/portfolio.webp",
-    alt: "First personal portfolio",
-    categories: ["development", "design"],
-    href: "https://sliceofbanana.github.io/Genesis-Portfolio/",
-    linkLabel: "Visit site ↗",
-    badge: "Live",
+    caseStudy: {
+      subtitle: "A shoreline weather station that sends readings over LoRa to the municipal hall, forecasts the next hours with a Random Forest model, and warns local officials before fishermen head out.",
+      live: null,
+      meta: [
+        ["Type", "Undergraduate thesis · BS Computer Engineering"],
+        ["School", "Cebu Technological University – Main Campus"],
+        ["Team", "3 researchers"],
+        ["Year", "2024"],
+        ["Stack", "ESP32 · LoRa-E5 · Firebase · Python · Flutter"],
+      ],
+      stats: [
+        ["300 m", "Shore to municipal hall over LoRa"],
+        ["0", "Packets lost from the 8th test session on"],
+        ["0.53", "Mean absolute error of the forecast model"],
+        ["3.62 / 4", "App rating from 10 respondents"],
+      ],
+      sections: [
+        ["Project Overview", `<p>Bay Watch is a localized weather monitoring and forecasting system built for San Remigio, Cebu. A sensor station on the shore reads pressure, temperature, humidity and light, sends it over long-range radio to a receiver at the municipal hall, and a mobile app shows the current conditions, an hourly forecast and an emergency alert.</p>
+          <p>It was our undergraduate thesis for the BS Computer Engineering program at Cebu Technological University – Main Campus, presented in July 2024.</p>`],
+        ["The Challenge", `<p>The Philippines sees about 20 tropical cyclones a year, and weather can change from one town to the next. For fishermen, a storm or poor visibility offshore can be fatal. Small coastal towns rarely have access to a high-end weather station, and there was no real-time, local warning that the municipality could act on before boats went out.</p>`],
+        ["My Role", `<p>One of three researchers on the project. Together we:</p>
+          <ul><li>Built the transmitter and receiver around two ESP32 boards with LoRa-E5 modules</li><li>Wired and calibrated the sensors, and housed the station in a 3D-printed Tough PLA case</li><li>Trained and tuned the Random Forest forecasting model</li><li>Built the Bay Watch app in Flutter on a Firebase Realtime Database</li><li>Deployed the system in San Remigio and ran the range, model and user tests</li></ul>`],
+        ["How It Works", `<ol class="bw-flow">
+            <li><strong>Shore station</strong><span>ESP32 with a BMP180 pressure sensor, DHT11 temperature and humidity sensor, light sensor and a 6-axis gyroscope, in a 3D-printed case</span></li>
+            <li><strong>LoRa link · 300 m</strong><span>LoRa-E5 radios carry each reading from the shore to the municipal hall without Wi-Fi or mobile data</span></li>
+            <li><strong>Receiver</strong><span>A second ESP32 at the hall pushes the data to Firebase Realtime Database</span></li>
+            <li><strong>Forecast</strong><span>A Random Forest model trained on local historical weather assigns a condition and predicts the next hours</span></li>
+            <li><strong>Bay Watch app</strong><span>Flutter app with the current weather, an hourly forecast and an emergency notification when conditions aren't clear</span></li>
+          </ol>`],
+        ["The Process", `<ul><li><strong>Calibrate against the real thing.</strong> Sensor readings were checked against online forecasts that use the Mactan, Cebu weather station.</li><li><strong>Test the range where it matters.</strong> Ten sessions of 14 packets each were sent from the shore to the municipal hall, logging signal strength and packet loss.</li><li><strong>Train on local data.</strong> The model learned from 1,008 rows of San Remigio weather history, split 80/20, tuned with a grid search and 5-fold cross validation.</li><li><strong>Ask the people who would use it.</strong> Five municipal officials and five people with tech or mobile backgrounds rated each screen on a 4-point scale.</li></ul>`],
+        ["The Solution", cols([
+          ["Weather station", ["Pressure, temperature, humidity, dew point and light readings", "Battery powered, in a durable 3D-printed case"]],
+          ["Long-range link", ["LoRa-E5 from shore to municipal hall", "Average signal of −107 dBm across the test sessions"]],
+          ["Forecasting", ["Random Forest model on local weather history", "Hourly predictions close to AccuWeather and Meteostat"]],
+          ["Bay Watch app", ["Current conditions and hourly forecast", "Emergency notification for the local government"]],
+        ])],
+        ["Results &amp; Learnings", `<ul><li><strong>Reliable once it settled.</strong> Packet loss peaked early, then dropped to zero from the eighth session onward.</li><li><strong>Forecasts close to the big sites.</strong> The model's mean absolute error was 0.53 (RMSE 1.49), and its hourly forecasts tracked AccuWeather, Meteostat and Google Weather despite only a few sensors.</li><li><strong>Easy for officials to use.</strong> Every screen scored "strongly agree", 3.62 out of 4 overall.</li></ul>
+          <p><strong>What I learned:</strong> the hardest part of an IoT system isn't any single piece. It's getting a sensor, a radio, a database, a model and an app to agree with each other in the field. Next steps would be rain and water sensors, a tougher case, and an app tuned for people who aren't comfortable with technology.</p>
+          <p><a class="inline more-link" href="https://github.com/Sliceofbanana/buoy_watch.git" target="_blank" rel="noopener">See the app code on GitHub ↗</a></p>`],
+      ],
+    },
   },
 ];

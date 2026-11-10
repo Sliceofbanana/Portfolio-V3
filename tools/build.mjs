@@ -61,21 +61,26 @@ const caseStudies = projects.filter((p) => p.caseStudy);
 const caseHref = (p) => `{{ROOT}}work/${p.slug}.html`;
 
 function projectCard(p, { featured = false, delay = 0 } = {}) {
-  const internal = !!p.caseStudy;
-  const href = internal ? caseHref(p) : p.href;
+  // Brand kits (p.kit) are internal pages too, but labelled as kits rather than case studies
+  const internal = !!p.caseStudy || !!p.kit;
+  const href = p.caseStudy ? caseHref(p) : p.kit ? `{{ROOT}}${p.kit}` : p.href;
   const ext = internal ? "" : ` target="_blank" rel="noopener"`;
+  const view = p.caseStudy ? "Read case study →" : p.kit ? "Open brand kit →" : p.linkLabel;
+  const badge = p.caseStudy ? "Case study" : p.kit ? "Brand kit" : p.badge;
+  // p.media: HTML cover for projects without a screenshot
+  const media = p.media || `<img src="{{ROOT}}${p.image}" alt="${esc(p.alt)}" loading="lazy" width="${featured ? 2160 : 800}" height="${featured ? 1350 : 500}">`;
   const cls = ["project", "reveal", featured && "featured", delay && `reveal-d${delay}`].filter(Boolean).join(" ");
   return `<a class="${cls}" href="${href}"${ext} data-category="${p.categories.join(" ")}">
                         <div class="project-media">
-                            <img src="{{ROOT}}${p.image}" alt="${esc(p.alt)}" loading="lazy" width="${featured ? 2160 : 800}" height="${featured ? 1350 : 500}">
-                            <span class="view">${internal ? "Read case study →" : p.linkLabel}</span>
+                            ${media}
+                            <span class="view">${view}</span>
                         </div>
                         <div class="project-info">
                             <div>
                                 <h3>${p.title}</h3>
                                 <p>${p.blurb}</p>
                             </div>
-                            <span class="project-year">${internal ? "Case study" : p.badge}</span>
+                            <span class="project-year">${badge}</span>
                         </div>
                     </a>`;
 }
@@ -438,6 +443,16 @@ for (const f of fs.readdirSync(pagesDir).filter((f) => f.endsWith(".html"))) {
   const name = f.replace(/\.html$/, "");
   const { meta, body } = parse(path.join(pagesDir, f));
   write(f, page({ nav: name, ...meta, urlPath: name === "index" ? "/" : `/${name}` }, body));
+}
+
+// Brand kits for client branding work: src/pages/brand/<slug>.html → /brand/<slug>
+const brandDir = path.join(pagesDir, "brand");
+if (fs.existsSync(brandDir)) {
+  for (const f of fs.readdirSync(brandDir).filter((f) => f.endsWith(".html"))) {
+    const name = f.replace(/\.html$/, "");
+    const { meta, body } = parse(path.join(brandDir, f));
+    write(`brand/${f}`, page({ nav: "design", ...meta, urlPath: `/brand/${name}` }, body));
+  }
 }
 
 for (const p of caseStudies) {
