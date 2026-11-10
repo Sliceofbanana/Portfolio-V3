@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Profile Picture</title>
+<link rel="stylesheet" href="square.css">
+<style>
+  .sq { display: flex; align-items: center; justify-content: center; padding: 0; }
+  .sq::before { background: radial-gradient(560px 560px at 50% 50%, rgba(255, 90, 31, 0.2), transparent 70%); }
+  .sq::after { mask-image: radial-gradient(circle 420px at 50% 50%, #000 30%, transparent 80%); opacity: 0.6; }
+  /* mark only, sized to sit well inside a circle crop */
+  .mark { width: 600px; height: auto; display: block; }
+</style>
+</head>
+<body>
+<section class="sq on">
+  <img class="mark" src="../../Image/sngdnn-mark-on-dark.svg" alt="Project SNGDNN">
+</section>
+</body>
+</html>

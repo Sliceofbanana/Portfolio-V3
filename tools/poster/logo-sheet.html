@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>SNGDNN Logo Refine</title>
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@600;700&display=swap");
+  :root { --hot: #ff5a1f; --asphalt: #0a0a0c; --bone: #f3f1ec; --ash: #85827a; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1600px; height: 1200px; background: #161619; overflow: hidden; }
+  body { font-family: "Space Grotesk", sans-serif; color: var(--bone); padding: 56px; display: grid; grid-template-rows: auto 1fr 1fr; gap: 24px; }
+
+  .head { display: flex; justify-content: space-between; align-items: baseline; }
+  .head h1 { font-size: 30px; font-weight: 700; letter-spacing: -0.02em; }
+  .mono { font-family: "IBM Plex Mono", monospace; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ash); }
+
+  .row { display: grid; gap: 24px; }
+  .row.a { grid-template-columns: 1.4fr 1fr; }
+  .row.b { grid-template-columns: 1fr 1fr 1fr 1fr; }
+  .tile { position: relative; border-radius: 22px; display: grid; place-items: center; overflow: hidden; }
+  .tile .mono { position: absolute; left: 22px; bottom: 18px; }
+  .light { background: #ffffff; color: #0a0a0c; --depth: var(--hot); --project: var(--hot); }
+  .light .mono { color: #57534b; }
+  .dark { background: var(--asphalt); color: var(--bone); --depth: var(--hot); --project: var(--hot); border: 1px solid rgba(255,255,255,0.12); }
+  .orange { background: var(--hot); color: #0a0a0c; --depth: #0a0a0c; --project: #0a0a0c; }
+  .orange .mono { color: rgba(10,10,12,0.7); }
+  .orange .depthless use.depth, .orange svg .depth { opacity: 0.35; }
+
+  .lockup { display: flex; align-items: center; gap: 22px; }
+  .lockup .stack { display: flex; flex-direction: column; gap: 8px; }
+  .project { font-family: "Space Grotesk"; font-weight: 700; letter-spacing: 0.22em; color: var(--project); line-height: 1; }
+
+  .lg .mark { height: 100px; width: 199px; }
+  .lg .word { height: 66px; width: 372px; }
+  .lg .project { font-size: 24px; }
+  .md .mark { height: 74px; width: 147px; }
+  .md .word { height: 48px; width: 270px; }
+  .md .project { font-size: 18px; }
+  .sm .mark { height: 36px; width: 72px; }
+  .sm .word { height: 34px; width: 192px; }
+
+  .avatar { width: 200px; height: 200px; border-radius: 50%; background: var(--asphalt); display: grid; place-items: center; border: 1px solid rgba(255,255,255,0.14);
+    background-image: radial-gradient(circle at 50% 50%, rgba(255,90,31,0.22), transparent 70%); --depth: var(--hot); color: var(--bone); }
+  .avatar svg { width: 136px; height: 68px; }
+  .fav { display: flex; align-items: end; gap: 22px; }
+  .fav svg { color: var(--bone); --depth: var(--hot); }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <!-- Symbol: stepped S. Front in currentColor, depth layer in --depth (the only place red/orange appears). -->
+    <!-- Original PS mark, traced: top hook + bottom stub (currentColor), middle step = accent (--depth). Reads as inverted P + S. -->
+    <symbol id="mark" viewBox="0 0 720 362">
+      <polygon fill="currentColor" points="330,0 720,0 720,112 650,154 623,154 623,99 260,99 260,42"/>
+      <polygon fill="var(--depth)" points="133,45 233,45 233,132 590,132 590,322 493,322 493,232 133,232"/>
+      <polygon fill="currentColor" points="0,247 75,205 100,205 100,262 460,262 460,322 385,362 0,362"/>
+    </symbol>
+
+    <!-- Wordmark: SNGDNN on a 48 x 60 grid, 13 stroke, 10 gap. D has chamfered right corners so it never reads as O; N has a true diagonal. -->
+    <symbol id="word" viewBox="0 0 338 60">
+      <g fill="currentColor" fill-rule="evenodd">
+        <!-- S -->
+        <polygon points="0,8 8,0 48,0 48,13 13,13 13,23.5 48,23.5 48,52 40,60 0,60 0,47 35,47 35,36.5 0,36.5"/>
+        <!-- N -->
+        <polygon transform="translate(58 0)" points="0,60 0,0 13,0 35,36 35,0 48,0 48,60 35,60 13,24 13,60"/>
+        <!-- G -->
+        <polygon transform="translate(116 0)" points="8,0 48,0 48,13 13,13 13,47 35,47 35,36.5 24,36.5 24,23.5 48,23.5 48,60 8,60 0,52 0,8"/>
+        <!-- D -->
+        <path transform="translate(174 0)" d="M0 0 H32 L48 16 V44 L32 60 H0 Z M13 13 V47 H27 L35 39 V21 L27 13 Z"/>
+        <!-- N -->
+        <polygon transform="translate(232 0)" points="0,60 0,0 13,0 35,36 35,0 48,0 48,60 35,60 13,24 13,60"/>
+        <!-- N -->
+        <polygon transform="translate(290 0)" points="0,60 0,0 13,0 35,36 35,0 48,0 48,60 35,60 13,24 13,60"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="head">
+  <h1>Project SNGDNN · refined mark</h1>
+  <span class="mono">v2 · draft · orange #ff5a1f</span>
+</div>
+
+<div class="row a">
+  <div class="tile light">
+    <div class="lockup lg">
+      <svg class="mark"><use href="#mark"/></svg>
+      <div class="stack"><span class="project">PROJECT</span><svg class="word"><use href="#word"/></svg></div>
+    </div>
+    <span class="mono">Primary · on white</span>
+  </div>
+  <div class="tile dark">
+    <div class="lockup md">
+      <svg class="mark"><use href="#mark"/></svg>
+      <div class="stack"><span class="project">PROJECT</span><svg class="word"><use href="#word"/></svg></div>
+    </div>
+    <span class="mono">Primary · on asphalt</span>
+  </div>
+</div>
+
+<div class="row b">
+  <div class="tile orange">
+    <div class="lockup sm">
+      <svg class="mark"><use href="#mark"/></svg>
+      <svg class="word"><use href="#word"/></svg>
+    </div>
+    <span class="mono">One colour · on orange</span>
+  </div>
+  <div class="tile dark">
+    <div class="lockup sm">
+      <svg class="mark"><use href="#mark"/></svg>
+      <svg class="word"><use href="#word"/></svg>
+    </div>
+    <span class="mono">Compact · no "Project"</span>
+  </div>
+  <div class="tile dark">
+    <div class="avatar"><svg><use href="#mark"/></svg></div>
+    <span class="mono">Profile picture</span>
+  </div>
+  <div class="tile dark">
+    <div class="fav">
+      <svg width="64" height="32"><use href="#mark"/></svg>
+      <svg width="32" height="16"><use href="#mark"/></svg>
+      <svg width="20" height="10"><use href="#mark"/></svg>
+    </div>
+    <span class="mono">Small sizes · 64 / 32 / 20 px wide</span>
+  </div>
+</div>
+</body>
+</html>

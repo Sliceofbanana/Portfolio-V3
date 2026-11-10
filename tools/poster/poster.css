@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap");
+
+:root {
+  --bg: #0a0a0c;
+  --surface: #121216;
+  --line: rgba(255, 255, 255, 0.09);
+  --line-strong: rgba(255, 255, 255, 0.18);
+  --text: #f3f1ec;
+  --muted: #a09d95;
+  --faint: #6f6c66;
+  --accent: #ff5a1f;
+  --accent-2: #ffb020;
+  --ok: #4ade80;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1080px; height: 1350px; background: var(--bg); }
+body {
+  color: var(--text);
+  font-family: "Inter", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+
+.poster {
+  position: relative;
+  width: 1080px; height: 1350px;
+  padding: 72px 80px 64px;
+  display: flex; flex-direction: column;
+  overflow: hidden;
+  isolation: isolate;
+}
+.poster::before {
+  content: ""; position: absolute; inset: 0; z-index: -2;
+  background:
+    radial-gradient(900px 640px at 100% -6%, rgba(255, 90, 31, 0.22), transparent 62%),
+    radial-gradient(700px 520px at -10% 108%, rgba(255, 176, 32, 0.08), transparent 60%);
+}
+.poster::after {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(ellipse 85% 55% at 70% 0%, #000 15%, transparent 75%);
+  opacity: 0.55;
+}
+
+/* Top bar */
+.top { display: flex; justify-content: space-between; align-items: center; }
+.brand { display: flex; align-items: center; gap: 16px; }
+.mark {
+  width: 56px; height: 56px; border-radius: 14px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  display: grid; place-items: center;
+  font-family: "Space Grotesk"; font-weight: 700; font-size: 20px; color: #111; letter-spacing: -0.02em;
+}
+.brand-name { font-family: "Space Grotesk"; font-weight: 600; font-size: 24px; letter-spacing: -0.01em; line-height: 1.1; }
+.brand-role { font-size: 15px; color: var(--muted); margin-top: 3px; }
+.status {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 11px 18px; border: 1px solid var(--line-strong); border-radius: 999px;
+  font-size: 15px; font-weight: 500; color: var(--text);
+  background: rgba(255,255,255,0.03);
+}
+.status i { width: 9px; height: 9px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 4px rgba(74,222,128,0.18); }
+
+.eyebrow {
+  font-family: "Space Grotesk"; font-size: 15px; font-weight: 500;
+  letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted);
+}
+
+h1 {
+  font-family: "Space Grotesk"; font-weight: 600;
+  letter-spacing: -0.045em; line-height: 0.92;
+}
+.serif { font-family: "Instrument Serif", Georgia, serif; font-style: italic; font-weight: 400; letter-spacing: -0.02em; }
+.grad {
+  background: linear-gradient(110deg, var(--accent) 10%, var(--accent-2) 95%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+
+/* Footer */
+.foot {
+  margin-top: auto;
+  display: flex; justify-content: space-between; align-items: flex-end;
+  padding-top: 28px; border-top: 1px solid var(--line-strong);
+}
+.foot-label { font-size: 14px; color: var(--faint); letter-spacing: 0.12em; text-transform: uppercase; font-family: "Space Grotesk"; margin-bottom: 8px; }
+.url { font-family: "Space Grotesk"; font-size: 34px; font-weight: 600; letter-spacing: -0.02em; }
+.cta {
+  display: inline-flex; align-items: center; gap: 14px;
+  background: var(--text); color: #111;
+  padding: 18px 28px; border-radius: 999px;
+  font-family: "Space Grotesk"; font-weight: 600; font-size: 20px;
+}
+.cta b { color: var(--accent); font-size: 22px; }

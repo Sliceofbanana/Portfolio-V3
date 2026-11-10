@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+/* SNGDNN brand kit v1 */
+:root {
+  --asphalt: #0a0a0c;
+  --surface: #121216;
+  --hot: #ff5a1f;
+  --amber: #ffb020;
+  --bone: #f3f1ec;
+  --stone: #a09d95;
+  --ash: #85827a;
+  --line: rgba(255, 255, 255, 0.09);
+  --line-strong: rgba(255, 255, 255, 0.18);
+  --signal: linear-gradient(120deg, var(--hot) 0%, var(--amber) 100%);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1080px; height: 1080px; background: var(--asphalt); overflow: hidden; }
+body { color: var(--bone); font-family: "Inter", system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+
+.sq {
+  position: relative; width: 1080px; height: 1080px;
+  padding: 60px 68px 56px;
+  display: none; flex-direction: column;
+  overflow: hidden; isolation: isolate;
+}
+.sq.on { display: flex; }
+.sq::before {
+  content: ""; position: absolute; inset: 0; z-index: -2;
+  background:
+    radial-gradient(760px 520px at 100% -8%, rgba(255, 90, 31, 0.2), transparent 62%),
+    radial-gradient(600px 420px at -10% 110%, rgba(255, 176, 32, 0.07), transparent 60%);
+}
+.sq::after {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 85% 60% at 75% 0%, #000 15%, transparent 75%);
+  opacity: 0.5;
+}
+
+.logo { display: block; }
+
+.top { display: flex; justify-content: space-between; align-items: center; }
+.top .logo { height: 46px; }
+
+.mono {
+  font-family: "IBM Plex Mono", monospace; font-weight: 500;
+  font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ash);
+}
+.mono b { color: var(--bone); font-weight: 500; }
+
+.counter { display: flex; align-items: center; gap: 14px; }
+.bars { display: flex; gap: 5px; }
+.bars i { width: 22px; height: 3px; border-radius: 2px; background: var(--line-strong); }
+.bars i.on { background: var(--hot); }
+
+.display {
+  font-family: "Anton", Impact, sans-serif; font-weight: 400;
+  text-transform: uppercase; line-height: 0.9; letter-spacing: 0.005em;
+}
+.hot {
+  background: var(--signal);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+
+.lede { font-size: 20px; line-height: 1.55; color: var(--stone); }
+.lede strong { color: var(--bone); font-weight: 500; }
+
+.foot {
+  margin-top: auto; padding-top: 22px; border-top: 1px solid var(--line-strong);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.swipe { font-family: "IBM Plex Mono", monospace; font-size: 15px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; display: flex; gap: 10px; align-items: center; }
+.swipe span { color: var(--hot); font-size: 20px; }
+
+.cta {
+  display: inline-flex; align-items: center; gap: 12px;
+  background: var(--signal); color: #111;
+  padding: 16px 26px; border-radius: 999px;
+  font-family: "Space Grotesk"; font-weight: 600; font-size: 19px;
+}

@@ -24,6 +24,8 @@
  *   {{TESTIMONIALS}}          "What clients say" section (confirmed quotes only)
  *   {{PROJECT_COUNT}}         e.g. "8"
  *   {{YEAR}}                  current year
+ *   {{LOGO}}                  inline Project SNGDNN logo with "PROJECT" (takes currentColor)
+ *   {{LOGO_COMPACT}}          same without "PROJECT", for small sizes like the nav
  *
  * Generated HTML is committed; Vercel serves it as plain static files.
  */
@@ -34,6 +36,7 @@ import { fileURLToPath } from "node:url";
 import { projects } from "../src/data/projects.mjs";
 import { services } from "../src/data/services.mjs";
 import { testimonials as allTestimonials } from "../src/data/testimonials.mjs";
+import { logoSvg, HOT } from "./logo.mjs";
 
 // Only quotes the client has approved go on the site
 const testimonials = allTestimonials.filter((t) => t.confirmed);
@@ -42,8 +45,13 @@ const ROOT_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), ".."
 const SRC = path.join(ROOT_DIR, "src");
 const BASE_URL = "https://www.genesisjr.com";
 
+// Project SNGDNN logo, inline so it takes the page's text colour (works on dark and paper themes).
+// Geometry lives in tools/logo.mjs (also writes Image/sngdnn-*.svg). Nav uses the compact version.
+const LOGO = logoSvg({ main: "currentColor", accent: HOT, attrs: 'class="logo-svg" role="img" aria-label="Project SNGDNN"' });
+const LOGO_COMPACT = logoSvg({ main: "currentColor", accent: HOT, project: false, attrs: 'class="logo-svg" role="img" aria-label="Project SNGDNN"' });
+
 const SITE = {
-  brand: `<a href="{{ROOT}}index.html" class="logo logo-mark" aria-label="SNGDNN, Genesis Jr — home"><img src="{{ROOT}}Image/sngdnn-logo.webp" alt="SNGDNN" width="384" height="69"></a>`,
+  brand: `<a href="{{ROOT}}index.html" class="logo logo-mark" aria-label="SNGDNN, Genesis Jr — home">{{LOGO_COMPACT}}</a>`,
   nav: [["work", "Work"], ["about", "About"], ["services", "Services"], ["experience", "Experience"]],
   cta: "Start a project",
   ogImage: "Image/genesis.webp",
@@ -361,6 +369,7 @@ function render(content, root) {
   html = html.replace(/\{\{TESTIMONIALS\}\}/g, () => testimonialSection());
   html = html.replace(/\{\{PROJECT_COUNT\}\}/g, `${projects.length}`);
   html = html.replace(/\{\{YEAR\}\}/g, String(new Date().getFullYear()));
+  html = html.replace(/\{\{LOGO_COMPACT\}\}/g, LOGO_COMPACT).replace(/\{\{LOGO\}\}/g, LOGO);
   return cleanUrls(html.replace(/\{\{ROOT\}\}/g, root));
 }
 
@@ -389,7 +398,7 @@ function page({ title, description, nav, service, jsonld, urlPath, theme, ogImag
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="${theme === "paper" ? "#efece4" : theme === "street" ? "#141414" : "#0a0a0c"}">
     <link rel="canonical" href="${url}">
-    <link rel="icon" type="image/webp" href="{{ROOT}}Image/default1-67ce61e262485.webp">
+    <link rel="icon" type="image/svg+xml" href="{{ROOT}}Image/sngdnn-favicon.svg">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="${SITE.siteName}">

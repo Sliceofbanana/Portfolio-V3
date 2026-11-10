@@ -131,7 +131,9 @@ p { margin: 0; }
 }
 .logo { font-family: var(--font-display); font-weight: 700; font-size: 20px; letter-spacing: -0.03em; display: flex; align-items: center; gap: 8px; }
 .logo .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--grad); box-shadow: 0 0 12px rgba(255, 90, 31, 0.8); }
-.logo-mark img { display: block; height: 22px; width: auto; }
+.logo-mark img, .logo-mark .logo-svg { display: block; height: 24px; width: auto; }
+.footer-brand .logo-mark { color: var(--text); }
+.footer-brand .logo-mark .logo-svg { height: 44px; }
 
 .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; margin: 0; padding: 0; }
 .nav-links > li > a { position: relative; display: block; padding: 8px 15px; border-radius: 999px; font-size: 14px; font-weight: 500; color: var(--muted); transition: color 0.2s, background 0.2s; }
