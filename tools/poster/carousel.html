@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Services Carousel</title>
+<link rel="stylesheet" href="square.css">
+<style>
+  /* 1 — cover */
+  .cover .hero { margin-top: auto; margin-bottom: 44px; }
+  .cover .foot { margin-top: 0; }
+  .cover .mono.k { display: block; margin-bottom: 22px; }
+  .cover h1 { font-size: 172px; }
+  .cover .lede { margin-top: 28px; max-width: 640px; }
+  .chips { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .chips span { font-family: "IBM Plex Mono", monospace; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--bone); padding: 9px 14px; border: 1px solid var(--line-strong); border-radius: 999px; background: rgba(255,255,255,0.03); }
+
+  /* 2 — services */
+  .services .hero { margin-top: 56px; }
+  .services .mono.k, .about .mono.k, .work .mono.k { display: block; margin-bottom: 18px; }
+  .services h2 { font-size: 104px; }
+  .list { margin-top: 40px; margin-bottom: 36px; border-top: 1px solid var(--line-strong); }
+  .row { display: grid; grid-template-columns: 56px 1fr auto; align-items: baseline; padding: 22px 0; border-bottom: 1px solid var(--line); }
+  .row .n { font-family: "IBM Plex Mono", monospace; font-size: 14px; color: var(--hot); font-weight: 500; }
+  .row .name { font-family: "Space Grotesk"; font-size: 32px; font-weight: 500; letter-spacing: -0.02em; }
+  .row .tag { font-size: 15px; color: var(--ash); }
+  .services .foot { margin-top: auto; }
+
+  /* 3 — about */
+  .about .hero { margin-top: 56px; }
+  .about h2 { font-size: 132px; }
+  .about .lede { margin-top: 26px; max-width: 800px; }
+  .pillars { margin-top: 40px; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line-strong); }
+  .pillar { padding: 22px 24px 0 0; }
+  .pillar + .pillar { padding-left: 24px; border-left: 1px solid var(--line); }
+  .pillar h3 { font-family: "Space Grotesk"; font-size: 24px; font-weight: 600; letter-spacing: -0.02em; margin-top: 10px; }
+  .pillar p { font-size: 16px; color: var(--stone); line-height: 1.5; margin-top: 8px; }
+  .pillar .n { font-family: "IBM Plex Mono", monospace; font-size: 14px; color: var(--hot); font-weight: 500; }
+  .stats { margin-top: 40px; margin-bottom: 36px; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line-strong); }
+  .stat { padding-top: 24px; }
+  .stat + .stat { padding-left: 26px; border-left: 1px solid var(--line); }
+  .stat b { display: block; font-family: "Anton"; font-weight: 400; font-size: 76px; line-height: 1; }
+  .stat b em { font-style: normal; color: var(--hot); }
+  .stat span { display: block; margin-top: 10px; }
+
+  /* 4 — work (MQ) */
+  .work .hero { margin-top: 44px; }
+  .work h2 { font-size: 84px; }
+  .case { margin-top: 30px; display: grid; grid-template-columns: 1.55fr 1fr; gap: 16px; }
+  .case .img { border-radius: 12px; overflow: hidden; border: 1px solid var(--line-strong); background: var(--surface); }
+  .case .img img { width: 100%; height: 100%; object-fit: cover; object-position: left top; display: block; }
+  .case .big { height: 470px; }
+  .case .side { display: grid; grid-template-rows: 1fr 1fr; gap: 16px; height: 470px; }
+  .meta { margin-bottom: 30px; }
+  .meta { margin-top: 18px; display: flex; justify-content: space-between; align-items: baseline; }
+  .meta h3 { font-family: "Space Grotesk"; font-weight: 600; font-size: 26px; letter-spacing: -0.02em; }
+</style>
+</head>
+<body>
+
+<!-- 1 · Cover -->
+<section class="sq cover" id="s1">
+  <div class="top">
+    <img class="logo" src="../../Image/sngdnn-logo-on-dark.svg" alt="Project SNGDNN">
+    <span class="mono">Cebu, PH · <b>Booking 2026</b></span>
+  </div>
+  <div class="hero">
+    <span class="mono k">(Services) Genesis Jr · Creative developer</span>
+    <h1 class="display">Think outside.<br><span class="hot">Build beyond.</span></h1>
+    <p class="lede">Websites, systems and apps that do real work for your business, <strong>designed, coded and launched by one person.</strong></p>
+    <div class="chips"><span>Websites</span><span>Web apps</span><span>E-commerce</span><span>Mobile apps</span><span>Branding</span></div>
+  </div>
+  <div class="foot">
+    <div class="counter"><div class="bars"><i class="on"></i><i></i><i></i><i></i></div><span class="mono"><b>01</b> / 04</span></div>
+    <div class="swipe">Swipe <span>→</span></div>
+  </div>
+</section>
+
+<!-- 2 · Services -->
+<section class="sq services" id="s2">
+  <div class="top">
+    <img class="logo" src="../../Image/sngdnn-logo-on-dark.svg" alt="Project SNGDNN">
+    <div class="counter"><div class="bars"><i></i><i class="on"></i><i></i><i></i></div><span class="mono"><b>02</b> / 04</span></div>
+  </div>
+  <div class="hero">
+    <span class="mono k">(What I build)</span>
+    <h2 class="display">Everything your<br>business needs <span class="hot">online.</span></h2>
+  </div>
+  <div class="list">
+    <div class="row"><span class="n">01</span><span class="name">Business websites</span><span class="tag">Fast, SEO-ready</span></div>
+    <div class="row"><span class="n">02</span><span class="name">Custom web applications</span><span class="tag">Portals, dashboards</span></div>
+    <div class="row"><span class="n">03</span><span class="name">E-commerce systems</span><span class="tag">Catalog to checkout</span></div>
+    <div class="row"><span class="n">04</span><span class="name">WordPress &amp; CMS</span><span class="tag">Edit it yourself</span></div>
+    <div class="row"><span class="n">05</span><span class="name">Mobile apps</span><span class="tag">iOS &amp; Android</span></div>
+    <div class="row"><span class="n">06</span><span class="name">UI/UX &amp; brand identity</span><span class="tag">Figma to launch</span></div>
+  </div>
+  <div class="foot">
+    <span class="mono"><b>genesisjr.com</b></span>
+    <div class="swipe">Swipe <span>→</span></div>
+  </div>
+</section>
+
+<!-- 3 · About -->
+<section class="sq about" id="s3">
+  <div class="top">
+    <img class="logo" src="../../Image/sngdnn-logo-on-dark.svg" alt="Project SNGDNN">
+    <div class="counter"><div class="bars"><i></i><i></i><i class="on"></i><i></i></div><span class="mono"><b>03</b> / 04</span></div>
+  </div>
+  <div class="hero">
+    <span class="mono k">(About)</span>
+    <h2 class="display">One builder.<br>No <span class="hot">middlemen.</span></h2>
+    <p class="lede">I'm Genesis, a developer and designer from Cebu. SNGDNN is the studio I build under. You talk to me <strong>from the first message to launch day</strong>, and I stay after go-live.</p>
+  </div>
+  <div class="pillars">
+    <div class="pillar"><span class="n">01</span><h3>Design with purpose</h3><p>Clear interfaces and brands people remember.</p></div>
+    <div class="pillar"><span class="n">02</span><h3>Code that delivers</h3><p>Fast, secure and built to scale with you.</p></div>
+    <div class="pillar"><span class="n">03</span><h3>Idea to launch</h3><p>One point of contact, start to finish.</p></div>
+  </div>
+  <div class="stats">
+    <div class="stat"><b>10<em>+</em></b><span class="mono">Projects shipped</span></div>
+    <div class="stat"><b>7</b><span class="mono">Businesses served</span></div>
+    <div class="stat"><b>1:1</b><span class="mono">Direct with the builder</span></div>
+  </div>
+  <div class="foot">
+    <span class="mono"><b>genesisjr.com</b></span>
+    <div class="swipe">Swipe <span>→</span></div>
+  </div>
+</section>
+
+<!-- 4 · Work: MQ Prints -->
+<section class="sq work" id="s4">
+  <div class="top">
+    <img class="logo" src="../../Image/sngdnn-logo-on-dark.svg" alt="Project SNGDNN">
+    <div class="counter"><div class="bars"><i></i><i></i><i></i><i class="on"></i></div><span class="mono"><b>04</b> / 04</span></div>
+  </div>
+  <div class="hero">
+    <span class="mono k">(Recent work) 01 / Case study · 2026</span>
+    <h2 class="display">Built for MQ.<br><span class="hot">Yours next.</span></h2>
+  </div>
+  <div class="case">
+    <div class="img big"><img src="../../Image/mq-2026.jpg" alt=""></div>
+    <div class="side">
+      <div class="img"><img src="../../Image/mq-portal.jpg" alt=""></div>
+      <div class="img"><img src="../../Image/mq-services.jpg" alt=""></div>
+    </div>
+  </div>
+  <div class="meta">
+    <h3>MQ Prints</h3>
+    <span class="mono">Website · Upload portal · SEO</span>
+  </div>
+  <div class="foot">
+    <span class="mono">Start a project · <b>genesisjr.com</b></span>
+    <div class="cta">Let's talk →</div>
+  </div>
+</section>
+
+<script>
+  var id = (location.hash || "#s1").slice(1);
+  (document.getElementById(id) || document.getElementById("s1")).classList.add("on");
+</script>
+</body>
+</html>
