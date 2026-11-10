@@ -3,6 +3,9 @@
 // Categories: development | design | branding | applications
 // kit: "brand/<slug>.html" links a branding project to its brand kit page instead of a case study
 // media: optional HTML cover used instead of image
+// owner: who the work belongs to; via: the company I built it at. Both feed the ownership note on cards and case studies.
+// owns: what belongs to the owner, when it is not "website and brand"
+// kindLabel: overrides the type label on the card (default: Branding / Web app / Website from categories)
 
 const cols = (items) =>
   `<div class="cs-cols">${items
@@ -12,7 +15,50 @@ const tags = (list) => `<div class="tags">${list.map((t) => `<span class="tag">$
 
 export const projects = [
   {
+    slug: "mqprints",
+    owner: "MQ Printing Services",
+    owns: "website, portal and brand",
+    feature: { order: 1, kind: "Website + order system", role: "Full ownership", stack: ["WordPress", "PHP", "Custom plugin", "MySQL"] },
+    title: "MQ Printing Services",
+    blurb: "WordPress · Custom portal, ordering & quotes",
+    tagline: "WordPress site + custom ordering plugin",
+    image: "Image/mq-2026.jpg",
+    alt: "MQ Printing Services website",
+    categories: ["development", "design", "applications"],
+    kindLabel: "Website + portal",
+    featured: true,
+    caseStudy: {
+      subtitle: "Website, customer portal and online ordering that made a Cebu print shop easier to find and order from.",
+      live: "https://mqprintsph.com/",
+      stats: [["153%", "More clicks from Google, 28 days vs. the previous 28 (Nov 2026)"], ["93%", "More Google impressions over the same period"]],
+      story: {
+        headline: "Making printing in Cebu easier to find and order",
+        services: "Website Design &amp; Development • Customer Portal • Online Ordering &amp; Quotes",
+        sections: [
+          ["Project Overview", `<p>MQ Printing Services is a 24-hour print shop in Cebu City. I designed and built their website and the online system behind it, so customers can send in print jobs at any hour and the team can run those jobs from one place.</p>`],
+          ["The Challenge", `<p>MQ's goal was simple: make printing easy. Customers should be able to skip the queue, upload their documents and get their prints delivered. But inquiries still depended on social media. There was no website built to show up in local search, no clear breakdown of services and no structured way to capture a lead.</p>`],
+          ["My Role", `<p>I owned the project from start to finish:</p>
+                        <ul><li>Planning the website and system with the owner</li><li>Designing the layouts and user experience</li><li>Building the front end and back end</li><li>Setting up the domain, hosting and launch</li><li>Handling updates, backups and uptime monitoring</li></ul>`],
+          ["The Process", `<ul><li><strong>Understand the vision.</strong> I started with what Michael, the owner, wanted printing with MQ to feel like.</li><li><strong>Make it visible early.</strong> I shared clear layouts so Michael could react to something real.</li><li><strong>Build in phases.</strong> Each phase came with an update, so there were no surprises.</li><li><strong>Improve along the way.</strong> I suggested changes wherever the plan needed help.</li></ul>`],
+          ["The Solution", `<p>One system for both sides of the business:</p>
+                        <ul><li><strong>For customers:</strong> a website built for local search, clear service pages, file upload, online ordering and quote requests, plus an account for tracking orders and reordering.</li><li><strong>For the team:</strong> the MQ Portal, which brings job orders, sales, production and the time clock into one place, with staff pricing, approving and updating orders from one dashboard.</li></ul>`],
+          ["Results &amp; Learnings", `<p>The results are showing up on Google. In the latest 28 days, the site earned 114 clicks and 10.7K impressions, and people are finding MQ through searches like “printing services near me” and “printing services cebu”.</p>
+                        <figure class="cs-proof"><button type="button" data-zoom="{{ROOT}}Image/mq-search-console.png" aria-label="Enlarge: Google Search Console performance for mqprintsph.com"><img src="{{ROOT}}Image/mq-search-console.png" alt="Google Search Console graph for mqprintsph.com: clicks and impressions climbing from February to November 2026, with 436 total clicks and 34.1K impressions" width="1531" height="513" loading="lazy"></button><figcaption>Google Search Console, February to November 2026</figcaption></figure>
+                        <p>It's reaching real customers too. One had messaged more than 15 print shops in a single night, and MQ was the only one that replied. After trying the website and online ordering and showing them to their own boss, they sent MQ this:</p>
+                        <blockquote class="cs-pull">“Tell your boss. He/She is way ahead of his/her competitors.”<cite>An MQ Prints customer</cite></blockquote>
+                        <p><strong>What I learned:</strong> showing clear layouts early made it much easier for a client to say what they really wanted. And for customers, being easy to reach and easy to order from is what stands out.</p>`],
+        ],
+      },
+      gallery: [
+        ["Image/mq-services.jpg", "Services page, including online ordering"],
+        ["Image/mq-portal.jpg", "MQ Portal sign-in, where the team manages job orders, sales and production"],
+      ],
+    },
+  },
+  {
     slug: "atms",
+    owner: "Agila Tax Management Services",
+    owns: "platform and brand",
     feature: { order: 5, kind: "Operations platform", role: "Lead developer", stack: ["Next.js", "React", "TypeScript", "Prisma", "PostgreSQL"] },
     title: "ATMS — Agila Tax Management System",
     short: "ATMS — Agila",
@@ -72,45 +118,18 @@ export const projects = [
     },
   },
   {
-    slug: "mqprints",
-    feature: { order: 1, kind: "Website + order system", role: "Full ownership", stack: ["WordPress", "PHP", "Custom plugin", "MySQL"] },
-    title: "MQ Printing Services",
-    blurb: "WordPress · Custom portal, ordering & quotes",
-    tagline: "WordPress site + custom ordering plugin",
-    image: "Image/mq-2026.jpg",
-    alt: "MQ Printing Services website",
-    categories: ["development", "design"],
-    featured: true,
-    caseStudy: {
-      subtitle: "Website, customer portal and online ordering that made a Cebu print shop easier to find and order from.",
-      live: "https://mqprintsph.com/",
-      stats: [["153%", "More clicks from Google, 28 days vs. the previous 28 (Nov 2026)"], ["93%", "More Google impressions over the same period"]],
-      story: {
-        headline: "Making printing in Cebu easier to find and order",
-        services: "Website Design &amp; Development • Customer Portal • Online Ordering &amp; Quotes",
-        sections: [
-          ["Project Overview", `<p>MQ Printing Services is a 24-hour print shop in Cebu City. I designed and built their website and the online system behind it, so customers can send in print jobs at any hour and the team can run those jobs from one place.</p>`],
-          ["The Challenge", `<p>MQ's goal was simple: make printing easy. Customers should be able to skip the queue, upload their documents and get their prints delivered. But inquiries still depended on social media. There was no website built to show up in local search, no clear breakdown of services and no structured way to capture a lead.</p>`],
-          ["My Role", `<p>I owned the project from start to finish:</p>
-                        <ul><li>Planning the website and system with the owner</li><li>Designing the layouts and user experience</li><li>Building the front end and back end</li><li>Setting up the domain, hosting and launch</li><li>Handling updates, backups and uptime monitoring</li></ul>`],
-          ["The Process", `<ul><li><strong>Understand the vision.</strong> I started with what Michael, the owner, wanted printing with MQ to feel like.</li><li><strong>Make it visible early.</strong> I shared clear layouts so Michael could react to something real.</li><li><strong>Build in phases.</strong> Each phase came with an update, so there were no surprises.</li><li><strong>Improve along the way.</strong> I suggested changes wherever the plan needed help.</li></ul>`],
-          ["The Solution", `<p>One system for both sides of the business:</p>
-                        <ul><li><strong>For customers:</strong> a website built for local search, clear service pages, file upload, online ordering and quote requests, plus an account for tracking orders and reordering.</li><li><strong>For the team:</strong> the MQ Portal, which brings job orders, sales, production and the time clock into one place, with staff pricing, approving and updating orders from one dashboard.</li></ul>`],
-          ["Results &amp; Learnings", `<p>The results are showing up on Google. In the latest 28 days, the site earned 114 clicks and 10.7K impressions, and people are finding MQ through searches like “printing services near me” and “printing services cebu”.</p>
-                        <figure class="cs-proof"><button type="button" data-zoom="{{ROOT}}Image/mq-search-console.png" aria-label="Enlarge: Google Search Console performance for mqprintsph.com"><img src="{{ROOT}}Image/mq-search-console.png" alt="Google Search Console graph for mqprintsph.com: clicks and impressions climbing from February to November 2026, with 436 total clicks and 34.1K impressions" width="1531" height="513" loading="lazy"></button><figcaption>Google Search Console, February to November 2026</figcaption></figure>
-                        <p>It's reaching real customers too. One had messaged more than 15 print shops in a single night, and MQ was the only one that replied. After trying the website and online ordering and showing them to their own boss, they sent MQ this:</p>
-                        <blockquote class="cs-pull">“Tell your boss. He/She is way ahead of his/her competitors.”<cite>An MQ Prints customer</cite></blockquote>
-                        <p><strong>What I learned:</strong> showing clear layouts early made it much easier for a client to say what they really wanted. And for customers, being easy to reach and easy to order from is what stands out.</p>`],
-        ],
-      },
-      gallery: [
-        ["Image/mq-services.jpg", "Services page, including online ordering"],
-        ["Image/mq-portal.jpg", "MQ Portal sign-in, where the team manages job orders, sales and production"],
-      ],
-    },
+    slug: "agila-brand",
+    owner: "Agila Tax Management Services",
+    title: "Agila — Brand Guidelines",
+    blurb: "Official brand guidelines · Tax & accounting firm",
+    image: "Image/design/agila-cover.webp",
+    alt: "Agila brand guideline cover in white type on a royal blue panel",
+    categories: ["design", "branding"],
+    kit: "brand/agila.html",
   },
   {
     slug: "wl-construction",
+    owner: "WL Construction",
     feature: { order: 2, kind: "Brand identity + company profile", role: "Design consultant", stack: [] },
     title: "WL Construction",
     blurb: "Brand identity · Construction",
@@ -153,15 +172,6 @@ export const projects = [
     },
   },
   {
-    slug: "agila-brand",
-    title: "Agila — Brand Guidelines",
-    blurb: "Official brand guidelines · Tax & accounting firm",
-    image: "Image/design/agila-cover.webp",
-    alt: "Agila brand guideline cover in white type on a royal blue panel",
-    categories: ["design", "branding"],
-    kit: "brand/agila.html",
-  },
-  {
     slug: "sngdnn-brand",
     title: "Project SNGDNN — Brand Kit",
     blurb: "My studio's own identity and design system",
@@ -173,6 +183,8 @@ export const projects = [
   },
   {
     slug: "bodega",
+    owner: "Bodega Coworking Café",
+    via: "Boombox Marketing",
     feature: { order: 3, kind: "Brand website + booking platform", role: "Concept, design, full-stack build, deployment", stack: ["HTML", "CSS", "JavaScript", "PHP", "MySQL", "Figma"] },
     title: "Bodega Coworking Café",
     blurb: "Design + development · Booking & payments",
@@ -212,6 +224,8 @@ export const projects = [
   },
   {
     slug: "spine",
+    owner: "Spine & Orthopaedics Cebu",
+    via: "Boombox Marketing",
     title: "Spine & Orthopaedics Cebu",
     short: "Spine & Ortho Cebu",
     blurb: "Web development · Healthcare",
@@ -249,6 +263,8 @@ export const projects = [
   },
   {
     slug: "acesphils",
+    owner: "Acesphils Hardware",
+    via: "Boombox Marketing",
     feature: { order: 4, kind: "Retail website", role: "Design, development, deployment, maintenance", stack: [] },
     title: "Acesphils Hardware",
     blurb: "Web design · Retail",
@@ -287,6 +303,8 @@ export const projects = [
   },
   {
     slug: "kitaspaces",
+    owner: "Kita Spaces",
+    via: "Boombox Marketing",
     title: "Kita Spaces",
     blurb: "Web development · Coworking café & space",
     image: "Image/screenshot-2025-12-01-100126-692cf705826c2.webp",
@@ -298,6 +316,7 @@ export const projects = [
   },
   {
     slug: "bay-watch",
+    kindLabel: "IoT + mobile app",
     title: "Bay Watch — IoT Weather Station",
     blurb: "Thesis · LoRa IoT + machine learning + Flutter app",
     tagline: "IoT weather monitoring for fishermen",

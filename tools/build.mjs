@@ -58,6 +58,15 @@ const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;").repl
 /* ----------------------------------------------------------- components */
 
 const caseStudies = projects.filter((p) => p.caseStudy);
+
+// Ownership note, so client and employer work is credited and never looks claimed as mine
+// p.owns names what belongs to the owner when it isn't a plain website (e.g. "platform and brand")
+const ownerNote = (p) => {
+  if (!p.owner) return "";
+  const isBrand = p.categories.includes("branding");
+  const what = isBrand ? "The brand belongs to its owner" : `The ${p.owns || "website and brand"} belong to their owners`;
+  return `${p.via ? `Built while at ${p.via} for ${p.owner}.` : `${isBrand ? "Made" : "Built"} for ${p.owner}.`} ${what}; shown here only as a sample of my work.`;
+};
 const caseHref = (p) => `{{ROOT}}work/${p.slug}.html`;
 
 function projectCard(p, { featured = false, delay = 0 } = {}) {
@@ -69,16 +78,20 @@ function projectCard(p, { featured = false, delay = 0 } = {}) {
   const badge = p.caseStudy ? "Case study" : p.kit ? "Brand kit" : p.badge;
   // p.media: HTML cover for projects without a screenshot
   const media = p.media || `<img src="{{ROOT}}${p.image}" alt="${esc(p.alt)}" loading="lazy" width="${featured ? 2160 : 800}" height="${featured ? 1350 : 500}">`;
-  const cls = ["project", "reveal", featured && "featured", delay && `reveal-d${delay}`].filter(Boolean).join(" ");
+  // Type label on every card, so websites and branding read apart on the "All" view
+  const isBrand = p.categories.includes("branding");
+  const kind = p.kindLabel || (isBrand ? "Branding" : p.categories.includes("applications") ? "Web app" : "Website");
+  const cls = ["project", "reveal", featured && "featured", delay && `reveal-d${delay}`, isBrand ? "project--brand" : "project--web"].filter(Boolean).join(" ");
   return `<a class="${cls}" href="${href}"${ext} data-category="${p.categories.join(" ")}">
                         <div class="project-media">
                             ${media}
+                            <span class="project-kind">${kind}</span>
                             <span class="view">${view}</span>
                         </div>
                         <div class="project-info">
                             <div>
                                 <h3>${p.title}</h3>
-                                <p>${p.blurb}</p>
+                                <p>${p.blurb}</p>${p.via ? `\n                                <p class="project-credit">Built at ${p.via}</p>` : ""}
                             </div>
                             <span class="project-year">${badge}</span>
                         </div>
@@ -196,6 +209,7 @@ function caseStudyBody(p) {
                     <span class="eyebrow">${story ? `Client: ${story.client || p.title}` : "Case study"}</span>
                     <h1>${story ? story.headline : p.title}</h1>
                     <p class="cs-sub">${story ? story.services : cs.subtitle}</p>
+                    ${ownerNote(p) ? `<p class="cs-credit">${esc(ownerNote(p))}</p>` : ""}
                 </header>
                 <div class="case-hero reveal"><img src="{{ROOT}}${p.heroImage || p.image}" alt="${esc(p.alt)}" width="2160" height="1350"></div>
                 <div class="cs-body">
@@ -299,18 +313,13 @@ function servicesMenu(cur, activeService) {
                             </a>`
     )
     .join("\n                            ");
-  // Rates page sits in the dropdown after the service pages
-  const ratesCur = activeService === "rates";
-  const rates = `<a href="{{ROOT}}rates.html" class="submenu-item${ratesCur ? " active" : ""}"${ratesCur ? ' aria-current="page"' : ""}>
-                                <span class="submenu-icon"><ion-icon name="pricetag-outline"></ion-icon></span>
-                                <span><strong>Rates &amp; plans</strong><small>Project prices and maintenance plans</small></span>
-                            </a>`;
+  // Rates & plans is deliberately left out of the header: visitors see the work first.
+  // It's reached from the footer, the Services page and the Contact page.
   return `<li class="has-menu">
                         <a href="{{ROOT}}services.html"${cur ? ' class="active"' : ""}${cur && !activeService ? ' aria-current="page"' : ""}>Services</a>
                         <button type="button" class="submenu-toggle" aria-expanded="false" aria-controls="menu-services" aria-label="Show services"><ion-icon name="chevron-down-outline"></ion-icon></button>
                         <div class="submenu" id="menu-services">
                             ${items}
-                            ${rates}
                             <a href="{{ROOT}}services.html" class="submenu-all">All services &amp; how I work <span aria-hidden="true">→</span></a>
                         </div>
                     </li>`;
