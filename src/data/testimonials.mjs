@@ -1,7 +1,8 @@
 // Client testimonials (Cebuano with a bit of English).
 // DRAFT wording — confirm with each client before deploying, and edit to match what they actually said.
 // `project` links the quote to a case study slug in projects.mjs (optional).
-// `logo` replaces the initials on the card (optional). The card shows the left, square part of the image.
+// `logo` replaces the initials on the card (optional). The card shows the left, square part of the image;
+// set `logoFit: "contain"` to show the whole logo instead (for logos that are already roughly square).
 // `confirmed: true` once the client has approved the wording — unconfirmed quotes are left out of the build.
 
 export const testimonials = [
@@ -16,9 +17,12 @@ export const testimonials = [
   },
   {
     name: "Wilmar Luyao",
-    role: "CEO & Founder, WL Construction",
-    confirmed: false,
+    role: "CEO &amp; Founder, WL Construction",
+    project: "wl-construction",
+    logo: "Image/clients/wl-construction.png",
+    logoFit: "contain",
+    confirmed: true,
     quote:
-      "Professional kaayo ang pagkahimo sa among brand — gikan sa logo hangtod sa company profile ug social media. Gi-explain jud ang meaning sa matag detalye, mao nga proud na mi i-present among company sa clients. Salamat kaayo, Genesis!",
+      "I am extremely satisfied with SNGDNN's service, it far exceeded my expectations! They brought my vision for my company branding to life, from the logo, color palette, and typography to the layout. The multiple options they provided were a huge help, along with their expert insights and opinions on our choices. The best part is they even included a roadmap as a bonus. Highly recommended if you want top-quality branding!",
   },
 ];

@@ -174,7 +174,7 @@ function quoteCard(t, delay = 0, linkCase = true) {
                         <span class="quote-mark" aria-hidden="true">“</span>
                         <blockquote>${t.quote}</blockquote>
                         <figcaption>
-                            ${t.logo ? `<span class="quote-avatar quote-avatar--logo" aria-hidden="true"><img src="{{ROOT}}${t.logo}" alt="" width="46" height="46" loading="lazy"></span>` : `<span class="quote-avatar" aria-hidden="true">${initials}</span>`}
+                            ${t.logo ? `<span class="quote-avatar quote-avatar--logo${t.logoFit === "contain" ? " quote-avatar--contain" : ""}" aria-hidden="true"><img src="{{ROOT}}${t.logo}" alt="" width="46" height="46" loading="lazy"></span>` : `<span class="quote-avatar" aria-hidden="true">${initials}</span>`}
                             <span class="quote-who"><strong>${t.name}</strong><small>${t.role}</small></span>
                             ${p ? `<a class="more-link" href="${caseHref(p)}">Case study →</a>` : ""}
                         </figcaption>
