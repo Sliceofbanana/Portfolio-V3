@@ -23,6 +23,6 @@ export const testimonials = [
     logoFit: "contain",
     confirmed: true,
     quote:
-      "I am extremely satisfied with SNGDNN's service, it far exceeded my expectations! They brought my vision for my company branding to life, from the logo, color palette, and typography to the layout. The multiple options they provided were a huge help, along with their expert insights and opinions on our choices. The best part is they even included a roadmap as a bonus. Highly recommended if you want top-quality branding!",
+      "I am extremely satisfied with Genesis Jr's service, it far exceeded my expectations! He brought my vision for my company branding to life, from the logo, color palette, and typography to the layout. The multiple options he provided were a huge help, along with his expert insights and opinions on our choices. The best part is he even included a roadmap as a bonus. Highly recommended if you want top-quality branding!",
   },
 ];
